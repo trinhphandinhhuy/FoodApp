@@ -26,8 +26,6 @@ namespace FoodApp
             myConnection.Open();
         }
 
-
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -46,8 +44,6 @@ namespace FoodApp
                 cmd.ExecuteNonQuery();  //executing query
                 myConnection.Close(); //closing connection
                 lblMsg.Text = "Registered Successfully..";
-
-
             }
             catch (Exception ex)
             {
