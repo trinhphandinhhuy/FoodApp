@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FoodApp {
+namespace FoodNStuff.img {
     
     
-    public partial class SuccessLogIn {
+    public partial class testLogin {
     }
 }

@@ -1,8 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="FoodApp.Login" EnableSessionState="True" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" MasterPageFile="~/MasterPage/loginPage1.Master" Inherits="FoodApp.Login" EnableSessionState="True" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Login</title>
     <style type="text/css">
         .style4
@@ -27,44 +25,48 @@
             width: 259px;
             height: 31px;
         }
+
+        td
+        {
+            text-align: center;
+        }
+       
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        <table style="border: 1pt solid #6666FF; width: 60%; height: 424px; font-family: Verdana; border-collapse: collapse; background-color: #ffffff;" align="center">
+</asp:Content>
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+    <table style="border: 1pt solid #6666FF; width: 60%; height: 424px; font-family: Verdana; border-collapse: collapse; background-color: #ffffff;" >
             <tr>
-                <td align="center" colspan="3" class="style9">Login Form</td>
+                <td colspan="3" class="style9">Login Form</td>
             </tr>
             <tr>
-                <td class="style7" align="right">Username:</td>
-                <td class="style7" align="center">
+                <td class="style7" >Username:</td>
+                <td class="style7" >
                     <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
                 </td>
-                <td class="style7" align="left">
+                <td class="style7" >
                     <asp:RequiredFieldValidator ID="RequiredUser" runat="server" ErrorMessage="Username is required" ControlToValidate="txtUsername" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="style7" align="right">Password:</td>
-                <td class="style7" align="center">
+                <td class="style7" >Password:</td>
+                <td class="style7" >
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
-                <td class="style7" align="left">
+                <td class="style7" >
                     <asp:RequiredFieldValidator ID="RequiredPassword" runat="server" ErrorMessage="Password is required" ControlToValidate="txtPassword" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td align="center" class="style7">&nbsp;</td>
-                <td class="style7" align="center">
+                <td  class="style7">&nbsp;</td>
+                <td class="style7">
                     <asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" />
                 </td>
-                <td align="center" class="style7">
+                <td  class="style7">
                     <asp:CustomValidator ID="userAuthentication" runat="server" ErrorMessage="Username or Password is Invalid" ForeColor="Red" OnServerValidate="userAuthentication_ServerValidate"></asp:CustomValidator>
                 </td>
             </tr>
         </table>
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+
