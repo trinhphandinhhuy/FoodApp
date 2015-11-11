@@ -25,6 +25,10 @@
         max-width: 8vh !important;
         
     }
+    .secondNav {
+         height:10vh !important; 
+         padding:5px!important;          
+    }
    
     
 
