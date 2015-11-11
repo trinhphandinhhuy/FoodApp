@@ -33,7 +33,7 @@
                     
                 </div>
                 <div class="col-lg-3 col-xs-3 col-md-3 pull-right">
-                    <asp:ContentPlaceHolder ID="accountInfo" runat="server">Logout</asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="accountInfo" runat="server">Logout Huy</asp:ContentPlaceHolder>
                 </div>
             </div>
 
