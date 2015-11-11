@@ -97,7 +97,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="SuccessLogIn.aspx" />
+    <Content Include="Dashboard.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,12 +120,12 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SuccessLogIn.aspx.cs">
-      <DependentUpon>SuccessLogIn.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SuccessLogIn.aspx.designer.cs">
-      <DependentUpon>SuccessLogIn.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

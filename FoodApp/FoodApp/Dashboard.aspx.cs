@@ -11,7 +11,16 @@ namespace FoodApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if ((Convert.ToString(Session["userlevel"])) ==  "1")
+            {
+                Label1.Text = "Admin";
+
+
+            }
+            else
+            {
+                Label1.Text = Convert.ToString(Session["username"]);
+            }
         }
     }
 }

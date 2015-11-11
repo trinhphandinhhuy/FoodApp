@@ -80,7 +80,7 @@ namespace FoodApp
                 myConnection.Close();
                 Session["username"] = user_name;
                 Session["userlevel"] = user_role;
-                Response.Redirect("SuccessLogin.aspx");
+                Response.Redirect("Dashboard.aspx");
             }
         }
     }
