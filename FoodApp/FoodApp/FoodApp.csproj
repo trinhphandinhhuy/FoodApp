@@ -82,6 +82,7 @@
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="Registration.aspx" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="MasterPage\frontPage1.Master" />
     <Content Include="MasterPage\loginPage1.Master" />

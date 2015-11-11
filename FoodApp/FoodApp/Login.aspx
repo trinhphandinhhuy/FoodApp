@@ -2,36 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Login Page</title>
-    <style type="text/css">
-        .style4
-        {
-            width: 212px;
-        }
-        .style7
-        {
-            width: 212px;
-            height: 31px;
-        }
-        .style9
-        {
-            height: 26px;
-        }
-        .style11
-        {
-            width: 259px;
-        }
-        .style12
-        {
-            width: 259px;
-            height: 31px;
-        }
-
-        td
-        {
-            text-align: center;
-        }
-       
-    </style>
+    
 </asp:Content>
 
 
