@@ -1,9 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="FoodApp.Registration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="FoodApp.Registration" MasterPageFile="~/MasterPage/loginPage1.Master"%>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title></title>
     <style type="text/css">
         .style4
@@ -72,9 +70,11 @@
             height: 63px;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+    </asp:Content>
+
+
+    <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+
     <div class="auto-style1">
         <table style="border: 1pt solid #6666FF; width: 60%; height: 424px; font-family: Verdana;
             border-collapse: collapse; background-color: #ffffff;" align="center">
@@ -155,7 +155,7 @@
             </tr>
         </table>
     </div>
-    </form>
-</body>
-</html>
+
+        </asp:Content>
+
 
