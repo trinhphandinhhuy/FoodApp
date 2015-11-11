@@ -17,10 +17,10 @@
 
 @media(min-width: 768px) {
     .firstNav {
-        width:15%;    
+            
     }
     .secondNav {
-        width:15%;    
+           
     }
     
 
@@ -29,7 +29,7 @@
 .firstNav  {
     height: 85vh;
     background-color: #6B949E;
-    margin: 0 auto;
+    //margin: 0 auto;
     padding: 10px;
 }
 
@@ -37,7 +37,7 @@
 .secondNav {
     height: 85vh;
     background-color: #D1E1E5;
-    margin: 0 auto;
+    //margin: 0 auto;
     padding: 0;
 }
 
