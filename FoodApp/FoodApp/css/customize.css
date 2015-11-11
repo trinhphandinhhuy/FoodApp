@@ -1,0 +1,51 @@
+﻿body {
+}
+.header{
+    height:15%;
+    background-color:#467A86;
+}
+
+.accountInfo {
+    float: right;
+}
+
+.mainContent {
+    height:85vh;
+    vertical-align: middle;
+    align-self: center;
+}
+
+@media(min-width: 768px) {
+    .firstNav {
+        width:15%;    
+    }
+    .secondNav {
+        width:15%;    
+    }
+    
+
+}
+
+.firstNav  {
+    height: 85vh;
+    background-color: #6B949E;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+.secondNav {
+    height: 85vh;
+    background-color: #D1E1E5;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.navIcon{
+
+        width:100%;      
+        margin: 0 auto;
+        max-height: 80px;
+        max-width: 80px;
+    }
+
