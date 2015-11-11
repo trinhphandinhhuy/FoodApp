@@ -78,6 +78,7 @@
     <Content Include="img\personal.png" />
     <Content Include="img\recipe.png" />
     <Content Include="img\testLogin.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="Registration.aspx" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="img\testLogin.aspx.designer.cs">
       <DependentUpon>testLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
