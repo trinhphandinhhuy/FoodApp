@@ -1,10 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="FoodApp.Registration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" MasterPageFile="~/MasterPage/loginPage1.Master" Inherits="FoodApp.Registration" %>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+    <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title> Registration </title>
     <style type="text/css">
         .style4
         {
@@ -28,39 +26,44 @@
             width: 259px;
             height: 31px;
         }
+
+        td
+        {
+            text-align: center;
+        }
+
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+    </asp:Content>
+
+    <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
         <table style="border: 1pt solid #6666FF; width: 60%; height: 424px; font-family: Verdana;
-            border-collapse: collapse; background-color: #ffffff;" align="center">
+            border-collapse: collapse; background-color: #ffffff;" >
             <tr>
-                <td align="center" colspan="3" class="style9">
+                <td colspan="3" class="style9">
                     <asp:Label ID="lblHeader" runat="server" Text="Registration Form" Font-Bold="True"></asp:Label>
                 </td>
             </tr>
 
             <tr>
-                <td class="style11" align="right">
+                <td class="style11" >
                     <asp:Label ID="lblUserName" runat="server" Text="Username :"></asp:Label>
                 </td>
-                <td class="style11" align="left">
+                <td class="style11" >
                     <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
                 </td>
-                <td class="style4" align="left">
+                <td class="style4" >
                     <asp:RequiredFieldValidator ID="RfvUserName" runat="server" ErrorMessage="* Required"
                         ForeColor="#FF3300" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="style11" align="right">
+                <td class="style11">
                     <asp:Label ID="lblEmail" runat="server" Text="E-Mail :"></asp:Label>
                 </td>
-                <td class="style11" align="left">
+                <td class="style11" >
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 </td>
-                <td class="style4" align="left">
+                <td class="style4">
                     <asp:RequiredFieldValidator ID="RfvEmail" runat="server" ErrorMessage="* Required"
                         ForeColor="#FF3300" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
                     <br />
@@ -68,26 +71,28 @@
                         ErrorMessage="Invalid E-mail" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
+
             <tr>
-                <td class="style11" align="right">
+                <td class="style11" >
                     <asp:Label ID="lblPassword" runat="server" Text="Password :"></asp:Label>
                 </td>
-                <td class="style11" align="left">
+                <td class="style11" >
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
-                <td class="style4" align="left">
+                <td class="style4" >
                     <asp:RequiredFieldValidator ID="RfvPwd" runat="server" ErrorMessage="* Required"
                         ForeColor="#FF3300" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+
             <tr>
-                <td class="style11" align="right">
+                <td class="style11">
                     <asp:Label ID="lblConfirmPwd" runat="server" Text="Confirm Pasword :"></asp:Label>
                 </td>
-                <td class="style11" align="left">
+                <td class="style11" >
                     <asp:TextBox ID="txtConfirmPwd" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
-                <td class="style4" align="left">
+                <td class="style4" >
                     &nbsp;
                     <asp:RequiredFieldValidator ID="RfvCnfrmPwd" runat="server" ErrorMessage="* Required"
                         ForeColor="#FF3300" ControlToValidate="txtConfirmPwd"></asp:RequiredFieldValidator>
@@ -97,8 +102,8 @@
                 </td>
             </tr>
            
-        
-            <td align="center" class="style12">
+            <tr>
+            <td class="style12">
                 &nbsp;
                 <asp:Label ID="lblMsg" runat="server" ForeColor="#CC3300"></asp:Label>
             </td>
@@ -107,12 +112,10 @@
                 <asp:Button ID="btnClear" runat="server" CausesValidation="False" OnClick="btnClear_Click"
                     Text="Clear" />
             </td>
-            <td align="center" class="style7">
+            <td class="style7">
             </td>
             </tr>
         </table>
-    </div>
-    </form>
-</body>
-</html>
+
+    </asp:Content>
 
