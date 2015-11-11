@@ -44,6 +44,7 @@ namespace FoodApp
                 cmd.ExecuteNonQuery();  //executing query
                 myConnection.Close(); //closing connection
                 lblMsg.Text = "Registered Successfully..";
+                Response.Redirect("Login.aspx");
             }
             catch (Exception ex)
             {
