@@ -15,29 +15,30 @@
     align-self: center;
 }
 
-@media(min-width: 768px) {
+@media(max-width: 768px) {
     .firstNav {
-            
+         height:10vh !important;  
+         margin:0 auto;         
     }
-    .secondNav {
-           
+    .navIcon{
+        max-height: 50px !important;
+        max-width: 50px !important;
     }
+   
     
 
 }
 
 .firstNav  {
     height: 85vh;
-    background-color: #6B949E;
-    //margin: 0 auto;
+    background-color: #6B949E;  
     padding: 10px;
 }
 
 
 .secondNav {
     height: 85vh;
-    background-color: #D1E1E5;
-    //margin: 0 auto;
+    background-color: #D1E1E5; 
     padding: 0;
 }
 
