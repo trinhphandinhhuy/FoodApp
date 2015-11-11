@@ -8,8 +8,10 @@
 //------------------------------------------------------------------------------
 
 
+namespace FoodApp.MasterPage
+{
 
-public partial class  {
+    public partial class FoodApp {
     
     /// <summary>
     /// head control.
@@ -73,4 +75,5 @@ public partial class  {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
+}
 }
