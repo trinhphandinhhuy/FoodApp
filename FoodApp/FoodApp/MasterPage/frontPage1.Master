@@ -35,17 +35,17 @@
             </div>
 
             <div class="row mainContent">
-                <div class="col-xs-1 col-md-2 firstNav">
+                <div class="col-xs-3 col-md-2 col-lg-3 firstNav">
                             <asp:ImageButton ID="Recipes" runat="server" ImageUrl="~/img/recipe.png" CssClass="navIcon" /> 
                             <asp:ImageButton ID="MyList" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" />                 
                 </div>
 
-                <div class="col-xs-2 col-md-4 secondNav">
+                <div class="col-xs-3 col-md-4 col-lg-3 secondNav">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
 
-                <div class="col-xs-9 col-md-6 mainContent">
+                <div class="col-xs-6 col-md-6 col-lg-6 mainContent">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
                 </div>
             </div>
