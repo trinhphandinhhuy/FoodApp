@@ -43,19 +43,19 @@
                             <asp:ImageButton ID="MyList" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" />                 
                 </div>
                 <div class="col-xs-12 col-sm-2 col-lg-2 secondNav">
-                <div class="col-xs-2 col-sm-2 col-lg-2 secondNav">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
+                    <div class="col-xs-2 col-sm-2 col-lg-2 secondNav">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-lg-9 thirdNav">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-9 col-lg-9 thirdNav">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                <div class="row footer">
+                    <span class="copyRight">WinnerTeam&copy;2015 . All Rights Reserved.</span>
                 </div>
-            </div>
-            <div class="row footer">
-                <span class="copyRight">WinnerTeam&copy;2015 . All Rights Reserved.</span>
             </div>
         </div>
-
     </form>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
