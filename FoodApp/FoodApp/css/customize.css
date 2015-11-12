@@ -1,7 +1,7 @@
 ﻿body {
 }
 .header{
-    height:15%;
+    height:15vh;
     background-color:#467A86;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .mainContent {
-    height:85vh;
+    height:80vh;
     vertical-align: middle;
     align-self: center;
 }
@@ -35,14 +35,14 @@
 }
 
 .firstNav  {
-    height: 85vh;
+    height: 80vh;
     background-color: #6B949E;  
     padding: 10px;
 }
 
 
 .secondNav {
-    height: 85vh;
+    height: 80vh;
     background-color: #D1E1E5; 
     padding: 0;
 }
@@ -54,6 +54,15 @@
         max-height: 80px;
         max-width: 80px;
     }
+
+.footer{
+    background-color:#467A86;
+    height: 5vh;
+    padding:5px;
+}
+.copyRight{
+    color:white;
+}
 
 
 .panel-login {
