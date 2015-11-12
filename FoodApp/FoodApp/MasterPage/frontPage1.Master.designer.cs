@@ -11,7 +11,7 @@ namespace FoodApp.MasterPage
 {
 
 
-    public partial class FoodApp
+    public partial class frontPage1
     {
 
         /// <summary>
