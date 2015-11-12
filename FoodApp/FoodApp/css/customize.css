@@ -17,13 +17,12 @@
 
 @media(max-width: 768px) {
     .firstNav {
-         height:10vh !important; 
-         padding:5px!important;          
+         height:10vh !important;  
+         margin:0 auto;         
     }
     .navIcon{
-        max-height: 8vh !important;
-        max-width: 8vh !important;
-        
+        max-height: 50px !important;
+        max-width: 50px !important;
     }
     .secondNav {
          height:10vh !important; 
