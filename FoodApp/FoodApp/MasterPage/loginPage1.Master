@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frontPage1.Master.cs" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frontPage1.Master.cs" %>
 
 <!DOCTYPE html>
 
@@ -24,50 +24,42 @@
 </head>
 <body>
     <form id="form1" runat="server">
-<<<<<<< HEAD
         <div class="container-fluid">
-=======
-        <div class="container">
->>>>>>> parent of 3118a5c... Pull All Files
-            <div class="row header">
-                <div class="col-lg-3 col-xs-3 col-md-3">
-                    <a href="http://foodnstuff.azurewebsites.net/" ><img src="../img/logo.png" alt="food&Stuff" /></a>
-                    
+            <div class="container">
+                <div class="row header">
+                    <div class="col-lg-3 col-xs-3 col-md-3">
+                        <a href="http://foodnstuff.azurewebsites.net/" ><img src="../img/logo.png" alt="food&Stuff" /></a>
+                    </div>
+                    <div class="col-lg-9 col-xs-3 col-md-9">
+                        <asp:ContentPlaceHolder ID="accountInfo" runat="server"></asp:ContentPlaceHolder>
+                    </div>
                 </div>
-                <div class="col-lg-9 col-xs-3 col-md-9">
-                    <asp:ContentPlaceHolder ID="accountInfo" runat="server"></asp:ContentPlaceHolder>
-                </div>
-            </div>
-
-            <div class="row mainContent">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-login">
-                        <div class="panel-heading">
-						    <div class="row">
-							    <div class="col-xs-12">
-								    <strong>Login/Register</strong>
-							    </div>
-						    </div>
-						    <hr>
-					    </div>
-                        <div class="panel-body">
-                            <div class="row">
-							    <div class="col-lg-12">
-                                    <asp:ContentPlaceHolder ID="main" runat="server"> </asp:ContentPlaceHolder>
+                <div class="row mainContent">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-login">
+                            <div class="panel-heading">
+						        <div class="row">
+							        <div class="col-xs-12">
+								        <strong>Login/Register</strong>
+                                    </div>
+						       </div>
+						    <hr />
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+							        <div class="col-lg-12">
+                                        <asp:ContentPlaceHolder ID="main" runat="server"> </asp:ContentPlaceHolder>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row footer">
+                    <span class="copyRight">WinnerTeam&copy;2015 . All Rights Reserved.</span>
+                </div>
             </div>
-<<<<<<< HEAD
-            <div class="row footer">
-                <span class="copyRight">WinnerTeam&copy;2015 . All Rights Reserved.</span>
-            </div>
-=======
->>>>>>> parent of 3118a5c... Pull All Files
         </div>
-
     </form>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
