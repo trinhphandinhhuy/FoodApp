@@ -1,7 +1,11 @@
 ﻿body {
 }
 .header{
+<<<<<<< HEAD
     height:15vh;
+=======
+    height:15%;
+>>>>>>> parent of 3118a5c... Pull All Files
     background-color:#467A86;
 }
 
@@ -10,13 +14,18 @@
 }
 
 .mainContent {
+<<<<<<< HEAD
     height:80vh;
+=======
+    height:85vh;
+>>>>>>> parent of 3118a5c... Pull All Files
     vertical-align: middle;
     align-self: center;
 }
 
 @media(max-width: 768px) {
     .firstNav {
+<<<<<<< HEAD
          height:10vh !important;  
          margin:0 auto;         
     }
@@ -30,6 +39,15 @@
          padding:5px!important;          
 =======
 >>>>>>> parent of f5f5f68... Fix frontPage1.Master.designer.cs bug and modify mobile version
+=======
+         height:10vh !important; 
+         padding:5px!important;          
+    }
+    .navIcon{
+        max-height: 8vh !important;
+        max-width: 8vh !important;
+        
+>>>>>>> parent of 3118a5c... Pull All Files
     }
    
     
@@ -37,14 +55,22 @@
 }
 
 .firstNav  {
+<<<<<<< HEAD
     height: 80vh;
+=======
+    height: 85vh;
+>>>>>>> parent of 3118a5c... Pull All Files
     background-color: #6B949E;  
     padding: 10px;
 }
 
 
 .secondNav {
+<<<<<<< HEAD
     height: 80vh;
+=======
+    height: 85vh;
+>>>>>>> parent of 3118a5c... Pull All Files
     background-color: #D1E1E5; 
     padding: 0;
 }
@@ -57,6 +83,7 @@
         max-width: 80px;
     }
 
+<<<<<<< HEAD
 .footer{
     background-color:#467A86;
     height: 5vh;
@@ -66,6 +93,8 @@
     color:white;
 }
 
+=======
+>>>>>>> parent of 3118a5c... Pull All Files
 
 .panel-login {
 	border-color: #ccc;

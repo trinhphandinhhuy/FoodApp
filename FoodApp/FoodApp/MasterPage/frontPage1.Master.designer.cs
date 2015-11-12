@@ -9,6 +9,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace FoodApp.MasterPage
 {
 
@@ -87,6 +88,13 @@ namespace FoodApp.MasterPage
 
 >>>>>>> parent of f5f5f68... Fix frontPage1.Master.designer.cs bug and modify mobile version
 public partial class  {
+=======
+
+namespace FoodApp.MasterPage
+{
+
+    public partial class FoodApp {
+>>>>>>> parent of 3118a5c... Pull All Files
     
     /// <summary>
     /// head control.
@@ -151,7 +159,11 @@ public partial class  {
     /// </remarks>
     protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of f5f5f68... Fix frontPage1.Master.designer.cs bug and modify mobile version
 =======
 >>>>>>> parent of f5f5f68... Fix frontPage1.Master.designer.cs bug and modify mobile version
+=======
+}
+>>>>>>> parent of 3118a5c... Pull All Files
 }
