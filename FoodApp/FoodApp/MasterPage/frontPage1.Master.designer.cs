@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace FoodApp.MasterPage
 {
 
@@ -81,6 +82,10 @@ namespace FoodApp.MasterPage
 =======
 
 
+=======
+
+
+>>>>>>> parent of f5f5f68... Fix frontPage1.Master.designer.cs bug and modify mobile version
 public partial class  {
     
     /// <summary>
@@ -145,5 +150,8 @@ public partial class  {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
+<<<<<<< HEAD
+>>>>>>> parent of f5f5f68... Fix frontPage1.Master.designer.cs bug and modify mobile version
+=======
 >>>>>>> parent of f5f5f68... Fix frontPage1.Master.designer.cs bug and modify mobile version
 }
