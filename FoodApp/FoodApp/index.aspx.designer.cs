@@ -10,6 +10,6 @@
 namespace FoodApp {
     
     
-    public partial class SuccessLogIn {
+    public partial class index {
     }
 }

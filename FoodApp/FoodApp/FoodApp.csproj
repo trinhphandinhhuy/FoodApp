@@ -66,13 +66,32 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminManagement.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\customize.css" />
     <Content Include="Database\Database.mdb" />
     <Content Include="Database\DatabaseforApp.mdb" />
     <Content Include="Global.asax" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\personal.png" />
+    <Content Include="img\recipe.png" />
+    <Content Include="img\testLogin.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Registration.aspx" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="MasterPage\frontPage1.Master" />
+    <Content Include="MasterPage\loginPage1.Master" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -97,12 +116,41 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="SuccessLogIn.aspx" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="ChangeUsernameAndEmail.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminManagement.aspx.cs">
+      <DependentUpon>AdminManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminManagement.aspx.designer.cs">
+      <DependentUpon>AdminManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="img\testLogin.aspx.cs">
+      <DependentUpon>testLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="img\testLogin.aspx.designer.cs">
+      <DependentUpon>testLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -110,6 +158,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\frontPage1.Master.cs">
+      <DependentUpon>frontPage1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\frontPage1.Master.designer.cs">
+      <DependentUpon>frontPage1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\loginPage1.Master.cs">
+      <DependentUpon>loginPage1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\loginPage1.Master.designer.cs">
+      <DependentUpon>loginPage1.Master</DependentUpon>
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,12 +182,19 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SuccessLogIn.aspx.cs">
-      <DependentUpon>SuccessLogIn.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SuccessLogIn.aspx.designer.cs">
-      <DependentUpon>SuccessLogIn.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeUsernameAndEmail.aspx.cs">
+      <DependentUpon>ChangeUsernameAndEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeUsernameAndEmail.aspx.designer.cs">
+      <DependentUpon>ChangeUsernameAndEmail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

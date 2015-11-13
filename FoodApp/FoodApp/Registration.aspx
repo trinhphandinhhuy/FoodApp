@@ -1,121 +1,44 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" MasterPageFile="~/MasterPage/loginPage1.Master" Inherits="FoodApp.Registration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="FoodApp.Registration" MasterPageFile="~/MasterPage/loginPage1.Master"%>
 
 
-    <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title> Registration </title>
-    <style type="text/css">
-        .style4
-        {
-            width: 212px;
-        }
-        .style7
-        {
-            width: 212px;
-            height: 31px;
-        }
-        .style9
-        {
-            height: 26px;
-        }
-        .style11
-        {
-            width: 259px;
-        }
-        .style12
-        {
-            width: 259px;
-            height: 31px;
-        }
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Registration</title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger"/>
+    <div class="form-group">
+        <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
+    </div>
+    <div class="form-group">
+        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
+    </div>
+    <div class="form-group">
+        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
+    </div>
+    <div class="form-group">
+        <asp:TextBox ID="txtConfirmPwd" runat="server" TextMode="Password" CssClass="form-control" placeholder="Confirm Password"></asp:TextBox>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <asp:Button ID="btnSubmit" runat="server" Text="Register Now" OnClick="btnSubmit_Click" CssClass="form-control btn btn-register"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <a href="Login.aspx" class="form-control btn btn-info" role="button">I've already had an account</a>
+            </div>
+        </div>
+    </div>
+    <asp:RequiredFieldValidator ID="RfvUserName" runat="server" ErrorMessage="Username Required" ForeColor="#FF3300" ControlToValidate="txtUserName" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RfvEmail" runat="server" ErrorMessage="Email Required" ForeColor="#FF3300" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RxvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid E-mail Address" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="None"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RfvPwd" runat="server" ErrorMessage="Password Required" ForeColor="#FF3300" ControlToValidate="txtPassword" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RfvCnfrmPwd" runat="server" ErrorMessage="Confirm Password Required" ForeColor="#FF3300" ControlToValidate="txtConfirmPwd" Display="None"></asp:RequiredFieldValidator>
+    <asp:CompareValidator ID="CvCnfmPwd" runat="server" ErrorMessage="Password and Confirm Password didn't matched" ForeColor="#FF3300" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPwd" Display="None"></asp:CompareValidator>
+    <asp:Label ID="lblMsg" runat="server" ForeColor="#CC3300"></asp:Label>
+</asp:Content>
 
-        td
-        {
-            text-align: center;
-        }
-
-    </style>
-    </asp:Content>
-
-    <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
-        <table style="border: 1pt solid #6666FF; width: 60%; height: 424px; font-family: Verdana;
-            border-collapse: collapse; background-color: #ffffff;" >
-            <tr>
-                <td colspan="3" class="style9">
-                    <asp:Label ID="lblHeader" runat="server" Text="Registration Form" Font-Bold="True"></asp:Label>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="style11" >
-                    <asp:Label ID="lblUserName" runat="server" Text="Username :"></asp:Label>
-                </td>
-                <td class="style11" >
-                    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
-                </td>
-                <td class="style4" >
-                    <asp:RequiredFieldValidator ID="RfvUserName" runat="server" ErrorMessage="* Required"
-                        ForeColor="#FF3300" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="style11">
-                    <asp:Label ID="lblEmail" runat="server" Text="E-Mail :"></asp:Label>
-                </td>
-                <td class="style11" >
-                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                </td>
-                <td class="style4">
-                    <asp:RequiredFieldValidator ID="RfvEmail" runat="server" ErrorMessage="* Required"
-                        ForeColor="#FF3300" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
-                    <br />
-                    <asp:RegularExpressionValidator ID="RxvEmail" runat="server" ControlToValidate="txtEmail"
-                        ErrorMessage="Invalid E-mail" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="style11" >
-                    <asp:Label ID="lblPassword" runat="server" Text="Password :"></asp:Label>
-                </td>
-                <td class="style11" >
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-                </td>
-                <td class="style4" >
-                    <asp:RequiredFieldValidator ID="RfvPwd" runat="server" ErrorMessage="* Required"
-                        ForeColor="#FF3300" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="style11">
-                    <asp:Label ID="lblConfirmPwd" runat="server" Text="Confirm Pasword :"></asp:Label>
-                </td>
-                <td class="style11" >
-                    <asp:TextBox ID="txtConfirmPwd" runat="server" TextMode="Password"></asp:TextBox>
-                </td>
-                <td class="style4" >
-                    &nbsp;
-                    <asp:RequiredFieldValidator ID="RfvCnfrmPwd" runat="server" ErrorMessage="* Required"
-                        ForeColor="#FF3300" ControlToValidate="txtConfirmPwd"></asp:RequiredFieldValidator>
-                    <br />
-                    <asp:CompareValidator ID="CvCnfmPwd" runat="server" ErrorMessage="Password and Confirm Password didnt matched"
-                        ForeColor="#FF3300" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPwd"></asp:CompareValidator>
-                </td>
-            </tr>
-           
-            <tr>
-            <td class="style12">
-                &nbsp;
-                <asp:Label ID="lblMsg" runat="server" ForeColor="#CC3300"></asp:Label>
-            </td>
-            <td class="style12">
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />&nbsp;
-                <asp:Button ID="btnClear" runat="server" CausesValidation="False" OnClick="btnClear_Click"
-                    Text="Clear" />
-            </td>
-            <td class="style7">
-            </td>
-            </tr>
-        </table>
-
-    </asp:Content>
 

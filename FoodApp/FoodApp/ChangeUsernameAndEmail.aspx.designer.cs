@@ -7,22 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FoodApp.MasterPage
-{
-
-
-    public partial class frontPage1
-    {
-
-        /// <summary>
-        /// head control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-
+namespace FoodApp {
+    
+    
+    public partial class UserAccount {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -31,50 +20,68 @@ namespace FoodApp.MasterPage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
-        /// accountInfo control.
+        /// ValidationSummary1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder accountInfo;
-
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
         /// <summary>
-        /// Recipes control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Recipes;
-
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        
         /// <summary>
-        /// MyList control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton MyList;
-
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// RequiredUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredUsername;
+        
         /// <summary>
-        /// ContentPlaceHolder2 control.
+        /// RequiredEmailAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredEmailAddress;
+        
+        /// <summary>
+        /// RegularExpressionEmailAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionEmailAddress;
+        
+        /// <summary>
+        /// btnChangeUsernameAndEmailAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangeUsernameAndEmailAddress;
     }
 }

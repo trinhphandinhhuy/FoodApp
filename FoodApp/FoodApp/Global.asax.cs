@@ -13,11 +13,7 @@ namespace FoodApp
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            ScriptManager.ScriptResourceMapping.AddDefinition(
-           "jquery", new ScriptResourceDefinition
-           {
-               Path = "~/scripts/jquery-2.1.1.min.js"
-           });
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition { Path = "~/scripts/jquery-2.1.1.min.js" });
         }
 
         protected void Session_Start(object sender, EventArgs e)

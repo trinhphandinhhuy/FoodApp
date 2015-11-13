@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data;
-using System.Data.OleDb;
+
 
 namespace FoodApp
 {
@@ -28,27 +29,35 @@ namespace FoodApp
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            try
+            if (this.IsValid)
             {
-                string hashedPassword = PasswordHash.PasswordHash.CreateHash(txtPassword.Text.ToString());
-                cmd.Connection = myConnection;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO UserData(UserRoleID, Username, Email, UserPassword) values(2, @Username,@Email,@Password)";
+                try
+                {
+                    string hashedPassword = PasswordHash.PasswordHash.CreateHash(txtPassword.Text.ToString());
+                    cmd.Connection = myConnection;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO UserData(UserRoleID, Username, Email, UserPassword) values(2, @Username,@Email,@Password)";
 
-                //adding parameters with value
-                cmd.Parameters.AddWithValue("@Username", txtUserName.Text.ToString());
-                cmd.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
-                cmd.Parameters.AddWithValue("@Password", hashedPassword);
+                    //adding parameters with value
+                    cmd.Parameters.AddWithValue("@Username", txtUserName.Text.ToString());
+                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
+                    cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
 
-                cmd.ExecuteNonQuery();  //executing query
-                myConnection.Close(); //closing connection
-                lblMsg.Text = "Registered Successfully..";
-            }
-            catch (Exception ex)
+                    cmd.ExecuteNonQuery();  //executing query
+                    myConnection.Close(); //closing connection
+                    //lblMsg.Text = "Registered Successfully..";
+                    Response.Redirect("Login.aspx");
+                }
+                catch (Exception ex)
+                {
+                    lblMsg.Text = ex.Message.ToString();
+                }
+            } else
             {
-                lblMsg.Text = ex.Message.ToString();
+                //lblMsg.Text = "Register fail!";
             }
+               
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
