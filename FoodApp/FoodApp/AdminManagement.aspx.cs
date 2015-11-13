@@ -22,7 +22,7 @@ namespace FoodApp
         private int userid;
         protected void Page_Init(object sender, EventArgs e)
         {
-            //checkAdminAuthentication();
+            checkAdminAuthentication();
             myConnection.ConnectionString = connectionString;
             myConnection.Open();
             mySelectCommand.Connection = myConnection;
