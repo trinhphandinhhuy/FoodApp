@@ -1,10 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage/frontPage1.Master" CodeBehind="Dashboard.aspx.cs" Inherits="FoodApp.SuccessLogIn" EnableSessionState="True" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage/DashBoard.Master" CodeBehind="Dashboard.aspx.cs" Inherits="FoodApp.SuccessLogIn" EnableSessionState="True" %>
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title> Main Page </title>
     <style>
 
     </style>
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+    <asp:ImageButton ID="Recipes" runat="server" ImageUrl="~/img/recipe.png" CssClass="navIcon" /> 
+    <asp:ImageButton ID="MyList" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" />        
+
 </asp:Content>
     
 
