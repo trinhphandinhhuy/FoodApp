@@ -20,6 +20,7 @@ namespace FoodApp
             {
                 Label1.Text = Convert.ToString(Session["username"]);
             }
+
         }
         private void checkUserAuthentication()
         {
@@ -33,6 +34,19 @@ namespace FoodApp
         {
             Session.Clear();
             Response.Redirect("Login.aspx");
+        }
+
+        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
+        {
+            /* ContentPlaceHolder content = (ContentPlaceHolder)this.Master.FindControl("ContentPlaceHolder1");
+             Button newButton = new System.Web.UI.WebControls.Button();
+             newButton.ID = "btnAddNewIng";
+             newButton.Text = "Add new Ingredient";
+             newButton.Visible = true;
+             newButton.CssClass = "btn btn-info";          
+             content.Controls.Add(newButton);*/
+
+            Response.Redirect("Ingredients/ManageIngredients.aspx");
         }
     }
 }
