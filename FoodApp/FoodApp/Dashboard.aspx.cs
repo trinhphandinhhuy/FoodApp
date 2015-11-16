@@ -46,7 +46,7 @@ namespace FoodApp
              newButton.CssClass = "btn btn-info";          
              content.Controls.Add(newButton);*/
 
-            Response.Redirect("Ingredients/ManageIngredients.aspx");
+           
         }
     }
 }
