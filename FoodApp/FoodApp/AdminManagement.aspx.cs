@@ -54,7 +54,7 @@ namespace FoodApp
             UserDataTable.DataSource = null;
             UserDataTable.DataBind();
             //Define the command objects (SQL commands)
-            mySelectCommand.CommandText = "SELECT UserDataID, Username, Email FROM UserData";
+            mySelectCommand.CommandText = "SELECT UserDataID, Username, Email FROM UserData Where UserRoleID = 2";
             //Fetching rows into the Data Set
             myAdapter.Fill(myDataSet, "UserData");
             //Show the users in the Data Grid
