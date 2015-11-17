@@ -18,7 +18,11 @@ namespace FoodApp
         OleDbCommand cmd = new OleDbCommand();
         OleDbCommand cmd2 = new OleDbCommand();
         private string user_data_ID;
-        private object label1;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            checkAuthentication();
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,9 +32,16 @@ namespace FoodApp
              @"Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
             myConnection.ConnectionString = connstr;
             myConnection.Open();
-            Label11.Text = Session["username"].ToString();
+
         }
 
+        private void checkAuthentication()
+        {
+            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "")
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             if (this.IsValid)
@@ -42,7 +53,7 @@ namespace FoodApp
                     cmd.CommandText = "INSERT INTO Recipe(UserDataID, Name, Portion, CookingTime, Description,MealTypeID) values(@UserDataID, @Name, @Portion, @CookingTime, @Description,4)";
                     cmd2.Connection = myConnection;
                     cmd2.CommandType = CommandType.Text;
-                    cmd2.CommandText = "SELECT UserDataID FROM UserData WHERE Username ='" + Session["username"].ToString()+"'" ;
+                    cmd2.CommandText = "SELECT UserDataID FROM UserData WHERE Username ='" + Session["username"].ToString() + "'";
                     OleDbDataReader reader = cmd2.ExecuteReader();
                     bool notEoF = reader.Read();
                     while (notEoF)
@@ -58,12 +69,12 @@ namespace FoodApp
                     cmd.Parameters.AddWithValue("@Portion", Convert.ToInt32(txtPortion.Text));
                     cmd.Parameters.AddWithValue("@CookingTime", Convert.ToInt32(txtCookingTime.Text));
                     cmd.Parameters.AddWithValue("@Description", txtDescription.Text.ToString());
-                    
+
 
 
                     cmd.ExecuteNonQuery();  //executing query
                     myConnection.Close(); //closing connection
-                    
+
                     //lblMsg.Text = "Registered Successfully..";
                     Response.Redirect("Dashboard.aspx");
                 }
@@ -79,6 +90,6 @@ namespace FoodApp
 
         }
 
-       
+
     }
 }

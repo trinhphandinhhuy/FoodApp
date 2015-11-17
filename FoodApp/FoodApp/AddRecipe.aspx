@@ -21,7 +21,7 @@
     <div class="form-group">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label>
+                
                 <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" CssClass="form-control btn btn-register"/>
             </div>
         </div>
