@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frontPage1.Master.cs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DashBoard.master.cs" Inherits="FoodApp.DashBoard" %>
 
 <!DOCTYPE html>
 
@@ -39,10 +39,9 @@
 
             <div class="row mainContent">
                 <div class="col-xs-12 col-sm-1 col-lg-1 firstNav">
-                            <asp:ImageButton ID="Recipes" runat="server" ImageUrl="~/img/recipe.png" CssClass="navIcon" /> 
-                            <asp:ImageButton ID="MyList" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" />                 
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server"></asp:ContentPlaceHolder>
                 </div>
-                <div class="col-xs-12 col-sm-2 col-lg-2 secondNav">
+                
                     <div class="col-xs-2 col-sm-2 col-lg-2 secondNav">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
@@ -50,10 +49,11 @@
                     <div class="col-xs-12 col-sm-9 col-lg-9 thirdNav">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
                     </div>
-                </div>
-                <div class="row footer">
+               
+                
+            </div>
+            <div class="row footer">
                     <span class="copyRight">WinnerTeam&copy;2015 . All Rights Reserved.</span>
-                </div>
             </div>
         </div>
     </form>
