@@ -21,6 +21,7 @@
     <div class="form-group">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
+                <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label>
                 <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" CssClass="form-control btn btn-register"/>
             </div>
         </div>
@@ -29,13 +30,15 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <a href="Dashboard.aspx" class="form-control btn btn-info" role="button">Comback to dashboard</a>
+            
+
             </div>
         </div>
     </div>
     <asp:RequiredFieldValidator ID="RfvRecipeName" runat="server" ErrorMessage="Recipe name Required" ForeColor="#FF3300" ControlToValidate="txtRecipeName" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvCookingTime" runat="server" ErrorMessage="Cooking time Required" ForeColor="#FF3300" ControlToValidate="txtCookingTime" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvPortion" runat="server" ErrorMessage="Portions Required" ForeColor="#FF3300" ControlToValidate="txtPortion" Display="None"></asp:RequiredFieldValidator>
-    <asp:RequiredFieldValidator ID="RfvDescription" runat="server" ErrorMessage="Description Required" ForeColor="#FF3300" ControlToValidate="txtDiscription" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RfvDescription" runat="server" ErrorMessage="Description Required" ForeColor="#FF3300" ControlToValidate="txtDescription" Display="None"></asp:RequiredFieldValidator>
     <asp:Label ID="lblMsg" runat="server" ForeColor="#CC3300"></asp:Label>
 </asp:Content>
 

@@ -53,11 +53,12 @@ namespace FoodApp
                 {
                     lblMsg.Text = ex.Message.ToString();
                 }
-            } else
+            }
+            else
             {
                 //lblMsg.Text = "Register fail!";
             }
-               
+
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
