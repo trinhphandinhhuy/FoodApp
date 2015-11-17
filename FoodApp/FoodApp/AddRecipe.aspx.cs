@@ -32,7 +32,7 @@ namespace FoodApp
              @"Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
             myConnection.ConnectionString = connstr;
             myConnection.Open();
-
+            MealTypeData.ConnectionString = connstr;
         }
 
         private void checkAuthentication()
@@ -50,7 +50,7 @@ namespace FoodApp
                 {
                     cmd.Connection = myConnection;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO Recipe(UserDataID, Name, Portion, CookingTime, Description,MealTypeID) values(@UserDataID, @Name, @Portion, @CookingTime, @Description,4)";
+                    cmd.CommandText = "INSERT INTO Recipe(UserDataID, Name, Portion, CookingTime, Description,MealTypeID) values(@UserDataID, @Name, @Portion, @CookingTime, @Description,@MealTypeID)";
                     cmd2.Connection = myConnection;
                     cmd2.CommandType = CommandType.Text;
                     cmd2.CommandText = "SELECT UserDataID FROM UserData WHERE Username ='" + Session["username"].ToString() + "'";
@@ -69,7 +69,7 @@ namespace FoodApp
                     cmd.Parameters.AddWithValue("@Portion", Convert.ToInt32(txtPortion.Text));
                     cmd.Parameters.AddWithValue("@CookingTime", Convert.ToInt32(txtCookingTime.Text));
                     cmd.Parameters.AddWithValue("@Description", txtDescription.Text.ToString());
-
+                    cmd.Parameters.AddWithValue("@MealTypeID", Convert.ToInt32(DlRecipeType.SelectedValue));
 
 
                     cmd.ExecuteNonQuery();  //executing query

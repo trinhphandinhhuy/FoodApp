@@ -31,6 +31,24 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.TextBox txtRecipeName;
         
         /// <summary>
+        /// DlRecipeType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DlRecipeType;
+        
+        /// <summary>
+        /// MealTypeData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource MealTypeData;
+        
+        /// <summary>
         /// txtCookingTime control.
         /// </summary>
         /// <remarks>

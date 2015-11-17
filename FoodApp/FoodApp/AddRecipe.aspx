@@ -10,6 +10,12 @@
         <asp:TextBox ID="txtRecipeName" runat="server" CssClass="form-control" placeholder="Recipe name"></asp:TextBox>
     </div>
     <div class="form-group">
+        <asp:DropDownList ID="DlRecipeType" runat="server" DataSourceID="MealTypeData" DataTextField="Name" DataValueField="MealTypeID"></asp:DropDownList>
+
+        <asp:SqlDataSource ID="MealTypeData" runat="server" ConnectionString="" ProviderName="<%$ ConnectionStrings:DatabaseforAppConnectionString1.ProviderName %>" SelectCommand="SELECT [MealTypeID], [Name] FROM [MealType]"></asp:SqlDataSource>
+
+    </div>
+    <div class="form-group">
         <asp:TextBox ID="txtCookingTime" runat="server" CssClass="form-control" placeholder="Cooking time"></asp:TextBox>
     </div>
     <div class="form-group">
