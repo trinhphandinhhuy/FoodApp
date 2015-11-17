@@ -10,115 +10,97 @@
 namespace FoodApp {
     
     
-    public partial class Registration {
+    public partial class AddRecipe {
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// VsRecipe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.ValidationSummary VsRecipe;
         
         /// <summary>
-        /// txtUserName control.
+        /// txtRecipeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtRecipeName;
         
         /// <summary>
-        /// txtEmail control.
+        /// txtCookingTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtCookingTime;
         
         /// <summary>
-        /// txtPassword control.
+        /// txtPortion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtPortion;
         
         /// <summary>
-        /// txtConfirmPwd control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPwd;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnConfirm;
         
         /// <summary>
-        /// RfvUserName control.
+        /// RfvRecipeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvUserName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvRecipeName;
         
         /// <summary>
-        /// RfvEmail control.
+        /// RfvCookingTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCookingTime;
         
         /// <summary>
-        /// RxvEmail control.
+        /// RfvPortion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RxvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvPortion;
         
         /// <summary>
-        /// RfvPwd control.
+        /// RfvDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvPwd;
-        
-        /// <summary>
-        /// RfvCnfrmPwd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCnfrmPwd;
-        
-        /// <summary>
-        /// CvCnfmPwd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CvCnfmPwd;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvDescription;
         
         /// <summary>
         /// lblMsg control.
