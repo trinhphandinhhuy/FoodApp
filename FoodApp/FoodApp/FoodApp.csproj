@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddRecipe.aspx" />
+    <Content Include="AdminAddEditDeleteFoodItem.aspx" />
     <Content Include="AdminManagement.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="css\bootstrap-theme.css" />
@@ -131,6 +132,13 @@
     </Compile>
     <Compile Include="AddRecipe.aspx.designer.cs">
       <DependentUpon>AddRecipe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddEditDeleteFoodItem.aspx.cs">
+      <DependentUpon>AdminAddEditDeleteFoodItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminAddEditDeleteFoodItem.aspx.designer.cs">
+      <DependentUpon>AdminAddEditDeleteFoodItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminManagement.aspx.cs">
       <DependentUpon>AdminManagement.aspx</DependentUpon>

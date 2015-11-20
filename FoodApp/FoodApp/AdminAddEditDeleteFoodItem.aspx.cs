@@ -16,8 +16,8 @@ namespace FoodApp
         private OleDbConnection myConnection = new OleDbConnection();
         private OleDbCommand mySelectCommand = new OleDbCommand();
         private OleDbCommand myInsertCommand = new OleDbCommand();
-        private OleDbCommand myDeleteCommand = new OleDbCommand();
-        private OleDbCommand myUpdateCommand = new OleDbCommand();
+        private OleDbCommand myDeleteCommand;
+        private OleDbCommand myUpdateCommand;
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
         private DataSet myDataSet = new DataSet();
         private string connectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"Database\DatabaseforApp.mdb;";
@@ -93,7 +93,7 @@ namespace FoodApp
 
         protected void FoodTable_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            foodid = Convert.ToInt32(FoodTable.Rows[e.RowIndex].Cells[2].Text);
+            foodid = Convert.ToInt32(FoodTable.Rows[e.RowIndex].Cells[1].Text);
             myDeleteCommand = new OleDbCommand("DELETE FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
             myDeleteCommand.CommandType = CommandType.Text;
             myDeleteCommand.ExecuteNonQuery(); //executing query
@@ -109,7 +109,17 @@ namespace FoodApp
 
         protected void FoodTable_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-
+            GridViewRow row = FoodTable.Rows[e.RowIndex];
+            TextBox txtUpdateFoodName = (TextBox)row.FindControl("txtUpdateFoodName");
+            DropDownList ddlUpdateUnitType = (DropDownList)row.FindControl("ddlUpdateUnitType");
+            DropDownList ddlUpdateFoodType = (DropDownList)row.FindControl("ddlUpdateFoodType");
+            foodid = Convert.ToInt32(FoodTable.Rows[e.RowIndex].Cells[1].Text);
+            myUpdateCommand = new OleDbCommand("Update FoodItem SET Name='" + txtUpdateFoodName.Text + "', UnitType='" + ddlUpdateUnitType.SelectedValue + "', FoodTypeID = '" + ddlUpdateFoodType.SelectedValue + "'  WHERE FoodItemID = " + foodid.ToString(), myConnection);
+            myUpdateCommand.CommandType = CommandType.Text;
+            myUpdateCommand.ExecuteNonQuery(); //executing query
+            myConnection.Close(); //closing connection
+            FoodTable.EditIndex = -1;
+            getDB();
         }
 
         protected void FoodTable_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -118,6 +128,38 @@ namespace FoodApp
             getDB();
         }
 
-        
+        protected void FoodTable_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                if (e.Row.DataItem != null)
+                {
+                    //check if is in edit mode
+                    if ((e.Row.RowState & DataControlRowState.Edit) > 0)
+                    {
+                        DropDownList ddlUpdateFoodType = (DropDownList)e.Row.FindControl("ddlUpdateFoodType");
+                        OleDbCommand cmd = new OleDbCommand("SELECT * FROM FoodType", myConnection);
+                        cmd.CommandType = CommandType.Text;
+                        OleDbDataReader reader = cmd.ExecuteReader();
+                        bool notEoF = reader.Read();
+                        while (notEoF)
+                        {
+                            ddlUpdateFoodType.Items.Add(reader["Name"].ToString());
+                            ddlUpdateFoodType.Items[ddlUpdateFoodType.Items.Count - 1].Value = reader["FoodTypeID"].ToString();
+                            notEoF = reader.Read();
+                        }
+                        reader.Close();
+                        DropDownList ddlUpdateUnitType = (DropDownList)e.Row.FindControl("ddlUpdateUnitType");
+                        if (ddlUpdateUnitType.Items.Count == 0)
+                        {
+                            ddlUpdateUnitType.Items.Add("kg");
+                            ddlUpdateUnitType.Items[ddlUpdateUnitType.Items.Count - 1].Value = "kg";
+                            ddlUpdateUnitType.Items.Add("l");
+                            ddlUpdateUnitType.Items[ddlUpdateUnitType.Items.Count - 1].Value = "l";
+                        }
+                    }
+                }
+            }
+        }
     }
 }
