@@ -66,7 +66,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminAddEditDeleteFoodItem.aspx" />
+    <Content Include="AddRecipe.aspx" />
     <Content Include="AdminManagement.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="css\bootstrap-theme.css" />
@@ -83,6 +83,7 @@
     <Content Include="img\recipe.png" />
     <Content Include="img\testLogin.aspx" />
     <Content Include="index.aspx" />
+    <Content Include="ListAllIngredient.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -124,12 +125,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminAddEditDeleteFoodItem.aspx.cs">
-      <DependentUpon>AdminAddEditDeleteFoodItem.aspx</DependentUpon>
+    <Compile Include="AddRecipe.aspx.cs">
+      <DependentUpon>AddRecipe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminAddEditDeleteFoodItem.aspx.designer.cs">
-      <DependentUpon>AdminAddEditDeleteFoodItem.aspx</DependentUpon>
+    <Compile Include="AddRecipe.aspx.designer.cs">
+      <DependentUpon>AddRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminManagement.aspx.cs">
       <DependentUpon>AdminManagement.aspx</DependentUpon>
@@ -144,6 +145,13 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListAllIngredient.aspx.cs">
+      <DependentUpon>ListAllIngredient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListAllIngredient.aspx.designer.cs">
+      <DependentUpon>ListAllIngredient.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage\DashBoard.Master.cs">
       <DependentUpon>DashBoard.Master</DependentUpon>
