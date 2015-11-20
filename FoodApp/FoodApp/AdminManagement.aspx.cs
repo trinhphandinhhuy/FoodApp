@@ -37,17 +37,8 @@ namespace FoodApp
         }
         private void checkAdminAuthentication()
         {
-            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "")
-            {
-                Response.Redirect("Login.aspx");
-            }
-            if (Session["userlevel"] != null)
-            {
-                if (Session["userlevel"].ToString() != "Admin")
-                {
-                    Response.Redirect("Login.aspx");
-                }
-            }
+            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "") { Response.Redirect("Login.aspx"); }
+            if (Session["userlevel"] != null && Session["userlevel"].ToString() != "Admin") { Response.Redirect("Login.aspx"); }
         }
         private void getDB()
         {

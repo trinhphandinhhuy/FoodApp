@@ -18,7 +18,7 @@ namespace FoodApp
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Session.Timeout = 10080;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
