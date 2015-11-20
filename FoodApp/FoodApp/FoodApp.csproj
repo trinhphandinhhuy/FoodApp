@@ -122,6 +122,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Dashboard.aspx" />
     <Content Include="ChangeUsernameAndEmail.aspx" />
+    <Content Include="SearchIngredient.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="ChangeUsernameAndEmail.aspx.designer.cs">
       <DependentUpon>ChangeUsernameAndEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchIngredient.aspx.cs">
+      <DependentUpon>SearchIngredient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchIngredient.aspx.designer.cs">
+      <DependentUpon>SearchIngredient.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>
