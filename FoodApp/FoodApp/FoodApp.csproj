@@ -69,6 +69,7 @@
     <Content Include="AddRecipe.aspx" />
     <Content Include="AdminAddEditDeleteFoodItem.aspx" />
     <Content Include="AdminManagement.aspx" />
+    <Content Include="AdminManageUserRecipes.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="AdminManagement.aspx.designer.cs">
       <DependentUpon>AdminManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManageUserRecipes.aspx.cs">
+      <DependentUpon>AdminManageUserRecipes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminManageUserRecipes.aspx.designer.cs">
+      <DependentUpon>AdminManageUserRecipes.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
