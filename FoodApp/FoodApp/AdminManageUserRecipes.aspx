@@ -12,7 +12,7 @@
         
         <asp:GridView ID="RecipeTable" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="RecipeID,UserDataID" DataSourceID="SqlDataSource1" Width="782px" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowDataBound="RecipeTable_RowDataBound">
             <Columns>
-                <asp:CommandField ButtonType= "Link" ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="True" />
                 <asp:BoundField DataField="RecipeID" HeaderText="RecipeID" InsertVisible="False" ReadOnly="True" SortExpression="RecipeID" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                 <asp:BoundField DataField="Portion" HeaderText="Portion" SortExpression="Portion" />
@@ -37,13 +37,17 @@
             SelectCommand="SELECT * FROM [Recipe] WHERE ([UserDataID] &lt;&gt; ?)" 
             ProviderName="<%$ ConnectionStrings:DatabaseforAppConnectionString2.ProviderName %>" >
             
+            
             <DeleteParameters>
                 <asp:Parameter Name="RecipeID" Type="Int32" />
                 <asp:Parameter Name="UserDataID" Type="Int32" />
             </DeleteParameters>
+            
             <SelectParameters>
                 <asp:Parameter DefaultValue="7" Name="UserDataID" Type="Int32" />
             </SelectParameters>
+            
+            
             
         </asp:SqlDataSource>
         <br />
