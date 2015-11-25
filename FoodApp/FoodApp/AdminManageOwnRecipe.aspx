@@ -14,19 +14,19 @@
 
                 <asp:TemplateField HeaderText="Name">
                     <ItemTemplate>
-                        <asp:Label ID="lblRecipeName" runat="server" Text='<%# Bind("RecipeName") %>'></asp:Label>
+                        <asp:Label ID="lblRecipeName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="EditRecipeName" runat="server" Text='<%# Bind("RecipeName") %>'></asp:TextBox>
+                        <asp:TextBox ID="EditRecipeName" runat="server" ></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="MealType">
                     <ItemTemplate>
-                        <asp:Label ID="lblMealType" runat="server" Text='<%# Bind("MealType") %>'></asp:Label>
+                        <asp:Label ID="lblMealType" runat="server" Text='<%# Bind("MealTypeID") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:DropDownList ID="EditMealType" runat="server" Text='<%# Bind("MealType") %>'></asp:DropDownList>
+                        <asp:DropDownList ID="EditMealType" runat="server" ></asp:DropDownList>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -35,7 +35,7 @@
                         <asp:Label ID="lblPortion" runat="server" Text='<%# Bind("Portion") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:DropDownList ID="EditPortion" runat="server" Text='<%# Bind("Portion") %>'></asp:DropDownList>
+                        <asp:DropDownList ID="EditPortion" runat="server" ></asp:DropDownList>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -44,7 +44,7 @@
                         <asp:Label ID="lblCookingTime" runat="server" Text='<%# Bind("CookingTime") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:DropDownList ID="EditCookingTime" runat="server" Text='<%# Bind("CookingTime") %>'></asp:DropDownList>
+                        <asp:DropDownList ID="EditCookingTime" runat="server" ></asp:DropDownList>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -53,7 +53,7 @@
                         <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="EditDescription" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+                        <asp:TextBox ID="EditDescription" runat="server" ></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -54,8 +54,8 @@ namespace FoodApp
             AdminRecipeTable.DataBind();
             //Define the command objects (SQL commands)
             
-            //Placebo: no admin recipe added
-            mySelectCommand.CommandText = "SELECT Recipe.RecipeID, Recipe.Name AS 'RecipeName', MealType.Name AS 'MealType', Recipe.Portion, Recipe.CookingTime, Recipe.Description FROM Recipe JOIN UserData ON Recipe.UserDataID = UserData.UserDataID JOIN MealType ON Recipe.MealTypeID = MealType.MealTypeID WHERE UserData.Username = 'huytrinh';";
+            //Placebo: no admin recipe added 
+            mySelectCommand.CommandText = "SELECT Recipe.RecipeID, Recipe.Name, Recipe.MealTypeID, Recipe.Portion, Recipe.CookingTime, Recipe.Description FROM Recipe INNER JOIN UserData ON Recipe.UserDataID = UserData.UserDataID WHERE UserData.Username = 'huytrinh';";
             //mySelectCommand.CommandText = "SELECT * FROM Recipe INNER JOIN UserData ON Recipe.UserDataID = UserData.UserDataID WHERE UserData.Username = '" + Session["username"].ToString() + "';" ;
             
             //Fetching rows into the Data Set
@@ -99,8 +99,8 @@ namespace FoodApp
             DropDownList EditDescription = (DropDownList)row.FindControl("EditDescription");
             
             recipeid = Convert.ToInt32(AdminRecipeTable.Rows[e.RowIndex].Cells[1].Text);
-            myUpdateCommand = new OleDbCommand("Update Recipe SET Name='" + EditRecipeName.Text + "', MealTypeID= (SELECT MealTypeID FROM MealType WHERE Name = '" + EditMealType.SelectedValue 
-                + "'), Portion='" + EditPortion.SelectedValue + "', CookingTime='" + EditCookingTime.SelectedValue + "', Description='" + EditDescription.Text + "'  WHERE RecipeID = " + recipeid.ToString(), myConnection);
+            myUpdateCommand = new OleDbCommand("Update Recipe SET Name='" + EditRecipeName.Text + "', MealTypeID= '" + EditMealType.SelectedValue 
+                + "', Portion='" + EditPortion.SelectedValue + "', CookingTime='" + EditCookingTime.SelectedValue + "', Description='" + EditDescription.Text + "'  WHERE RecipeID = " + recipeid.ToString(), myConnection);
             myUpdateCommand.CommandType = CommandType.Text;
             myUpdateCommand.ExecuteNonQuery(); //executing query
             myConnection.Close(); //closing connection

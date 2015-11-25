@@ -144,7 +144,7 @@ namespace FoodApp
                         bool notEoF = reader.Read();
                         while (notEoF)
                         {
-                            ddlUpdateFoodType.Items.Add(reader["Name"].ToString());
+                            ddlUpdateFoodType.Items.Add(reader["FoodTypeID"].ToString());
                             ddlUpdateFoodType.Items[ddlUpdateFoodType.Items.Count - 1].Value = reader["FoodTypeID"].ToString();
                             notEoF = reader.Read();
                         }
