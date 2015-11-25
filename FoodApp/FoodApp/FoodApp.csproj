@@ -78,6 +78,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\customize.css" />
+    <Content Include="DatabaseBackup\DatabaseforApp.mdb" />
     <Content Include="Database\Database.mdb" />
     <Content Include="Database\DatabaseforApp.mdb" />
     <Content Include="Global.asax" />
