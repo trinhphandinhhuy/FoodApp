@@ -28,5 +28,25 @@ namespace FoodApp
         {
             Response.Redirect("UserManagement.aspx");
         }
+
+        protected void btnManageOwnRecipes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminManageOwnRecipe.aspx");
+        }
+
+        protected void btnManageUserRecipes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminManageUserRecipes.aspx");
+        }
+
+        protected void btnAddRecipe_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddRecipe.aspx");
+        }
+
+        protected void btnExploreRecipes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ExploringRecipes.aspx");
+        }
     }
 }

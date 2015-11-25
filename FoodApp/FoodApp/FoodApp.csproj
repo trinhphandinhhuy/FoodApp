@@ -83,6 +83,7 @@
     <Content Include="DatabaseBackup\DatabaseforApp.mdb" />
     <Content Include="Database\Database.mdb" />
     <Content Include="Database\DatabaseforApp.mdb" />
+    <Content Include="ExploringRecipes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\ingredients.png" />
     <Content Include="img\logo.png" />
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExploringRecipes.aspx.cs">
+      <DependentUpon>ExploringRecipes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExploringRecipes.aspx.designer.cs">
+      <DependentUpon>ExploringRecipes.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListAllIngredient.aspx.cs">
       <DependentUpon>ListAllIngredient.aspx</DependentUpon>
