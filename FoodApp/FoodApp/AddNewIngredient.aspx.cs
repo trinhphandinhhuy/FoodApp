@@ -89,5 +89,15 @@ namespace FoodApp
         {
             Response.Redirect("SearchIngredient.aspx");
         }
+
+        protected void Recipes_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RecipeManagement.aspx");
+        }
+
+        protected void MyList_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("UserManagement.aspx");
+        }
     }
 }

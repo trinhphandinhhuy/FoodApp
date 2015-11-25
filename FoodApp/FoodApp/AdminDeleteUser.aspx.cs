@@ -100,5 +100,10 @@ namespace FoodApp
         {
             Response.Redirect("ChangePassword.aspx");
         }
+
+        protected void Recipes_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RecipeManagement.aspx");
+        }
     }
 }
