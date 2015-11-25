@@ -165,5 +165,25 @@ namespace FoodApp
             getDB();
 
         }
+
+        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ManageIngredient.aspx");
+        }
+
+        protected void btnAddIngredient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddIngredient.aspx");
+        }
+
+        protected void btnListAllIngredient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListAllIngredient.aspx");
+        }
+
+        protected void btnSearchIngredient1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SearchIngredient.aspx");
+        }
     }
 }

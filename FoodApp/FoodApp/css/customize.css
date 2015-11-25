@@ -27,9 +27,9 @@
         max-width: 50px !important;
     }
     .secondNav {
-         height:10vh !important; 
+         
          padding:5px!important;          
-         height:10vh !important; 
+         height:auto !important; 
          padding:5px!important;          
     }
     .navIcon{

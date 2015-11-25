@@ -28,5 +28,10 @@ namespace FoodApp
         {
             Response.Redirect("AddNewIngredient.aspx");
         }
+
+        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ManageIngredient.aspx");
+        }
     }
 }

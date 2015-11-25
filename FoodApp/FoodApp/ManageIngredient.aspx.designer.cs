@@ -13,6 +13,33 @@ namespace FoodApp {
     public partial class ManageIngredient {
         
         /// <summary>
+        /// Recipes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton Recipes;
+        
+        /// <summary>
+        /// Ingredients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton Ingredients;
+        
+        /// <summary>
+        /// MyList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton MyList;
+        
+        /// <summary>
         /// btnAddIngredient control.
         /// </summary>
         /// <remarks>
