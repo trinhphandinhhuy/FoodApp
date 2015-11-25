@@ -42,7 +42,7 @@
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server"></asp:ContentPlaceHolder>
                 </div>
                 
-                    <div class="col-xs-2 col-sm-2 col-lg-2 secondNav">
+                    <div class="col-xs-12 col-sm-2 col-lg-2 secondNav">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>

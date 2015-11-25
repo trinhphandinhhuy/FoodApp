@@ -13,30 +13,12 @@ namespace FoodApp {
     public partial class ListAllIngredient {
         
         /// <summary>
-        /// form1 control.
+        /// FoodTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// btnListAllIngredient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnListAllIngredient;
-        
-        /// <summary>
-        /// tblListAllIngredient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblListAllIngredient;
+        protected global::System.Web.UI.WebControls.GridView FoodTable;
     }
 }

@@ -10,25 +10,25 @@
 namespace FoodApp {
     
     
-    public partial class SearchIngredient {
+    public partial class ManageIngredient {
         
         /// <summary>
-        /// txtBoxSearchName control.
+        /// btnAddIngredient control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxSearchName;
+        protected global::System.Web.UI.WebControls.Button btnAddIngredient;
         
         /// <summary>
-        /// ddlCategory control.
+        /// btnListAllIngredient control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+        protected global::System.Web.UI.WebControls.Button btnListAllIngredient;
         
         /// <summary>
         /// btnSearchIngredient control.
@@ -38,14 +38,5 @@ namespace FoodApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearchIngredient;
-        
-        /// <summary>
-        /// FoodTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView FoodTable;
     }
 }
