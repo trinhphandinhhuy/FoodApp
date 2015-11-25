@@ -53,7 +53,7 @@ namespace FoodApp
 
             else
             {
-                
+                AdminFunction.Visible = false;
                 Ingredients.Visible = false;
             }
 
