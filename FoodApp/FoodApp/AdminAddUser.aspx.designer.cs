@@ -10,7 +10,7 @@
 namespace FoodApp {
     
     
-    public partial class ChangePassword {
+    public partial class AdminAddUser {
         
         /// <summary>
         /// Recipes control.
@@ -76,13 +76,13 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.Button btnEditUsernameAndEmail;
         
         /// <summary>
-        /// btnPassword control.
+        /// btnChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPassword;
+        protected global::System.Web.UI.WebControls.Button btnChangePassword;
         
         /// <summary>
         /// ValidationSummary1 control.
@@ -94,22 +94,31 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
-        /// txtOldPassword control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
-        /// txtNewPassword control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// txtPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
         /// txtConfirmPassword control.
@@ -121,31 +130,40 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
         
         /// <summary>
-        /// btnChangePassword control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChangePassword;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
-        /// RequiredOldPassword control.
+        /// RequiredUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredOldPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredUsername;
         
         /// <summary>
-        /// RequiredNewPassword control.
+        /// RequiredEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredNewPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredEmail;
+        
+        /// <summary>
+        /// RequiredPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredPassword;
         
         /// <summary>
         /// RequiredConfirmPassword control.
@@ -157,6 +175,15 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredConfirmPassword;
         
         /// <summary>
+        /// RegularExpressionForEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionForEmail;
+        
+        /// <summary>
         /// ComparePassword control.
         /// </summary>
         /// <remarks>
@@ -164,14 +191,5 @@ namespace FoodApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator ComparePassword;
-        
-        /// <summary>
-        /// CheckOldPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CheckOldPassword;
     }
 }

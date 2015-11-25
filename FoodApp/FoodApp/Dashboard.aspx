@@ -10,9 +10,7 @@
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     <asp:ImageButton ID="Recipes" runat="server" ImageUrl="~/img/recipe.png" CssClass="navIcon" OnClick="Recipes_Click" /> 
     <asp:ImageButton ID="Ingredients" runat="server" ImageUrl="~/img/ingredients.png" CssClass="navIcon" OnClick="Ingredients_Click" />  
-    <asp:ImageButton ID="MyList" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" />
-            
-
+    <asp:ImageButton ID="User" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" OnClick="User_Click" />
 </asp:Content>
     
 
@@ -23,8 +21,6 @@
  </asp:Content>   
        
 <asp:Content ContentPlaceHolderID="accountInfo" runat="server">
-     
     <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" Cssclass="btn btn-danger"/>
-     
  </asp:Content>
     
