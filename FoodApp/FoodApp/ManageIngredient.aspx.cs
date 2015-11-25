@@ -37,5 +37,10 @@ namespace FoodApp
         {
             Response.Redirect("UserManagement.aspx");
         }
+
+        protected void Recipes_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RecipeManagement.aspx");
+        }
     }
 }
