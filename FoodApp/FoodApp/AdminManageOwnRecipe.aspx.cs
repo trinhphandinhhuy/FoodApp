@@ -37,6 +37,8 @@ namespace FoodApp
             {
                 Response.Redirect("Login.aspx");
             }
+
+            if (Session["userlevel"].ToString() != "Admin") btnManageUserRecipes.Visible = false;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -55,8 +57,8 @@ namespace FoodApp
             //Define the command objects (SQL commands)
             
             //Placebo: no admin recipe added 
-            mySelectCommand.CommandText = "SELECT Recipe.RecipeID, Recipe.Name, Recipe.MealTypeID, Recipe.Portion, Recipe.CookingTime, Recipe.Description FROM Recipe INNER JOIN UserData ON Recipe.UserDataID = UserData.UserDataID WHERE UserData.Username = 'huytrinh';";
-            //mySelectCommand.CommandText = "SELECT * FROM Recipe INNER JOIN UserData ON Recipe.UserDataID = UserData.UserDataID WHERE UserData.Username = '" + Session["username"].ToString() + "';" ;
+            //mySelectCommand.CommandText = "SELECT Recipe.RecipeID, Recipe.Name, Recipe.MealTypeID, Recipe.Portion, Recipe.CookingTime, Recipe.Description FROM Recipe INNER JOIN UserData ON Recipe.UserDataID = UserData.UserDataID WHERE UserData.Username = 'huytrinh';";
+            mySelectCommand.CommandText = "SELECT Recipe.RecipeID, Recipe.Name, Recipe.MealTypeID, Recipe.Portion, Recipe.CookingTime, Recipe.Description FROM Recipe INNER JOIN UserData ON Recipe.UserDataID = UserData.UserDataID WHERE UserData.Username = '" + Session["username"].ToString() + "';";
             
             //Fetching rows into the Data Set
             myAdapter.Fill(myDataSet);
@@ -154,5 +156,36 @@ namespace FoodApp
                 }
             }
         }
+
+        protected void btnAddRecipe_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddRecipe.aspx");
+        }
+
+        protected void btnManageOwnRecipes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminManageOwnRecipe.aspx");
+        }
+
+        protected void btnManageUserRecipes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminManageUserRecipes.aspx");
+        }
+
+        protected void Recipe_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RecipeManagement.aspx");
+        }
+
+        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ManageIngredient.aspx");
+        }
+
+        protected void User_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("UserIngredient.aspx");
+        }
+
     }
 }
