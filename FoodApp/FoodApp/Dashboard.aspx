@@ -12,7 +12,10 @@
     <asp:ImageButton ID="Ingredients" runat="server" ImageUrl="~/img/ingredients.png" CssClass="navIcon" OnClick="Ingredients_Click" />  
     <asp:ImageButton ID="User" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" OnClick="User_Click" />
 </asp:Content>
-    
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Button ID="btnLogout" runat="server" Text="Logout" Width="100%" Cssclass="btn btn-danger" OnClick="btnLogout_Click"/>
+ </asp:Content>
 
  <asp:Content ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
      <h1>  Welcome back <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>,</h1>

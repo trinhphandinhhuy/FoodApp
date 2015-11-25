@@ -1,23 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminManageUserRecipes.aspx.cs" Inherits="FoodApp.AdminManageUserRecipes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminManageUserRecipes.aspx.cs" Inherits="FoodApp.AdminManageUserRecipes" MasterPageFile="~/MasterPage/DashBoard.Master" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        
+    <asp:Content ContentPlaceHolderID="head" runat="server"> <title> Admin View: User recipes </title> </asp:Content>
+
+    <asp:Content ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
         <asp:GridView ID="RecipeTable" runat="server" OnRowDeleting ="RecipeTable_RowDeleting" OnRowDataBound = "RecipeTable_RowDataBound">
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
             </Columns>
         </asp:GridView>
-        <br />
-    
-    </div>
-    </form>
-</body>
-</html>
+    </asp:Content>
+     
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+    <asp:ImageButton ID="Recipes" runat="server" ImageUrl="~/img/recipe.png" CssClass="navIcon" OnClick ="Recipe_Click" /> 
+    <asp:ImageButton ID="Ingredients" runat="server" ImageUrl="~/img/ingredients.png" CssClass="navIcon" OnClick="Ingredients_Click" />  
+    <asp:ImageButton ID="MyList" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" OnClick ="User_Click" />
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Button ID="btnAddRecipe" runat="server" Text="Add Recipe" CssClass="btn btn-info" Width="100%" OnClick="btnAddRecipe_Click" />
+    <asp:Button ID="btnManageOwnRecipes" runat="server" Text="Manage Own Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnManageOwnRecipes_Click" />
+    <asp:Button ID="btnManageUserRecipes" runat="server" Text="Manage User Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnManageUserRecipes_Click" />
+    <asp:Button ID="btnExploreRecipes" runat="server" Text="Explore Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnExploreRecipes_Click" />
+    <asp:Button ID="btnLogout" runat="server" Text="Logout" Width="100%" Cssclass="btn btn-danger" OnClick="btnLogout_Click"/>
+</asp:Content>   
+        

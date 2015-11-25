@@ -38,7 +38,7 @@ namespace FoodApp
                 Response.Redirect("Login.aspx");
             }
 
-            if (Session["userlevel"].ToString() != "Admin") btnManageUserRecipes.Visible = false;
+            
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -46,6 +46,12 @@ namespace FoodApp
             if (!Page.IsPostBack)
             {
                 getDB();
+            }
+
+            if (Session["userlevel"].ToString() != "Admin")
+            {
+                btnManageUserRecipes.Visible = false;
+                Ingredients.Visible = false;
             }
         }
 
@@ -189,12 +195,15 @@ namespace FoodApp
 
         protected void User_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("UserIngredient.aspx");
+            Response.Redirect("UserManagement.aspx");
         }
 
-        protected void btnExploreRecipes_Click(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ExploringRecipes.aspx");
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
+
+        
     }
 }

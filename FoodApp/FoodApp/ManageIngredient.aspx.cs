@@ -11,7 +11,10 @@ namespace FoodApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userlevel"].ToString() != "Admin")
+            {
+                Response.Redirect("Dashboard.aspx");
+            }
         }
 
         protected void btnListAllIngredient_Click(object sender, EventArgs e)
@@ -41,6 +44,12 @@ namespace FoodApp
         protected void Recipes_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("RecipeManagement.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }

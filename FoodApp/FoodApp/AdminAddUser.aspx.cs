@@ -36,6 +36,7 @@ namespace FoodApp
             else
             {
                 AdminFunction.Visible = false;
+                Ingredients.Visible = false;
             }
         }
 
@@ -91,6 +92,12 @@ namespace FoodApp
         protected void Recipes_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("RecipeManagement.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }

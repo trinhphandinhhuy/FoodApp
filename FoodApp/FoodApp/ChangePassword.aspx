@@ -15,7 +15,9 @@
     </asp:Panel>
     <asp:Button ID="btnEditUsernameAndEmail" runat="server" Text="Edit Username and Email" CssClass="btn btn-info" Width="100%" OnClick="btnEditUsernameAndEmail_Click" />
     <asp:Button ID="btnPassword" runat="server" Text="Change Password" CssClass="btn btn-info" Width="100%" OnClick="btnPassword_Click" />
+    <asp:Button ID="btnLogout" runat="server" Text="Logout" Width="100%" Cssclass="btn btn-danger" OnClick="btnLogout_Click"/>
 </asp:Content>
+
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     Old Password:<br />

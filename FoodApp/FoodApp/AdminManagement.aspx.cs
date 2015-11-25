@@ -34,6 +34,12 @@ namespace FoodApp
             {
                 getDB();
             }
+
+            if (Session["userlevel"].ToString() != "Admin")
+            {
+               AdminFunction.Visible = false;
+               Ingredients.Visible = false;
+            }
         }
         private void checkAdminAuthentication()
         {
@@ -79,6 +85,46 @@ namespace FoodApp
             cmd2.ExecuteNonQuery();  //executing query
             myConnection.Close(); //closing connection
             getDB();
+        }
+
+        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ManageIngredient.aspx");
+        }
+
+        protected void User_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("UserManagement.aspx");
+        }
+        protected void btnAddNewUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminAddUser.aspx");
+        }
+
+        protected void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminDeleteUser.aspx");
+        }
+
+        protected void btnEditUsernameAndEmail_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangeUsernameAndEmail.aspx");
+        }
+
+        protected void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
+        }
+
+        protected void Recipes_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RecipeManagement.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }

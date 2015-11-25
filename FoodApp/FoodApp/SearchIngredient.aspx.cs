@@ -58,6 +58,10 @@ namespace FoodApp
             
             myReader.Close();
 
+            if (Session["userlevel"].ToString() != "Admin")
+            {
+                Response.Redirect("Dashboard.aspx");
+            }
         }
 
         private void getDB()
@@ -195,6 +199,12 @@ namespace FoodApp
         protected void MyList_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("UserManagement.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }

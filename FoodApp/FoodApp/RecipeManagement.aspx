@@ -13,6 +13,7 @@
     <asp:Button ID="btnManageOwnRecipes" runat="server" Text="Manage Own Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnManageOwnRecipes_Click" />
     <asp:Button ID="btnManageUserRecipes" runat="server" Text="Manage User Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnManageUserRecipes_Click" />
     <asp:Button ID="btnExploreRecipes" runat="server" Text="Explore Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnExploreRecipes_Click" />
+    <asp:Button ID="btnLogout" runat="server" Text="Logout" Width="100%" Cssclass="btn btn-danger" OnClick="btnLogout_Click"/>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>

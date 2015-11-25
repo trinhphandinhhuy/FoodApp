@@ -28,6 +28,11 @@ namespace FoodApp
             {
                 Response.Redirect("Login.aspx");
             }
+
+            if (Session["userlevel"].ToString() != "Admin")
+            {
+                Ingredients.Visible = false;
+            }
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
