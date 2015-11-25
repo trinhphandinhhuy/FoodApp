@@ -15,22 +15,29 @@
                     <ItemTemplate>
                         <asp:Label ID="lblFoodName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                     </ItemTemplate>
+
                     <EditItemTemplate>
                         <asp:TextBox ID="txtUpdateFoodName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
+
+
                 <asp:TemplateField HeaderText="Unit Type">
                     <ItemTemplate>
                         <asp:Label ID="lblUnitType" runat="server" Text='<%# Bind("UnitType") %>'></asp:Label>
                     </ItemTemplate>
+
                     <EditItemTemplate>
                         <asp:DropDownList ID="ddlUpdateUnitType" runat="server"></asp:DropDownList>
                     </EditItemTemplate>
                 </asp:TemplateField>
+
+
                 <asp:TemplateField HeaderText="Food Type">
                     <ItemTemplate>
                         <asp:Label ID="lblFoodType" runat="server" Text='<%# Bind("FoodTypeID") %>'></asp:Label>
                     </ItemTemplate>
+
                     <EditItemTemplate>
                         <asp:DropDownList ID="ddlUpdateFoodType" runat="server"></asp:DropDownList>
                     </EditItemTemplate>
