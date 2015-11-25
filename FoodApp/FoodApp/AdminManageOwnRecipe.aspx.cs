@@ -96,7 +96,7 @@ namespace FoodApp
             DropDownList EditMealType = (DropDownList)row.FindControl("EditMealType");
             DropDownList EditPortion = (DropDownList)row.FindControl("EditPortion");
             DropDownList EditCookingTime = (DropDownList)row.FindControl("EditCookingTime");
-            DropDownList EditDescription = (DropDownList)row.FindControl("EditDescription");
+            TextBox EditDescription = (TextBox)row.FindControl("EditDescription");
             
             recipeid = Convert.ToInt32(AdminRecipeTable.Rows[e.RowIndex].Cells[1].Text);
             myUpdateCommand = new OleDbCommand("Update Recipe SET Name='" + EditRecipeName.Text + "', MealTypeID= '" + EditMealType.SelectedValue 
