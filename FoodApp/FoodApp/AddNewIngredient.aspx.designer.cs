@@ -10,42 +10,60 @@
 namespace FoodApp {
     
     
-    public partial class SearchIngredient {
+    public partial class AddNewIngredient {
         
         /// <summary>
-        /// txtBoxSearchName control.
+        /// ValidationSummary1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxSearchName;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
-        /// ddlCategory control.
+        /// txtFoodName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtFoodName;
         
         /// <summary>
-        /// btnSearchIngredient control.
+        /// ddlFoodType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearchIngredient;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFoodType;
         
         /// <summary>
-        /// FoodTable control.
+        /// ddlUnitType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView FoodTable;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUnitType;
+        
+        /// <summary>
+        /// btnAddFoodItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddFoodItem;
+        
+        /// <summary>
+        /// RequiredFoodName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFoodName;
     }
 }
