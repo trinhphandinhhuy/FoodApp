@@ -8,15 +8,15 @@
         <br />
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         Username:<br />
-        <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox><br />
+        <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox><br />
         Email Address:<br />
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox><br />
+        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox><br />
         Password:<br />
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox><br />
+        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
         Confirm Password:<br />
-        <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox><br />
+        <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
         <br />
-        <asp:Button ID="btnAdd" runat="server" Text="Add New User" OnClick="btnAdd_Click" />
+        <asp:Button ID="btnAdd" runat="server" Text="Add New User" OnClick="btnAdd_Click" CssClass="btn form-control" />
         <asp:RequiredFieldValidator ID="RequiredUsername" runat="server" ErrorMessage="Please enter an username" ForeColor="Red" ControlToValidate="txtUsername" Display="None"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RequiredEmail" runat="server" ErrorMessage="Please enter an email address" ForeColor="Red" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RequiredPassword" runat="server" ErrorMessage="Please enter password" ForeColor="Red" ControlToValidate="txtPassword" Display="None"></asp:RequiredFieldValidator>

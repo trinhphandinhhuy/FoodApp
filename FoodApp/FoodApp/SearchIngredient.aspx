@@ -16,10 +16,10 @@
         <div class="row">
        <div class="col-md-12 col-lg-12">   
         Search by name<br />
-        <asp:TextBox ID="txtBoxSearchName" runat="server"></asp:TextBox> in Category: 
+        <asp:TextBox ID="txtBoxSearchName" runat="server" CssClass="form-control"></asp:TextBox> in Category: 
         <asp:DropDownList ID="ddlCategory" runat="server">
         </asp:DropDownList>
-        <asp:Button ID="btnSearchIngredient" runat="server" OnClick="btnSearchIngredient_Click" Text="Search" />
+        <asp:Button ID="btnSearchIngredient" runat="server" OnClick="btnSearchIngredient_Click" Text="Search" CssClass="btn" />
         <br />
         <br />
         </div>

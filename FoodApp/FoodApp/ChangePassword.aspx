@@ -21,13 +21,13 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     Old Password:<br />
-    <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password"></asp:TextBox><br />
+    <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
     New Password:<br />
-    <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password"></asp:TextBox><br />
+    <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
     Confirm Password:<br />
-    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox><br />
+    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
     <br />
-    <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" /><br />
+    <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" CssClass="btn" /><br />
     <asp:RequiredFieldValidator ID="RequiredOldPassword" runat="server" ErrorMessage="Please enter old password" ForeColor="Red" ControlToValidate="txtOldPassword" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RequiredNewPassword" runat="server" ErrorMessage="Please enter new password" ForeColor="Red" ControlToValidate="txtNewPassword" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RequiredConfirmPassword" runat="server" ErrorMessage="Please confirm new password" ForeColor="Red" ControlToValidate="txtConfirmPassword" Display="None"></asp:RequiredFieldValidator>

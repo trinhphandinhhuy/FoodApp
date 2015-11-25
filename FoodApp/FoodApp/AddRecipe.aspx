@@ -11,9 +11,7 @@
     </div>
     <div class="form-group">
         Meal type: <asp:DropDownList ID="DlRecipeType" runat="server" CssClass="form-control" DataSourceID="MealTypeData" DataTextField="Name" DataValueField="MealTypeID"></asp:DropDownList>
-
         <asp:SqlDataSource ID="MealTypeData" runat="server" ConnectionString="" ProviderName="<%$ ConnectionStrings:DatabaseforAppConnectionString1.ProviderName %>" SelectCommand="SELECT [MealTypeID], [Name] FROM [MealType]"></asp:SqlDataSource>
-
     </div>
     <div class="form-group">
         <asp:TextBox ID="txtCookingTime" runat="server" CssClass="form-control" placeholder="Cooking time"></asp:TextBox>
@@ -27,7 +25,6 @@
     <div class="form-group">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                
                 <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" CssClass="form-control btn btn-register"/>
             </div>
         </div>

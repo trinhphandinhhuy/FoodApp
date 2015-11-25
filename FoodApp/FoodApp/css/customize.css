@@ -39,16 +39,16 @@
 }
 
 .firstNav  {
-    height: 80vh;
-    height: 85vh;
+    min-height:100vh;
+    height:auto;
     background-color: #6B949E;  
     padding: 10px;
 }
 
 
 .secondNav {
-    height: 80vh;
-    height: 85vh;
+    min-height:100vh;
+    height:auto;
     background-color: #D1E1E5; 
     padding: 0;
 }
