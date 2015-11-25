@@ -192,5 +192,9 @@ namespace FoodApp
             Response.Redirect("UserIngredient.aspx");
         }
 
+        protected void btnExploreRecipes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ExploringRecipes.aspx");
+        }
     }
 }

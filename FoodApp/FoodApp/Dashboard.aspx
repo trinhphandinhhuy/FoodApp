@@ -21,6 +21,6 @@
  </asp:Content>   
        
 <asp:Content ContentPlaceHolderID="accountInfo" runat="server">
-    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" Cssclass="btn btn-danger"/>
+    
  </asp:Content>
     
