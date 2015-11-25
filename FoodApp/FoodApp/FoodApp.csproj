@@ -69,6 +69,8 @@
     <Content Include="AddNewIngredient.aspx" />
     <Content Include="AddRecipe.aspx" />
     <Content Include="AdminAddEditDeleteFoodItem.aspx" />
+    <Content Include="AdminAddUser.aspx" />
+    <Content Include="AdminDeleteUser.aspx" />
     <Content Include="AdminManagement.aspx" />
     <Content Include="AdminManageOwnRecipe.aspx" />
     <Content Include="AdminManageUserRecipes.aspx" />
@@ -129,6 +131,7 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="ChangeUsernameAndEmail.aspx" />
     <Content Include="SearchIngredient.aspx" />
+    <Content Include="UserManagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +155,20 @@
     </Compile>
     <Compile Include="AdminAddEditDeleteFoodItem.aspx.designer.cs">
       <DependentUpon>AdminAddEditDeleteFoodItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddUser.aspx.cs">
+      <DependentUpon>AdminAddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminAddUser.aspx.designer.cs">
+      <DependentUpon>AdminAddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDeleteUser.aspx.cs">
+      <DependentUpon>AdminDeleteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDeleteUser.aspx.designer.cs">
+      <DependentUpon>AdminDeleteUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminManagement.aspx.cs">
       <DependentUpon>AdminManagement.aspx</DependentUpon>
@@ -269,6 +286,13 @@
     </Compile>
     <Compile Include="SearchIngredient.aspx.designer.cs">
       <DependentUpon>SearchIngredient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>
