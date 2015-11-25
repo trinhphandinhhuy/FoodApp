@@ -10,7 +10,7 @@
 namespace FoodApp {
     
     
-    public partial class SuccessLogIn {
+    public partial class RecipeManagement {
         
         /// <summary>
         /// Recipes control.
@@ -31,30 +31,48 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.ImageButton Ingredients;
         
         /// <summary>
-        /// User control.
+        /// MyList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton User;
+        protected global::System.Web.UI.WebControls.ImageButton MyList;
         
         /// <summary>
-        /// Label1 control.
+        /// btnAddRecipe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btnAddRecipe;
         
         /// <summary>
-        /// btnLogout control.
+        /// btnManageOwnRecipes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.Button btnManageOwnRecipes;
+        
+        /// <summary>
+        /// btnManageUserRecipes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnManageUserRecipes;
+        
+        /// <summary>
+        /// btnExploreRecipes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExploreRecipes;
     }
 }

@@ -11,8 +11,8 @@
 }
 
 .mainContent {
-    height:80vh;
-    height:85vh;
+    height:auto;
+    min-height: 400px;
     vertical-align: middle;
     align-self: center;
 }

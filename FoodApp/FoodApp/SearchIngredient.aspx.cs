@@ -173,7 +173,7 @@ namespace FoodApp
 
         protected void btnAddIngredient_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddIngredient.aspx");
+            Response.Redirect("AddNewIngredient.aspx");
         }
 
         protected void btnListAllIngredient_Click(object sender, EventArgs e)
