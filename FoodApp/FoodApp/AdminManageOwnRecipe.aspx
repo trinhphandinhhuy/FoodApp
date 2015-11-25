@@ -53,7 +53,7 @@
                         <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="EditDescription" runat="server" MaxLength="9999999999" Rows="5"></asp:TextBox>
+                        <asp:TextBox ID="EditDescription" runat="server" MaxLength="99999" Rows="5"></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
             </Columns>
