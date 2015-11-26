@@ -14,30 +14,35 @@ namespace FoodApp
 {
     public partial class AddRecipe : System.Web.UI.Page
     {
-        OleDbConnection myConnection = new OleDbConnection();
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbCommand cmd2 = new OleDbCommand();
+        private OleDbConnection myConnection = new OleDbConnection();
+        private OleDbCommand mySelectCommand = new OleDbCommand();
+        private OleDbCommand cmd = new OleDbCommand();
+        private OleDbCommand cmd2 = new OleDbCommand();
+        private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
+        private DataSet myDataSet = new DataSet();
+        String connstr = "Provider = Microsoft.Jet.OLEDB.4.0;" +
+             @"Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private string user_data_ID;
+        private string tmpRecipeID;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             checkAuthentication();
+            myConnection.ConnectionString = connstr;
+            myConnection.Open();
+            mySelectCommand.Connection = myConnection;
+            myAdapter.SelectCommand = mySelectCommand;
+            MealTypeData.ConnectionString = connstr;
+            FoodStuffDS.ConnectionString = connstr;
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            String connstr;
+            CheckRecipeID();
 
-            connstr = "Provider = Microsoft.Jet.OLEDB.4.0;" +
-             @"Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
-            myConnection.ConnectionString = connstr;
-            myConnection.Open();
-            MealTypeData.ConnectionString = connstr;
-
-            if (Session["userlevel"].ToString() != "Admin")
+            if (!Page.IsPostBack)
             {
-                btnManageUserRecipes.Visible = false;
-                Ingredients.Visible = false;
+                getDB();
             }
         }
 
@@ -48,6 +53,21 @@ namespace FoodApp
                 Response.Redirect("Login.aspx");
             }
         }
+
+        private void getDB()
+        {
+            IngredientRecipeDB.DataSource = null;
+            IngredientRecipeDB.DataBind();
+            //Define the command objects (SQL commands)
+            mySelectCommand.CommandText = "SELECT FoodItem.Name,RecipeFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN RecipeFoodItem ON FoodItem.FoodItemID = RecipeFoodItem.FoodItemID Where RecipeID = " + tmpRecipeID;
+            //Fetching rows into the Data Set
+            myAdapter.Fill(myDataSet, "IngredientRecipeDB");
+            //Show the users in the Data Grid
+            IngredientRecipeDB.DataSource = myDataSet;
+            IngredientRecipeDB.DataMember = "IngredientRecipeDB";
+            IngredientRecipeDB.DataBind();
+        }
+
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             if (this.IsValid)
@@ -69,6 +89,7 @@ namespace FoodApp
                     }
                     reader.Close();
                     //adding parameters with value
+
 
                     cmd.Parameters.AddWithValue("@UserDataID", Convert.ToInt32(user_data_ID));
                     cmd.Parameters.AddWithValue("@Name", txtRecipeName.Text.ToString());
@@ -95,6 +116,52 @@ namespace FoodApp
             }
 
         }
+
+        protected void AddIngButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //add ingredients
+                cmd.Connection = myConnection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO RecipeFoodItem(RecipeID, FoodItemID, Amount) values(@RecipeID, @FoodItemID, @Amount)";
+
+                cmd.Parameters.AddWithValue("@RecipeID", Convert.ToInt32(tmpRecipeID));
+                cmd.Parameters.AddWithValue("@FoodItemID", Convert.ToInt32(DlIngredients.SelectedValue));
+                cmd.Parameters.AddWithValue("@Amount", Convert.ToDouble(txtAmount.Text));
+                cmd.ExecuteNonQuery();  //executing query
+                getDB();
+            }
+            catch (Exception ex)
+            {
+                lblMsg.Text = ex.Message.ToString();
+            }
+        }
+        protected void CheckRecipeID()
+        {
+            cmd.Connection = myConnection;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT MAX(RecipeID) as ID FROM Recipe";
+            OleDbDataReader reader = cmd.ExecuteReader();
+            bool notEoF = reader.Read();
+            while (notEoF)
+            {
+                if (reader["ID"].ToString() != "")
+                {
+                    tmpRecipeID = Convert.ToString(Convert.ToInt32(reader["ID"]) + 1);
+                }
+                else
+                {
+                    tmpRecipeID = "1";
+                }
+                notEoF = reader.Read();
+            }
+
+
+            reader.Close();
+
+        }
+
 
         protected void btnAddRecipe_Click(object sender, EventArgs e)
         {
