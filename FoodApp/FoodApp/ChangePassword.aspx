@@ -27,7 +27,7 @@
     Confirm Password:<br />
     <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
     <br />
-    <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" CssClass="btn" /><br />
+    <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" CssClass="btn btn-register form-control" /><br />
     <asp:RequiredFieldValidator ID="RequiredOldPassword" runat="server" ErrorMessage="Please enter old password" ForeColor="Red" ControlToValidate="txtOldPassword" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RequiredNewPassword" runat="server" ErrorMessage="Please enter new password" ForeColor="Red" ControlToValidate="txtNewPassword" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RequiredConfirmPassword" runat="server" ErrorMessage="Please confirm new password" ForeColor="Red" ControlToValidate="txtConfirmPassword" Display="None"></asp:RequiredFieldValidator>

@@ -26,7 +26,7 @@
     Email:<br />
     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox><br />
     <br />
-    <asp:Button ID="btnChangeUsernameAndEmailAddress" runat="server" Text="Save Change(s)" OnClick="btnChangeUsernameAndEmailAddress_Click" CssClass="btn" /><br />
+    <asp:Button ID="btnChangeUsernameAndEmailAddress" runat="server" Text="Save Change(s)" OnClick="btnChangeUsernameAndEmailAddress_Click" CssClass="btn btn-register form-control" /><br />
     <asp:RequiredFieldValidator ID="RequiredUsername" runat="server" ErrorMessage="Please enter an username" ForeColor="Red" ControlToValidate="txtUsername" Display="None"></asp:RequiredFieldValidator><br />
     <asp:RequiredFieldValidator ID="RequiredEmailAddress" runat="server" ErrorMessage="Please enter an email address" ForeColor="Red" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator><br />
     <asp:RegularExpressionValidator ID="RegularExpressionEmailAddress" runat="server" ErrorMessage="Invalid E-mail Address" ForeColor="Red" ControlToValidate="txtEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="None"></asp:RegularExpressionValidator><br />
