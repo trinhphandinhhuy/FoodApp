@@ -23,7 +23,7 @@
         <li><a href="#!">three</a></li>
     </ul>
     <nav class="teal" role="navigation">
-        <div class="nav-wrapper container">
+        <div class="nav-wrapper">
             <a id="logo-container" class="brand-logo">
                 <img class="PageLogo" src="../img/logo.png" /></a>
             <ul class="right hide-on-med-and-down">
@@ -96,5 +96,6 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../Scripts/materialize.js"></script>
     <script src="../Scripts/init.js"></script>
+
 </body>
 </html>

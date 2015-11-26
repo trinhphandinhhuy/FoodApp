@@ -6476,6 +6476,11 @@ Picker.extend( 'pickadate', DatePicker )
       $(".dropdown-button").dropdown();
   });
 
+  $(document).ready(function () {
+      $('select').material_select();
+  });
+
+
 }(jQuery));
 
 

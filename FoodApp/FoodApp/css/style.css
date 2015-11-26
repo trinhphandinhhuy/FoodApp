@@ -72,3 +72,20 @@ footer.page-footer {
 UsernameDisplay{
 
 }
+
+.image-box{
+    min-height: 130px;
+    position: relative;
+    text-align: center;}
+
+#dvPreview
+{
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+    min-height: 400px;
+    min-width: 400px;
+    display: none;
+}
+
+.lineheightnone{
+    line-height:none;
+}
