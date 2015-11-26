@@ -21,6 +21,8 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" /><br />
+    <div class="row">
+         <div class="col-md-6 col-md-offset-3">
     Username:<br />
     <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox><br />
     Email:<br />
@@ -30,5 +32,6 @@
     <asp:RequiredFieldValidator ID="RequiredUsername" runat="server" ErrorMessage="Please enter an username" ForeColor="Red" ControlToValidate="txtUsername" Display="None"></asp:RequiredFieldValidator><br />
     <asp:RequiredFieldValidator ID="RequiredEmailAddress" runat="server" ErrorMessage="Please enter an email address" ForeColor="Red" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator><br />
     <asp:RegularExpressionValidator ID="RegularExpressionEmailAddress" runat="server" ErrorMessage="Invalid E-mail Address" ForeColor="Red" ControlToValidate="txtEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="None"></asp:RegularExpressionValidator><br />
-    
+    </div>
+        </div>
 </asp:Content>

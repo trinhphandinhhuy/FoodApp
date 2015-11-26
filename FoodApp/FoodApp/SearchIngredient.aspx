@@ -14,7 +14,7 @@
 
     <asp:Content ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
         <div class="row">
-       <div class="col-md-12 col-lg-12">   
+       <div class="col-md-6 col-md-offset-3">   
         Search by name<br />
         <asp:TextBox ID="txtBoxSearchName" runat="server" CssClass="form-control"></asp:TextBox> in Category: 
         <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control">

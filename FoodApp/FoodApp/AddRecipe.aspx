@@ -6,6 +6,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ValidationSummary ID="VsRecipe" runat="server" CssClass="alert alert-danger"/>
+    <div class="row">
+         <div class="col-md-6 col-md-offset-3">
     <div class="form-group">
         <asp:TextBox ID="txtRecipeName" runat="server" CssClass="form-control" placeholder="Recipe name"></asp:TextBox>
     </div>
@@ -29,7 +31,7 @@
             </div>
         </div>
     </div>
-
+</div></div>
     <asp:RequiredFieldValidator ID="RfvRecipeName" runat="server" ErrorMessage="Recipe name Required" ForeColor="#FF3300" ControlToValidate="txtRecipeName" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvCookingTime" runat="server" ErrorMessage="Cooking time Required" ForeColor="#FF3300" ControlToValidate="txtCookingTime" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvPortion" runat="server" ErrorMessage="Portions Required" ForeColor="#FF3300" ControlToValidate="txtPortion" Display="None"></asp:RequiredFieldValidator>
