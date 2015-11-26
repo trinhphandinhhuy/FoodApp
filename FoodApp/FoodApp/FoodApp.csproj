@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddNewIngredient.aspx" />
+    <Content Include="AddRecipe.aspx" />
     <Content Include="AdminAddEditDeleteFoodItem.aspx" />
     <Content Include="AdminAddUser.aspx" />
     <Content Include="AdminDeleteUser.aspx" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="AddNewIngredient.aspx.designer.cs">
       <DependentUpon>AddNewIngredient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddRecipe.aspx.cs">
+      <DependentUpon>AddRecipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddRecipe.aspx.designer.cs">
+      <DependentUpon>AddRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminAddEditDeleteFoodItem.aspx.cs">
       <DependentUpon>AdminAddEditDeleteFoodItem.aspx</DependentUpon>

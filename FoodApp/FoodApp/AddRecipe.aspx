@@ -14,7 +14,7 @@
     <div class="form-group">
         <asp:DropDownList ID="DlRecipeType" runat="server" CssClass="form-control" DataSourceID="MealTypeData" DataTextField="Name" DataValueField="MealTypeID"></asp:DropDownList>
 
-        <asp:SqlDataSource ID="MealTypeData" runat="server" ConnectionString="" ProviderName="<%$ ConnectionStrings:DatabaseforAppConnectionString1.ProviderName %>" SelectCommand="SELECT [MealTypeID], [Name] FROM [MealType]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="MealTypeData" runat="server" ConnectionString="" ProviderName="System.Data.OleDb" SelectCommand="SELECT [MealTypeID], [Name] FROM [MealType]"></asp:SqlDataSource>
 
     </div>
     <div class="form-group">
@@ -31,7 +31,7 @@
     <div class="col-lg-6">
         <div class="form-group">
         <asp:DropDownList ID="DlIngredients" AutoPostBack="true" CssClass="form-control" runat="server" DataSourceID="FoodStuffDS" DataTextField="Name" DataValueField="FoodItemID"></asp:DropDownList>
-        <asp:SqlDataSource ID="FoodStuffDS" runat="server"  ConnectionString="" ProviderName="<%$ ConnectionStrings:DatabaseforAppConnectionString1.ProviderName %>" SelectCommand="SELECT [FoodItemID], [Name] FROM [FoodItem]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="FoodStuffDS" runat="server"  ConnectionString="" ProviderName="System.Data.OleDb" SelectCommand="SELECT [FoodItemID], [Name] FROM [FoodItem]"></asp:SqlDataSource>
     &nbsp;</div>
     <div class="form-group">
         <asp:TextBox ID="txtAmount" runat="server"  CssClass="form-control" placeholder="Amount"></asp:TextBox>
