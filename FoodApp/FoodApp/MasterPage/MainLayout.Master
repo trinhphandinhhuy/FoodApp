@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainLayout.master.cs" Inherits="FoodApp.MasterPage.MainLayout" %>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>FoodNStuff</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+
+<body>
+    <!--Start navigation-->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+    </ul>
+    <nav class="teal" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" class="brand-logo">
+                <img class="PageLogo" src="../img/logo.png" /></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">
+                    <img class="navLogo" src="../img/recipe.png" /></a></li>
+                <li><a href="#">
+                    <img class="navLogo" src="../img/ingredients.png" /></a>
+                </li>
+                <li><a href="#">
+                    <img class="navLogo" src="../img/personal.png" /></a></li>
+                <li class=""><a class="dropdown-button" href="#!" data-activates="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+
+
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Recipe</a></li>
+                <li><a href="#">Shopping list</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <!--End navigation-->
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <!--Footer-->
+    <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About us</h5>
+          <p class="grey-text text-lighten-4">WINNER TEAM <br> We are a team of LAMK's students working on FoodNStuff project. </p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Create by <a class="brown-text text-lighten-3" href="http://Lamk.fi">WINNER TEAM </a>with &#9825;
+      </div>
+    </div>
+  </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../Scripts/materialize.js"></script>
+    <script src="../Scripts/init.js"></script>
+</body>
+</html>

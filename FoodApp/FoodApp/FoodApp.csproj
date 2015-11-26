@@ -80,9 +80,13 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\customize.css" />
+    <Content Include="css\materialize.css" />
+    <Content Include="css\materialize.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="DatabaseBackup\DatabaseforApp.mdb" />
     <Content Include="Database\Database.mdb" />
     <Content Include="Database\DatabaseforApp.mdb" />
+    <Content Include="Example.aspx" />
     <Content Include="ExploringRecipes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\ingredients.png" />
@@ -100,12 +104,14 @@
     <Content Include="RecipeManagement.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="MasterPage\frontPage1.Master" />
     <Content Include="MasterPage\loginPage1.Master" />
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap.css.map" />
     <Content Include="MasterPage\DashBoard.Master" />
+    <Content Include="MasterPage\MainLayout.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,6 +138,8 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Dashboard.aspx" />
     <Content Include="ChangeUsernameAndEmail.aspx" />
+    <Content Include="Scripts\materialize.js" />
+    <Content Include="Scripts\materialize.min.js" />
     <Content Include="SearchIngredient.aspx" />
     <Content Include="UserManagement.aspx" />
     <Content Include="Web.config" />
@@ -200,6 +208,13 @@
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Example.aspx.cs">
+      <DependentUpon>Example.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Example.aspx.designer.cs">
+      <DependentUpon>Example.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ExploringRecipes.aspx.cs">
       <DependentUpon>ExploringRecipes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,6 +281,13 @@
     <Compile Include="MasterPage\loginPage1.Master.designer.cs">
       <DependentUpon>loginPage1.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage\MainLayout.Master.cs">
+      <DependentUpon>MainLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\MainLayout.Master.designer.cs">
+      <DependentUpon>MainLayout.Master</DependentUpon>
+    </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeManagement.aspx.cs">
@@ -310,6 +332,10 @@
     <Compile Include="UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="fonts\material-design-icons\" />
+    <Folder Include="fonts\roboto\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
