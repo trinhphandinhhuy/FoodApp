@@ -1,10 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddRecipe.aspx.cs" Inherits="FoodApp.AddRecipe" MasterPageFile="~/MasterPage/DashBoard.Master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddRecipe.aspx.cs" Inherits="FoodApp.AddRecipe" MasterPageFile="~/MasterPage/MainLayout.Master"%>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Add recipe</title>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+        <h3 class="grey-text center-on-small-only">ADD YOUR RECIPE</h3>
     <asp:ValidationSummary ID="VsRecipe" runat="server" CssClass="alert alert-danger"/>
     <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -27,7 +29,7 @@
         <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Descriptions"></asp:TextBox>
     </div>
     <asp:PlaceHolder ID="PlaceHolder1" runat="server">
-        <h2>ADD INGREDIENTS</h2>
+        <h5>Add Ingredients</h5>
     <div class="col-lg-6">
         <div class="form-group">
         <asp:DropDownList ID="DlIngredients" AutoPostBack="true" CssClass="form-control" runat="server" DataSourceID="FoodStuffDS" DataTextField="Name" DataValueField="FoodItemID"></asp:DropDownList>
@@ -53,7 +55,7 @@
             </div>
         </div>
     </div>
-    
+    </div>
     <asp:RequiredFieldValidator ID="RfvRecipeName" runat="server" ErrorMessage="Recipe name Required" ForeColor="#FF3300" ControlToValidate="txtRecipeName" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvCookingTime" runat="server" ErrorMessage="Cooking time Required" ForeColor="#FF3300" ControlToValidate="txtCookingTime" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvPortion" runat="server" ErrorMessage="Portions Required" ForeColor="#FF3300" ControlToValidate="txtPortion" Display="None"></asp:RequiredFieldValidator>
@@ -62,18 +64,6 @@
         </div></div>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
-    <asp:ImageButton ID="Recipes" runat="server" ImageUrl="~/img/recipe.png" CssClass="navIcon" OnClick ="Recipe_Click" /> 
-    <asp:ImageButton ID="Ingredients" runat="server" ImageUrl="~/img/ingredients.png" CssClass="navIcon" OnClick="Ingredients_Click" />  
-    <asp:ImageButton ID="MyList" runat="server" ImageUrl="~/img/personal.png" CssClass="navIcon" OnClick ="User_Click" />
-</asp:Content>
 
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button ID="btnAddRecipe" runat="server" Text="Add Recipe" CssClass="btn btn-info" Width="100%" OnClick="btnAddRecipe_Click" />
-    <asp:Button ID="btnManageOwnRecipes" runat="server" Text="Manage Own Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnManageOwnRecipes_Click" />
-    <asp:Button ID="btnManageUserRecipes" runat="server" Text="Manage User Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnManageUserRecipes_Click" />
-    <asp:Button ID="btnExploreRecipes" runat="server" Text="Explore Recipes" CssClass="btn btn-info" Width="100%" OnClick="btnExploreRecipes_Click" />
-    <asp:Button ID="btnLogout" runat="server" Text="Logout" Width="100%" Cssclass="btn btn-danger" OnClick="btnLogout_Click"/>
-</asp:Content>
 
 

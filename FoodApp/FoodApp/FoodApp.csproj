@@ -67,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddNewIngredient.aspx" />
-    <Content Include="AddNRecipe.aspx" />
     <Content Include="AddRecipe.aspx" />
     <Content Include="AdminAddEditDeleteFoodItem.aspx" />
     <Content Include="AdminAddUser.aspx" />
@@ -152,13 +151,6 @@
     </Compile>
     <Compile Include="AddNewIngredient.aspx.designer.cs">
       <DependentUpon>AddNewIngredient.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AddNRecipe.aspx.cs">
-      <DependentUpon>AddNRecipe.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddNRecipe.aspx.designer.cs">
-      <DependentUpon>AddNRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddRecipe.aspx.cs">
       <DependentUpon>AddRecipe.aspx</DependentUpon>
@@ -344,6 +336,7 @@
   <ItemGroup>
     <Folder Include="fonts\material-design-icons\" />
     <Folder Include="fonts\roboto\" />
+    <Folder Include="img\recipeImg\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
