@@ -54,7 +54,7 @@ namespace FoodApp
             RecipeTable.DataSource = null;
             RecipeTable.DataBind();
             //Define the command objects (SQL commands)
-            mySelectCommand.CommandText = "SELECT * FROM Recipe WHERE UserDataID <> 7";
+            mySelectCommand.CommandText = "SELECT RecipeID, Name FROM Recipe WHERE UserDataID <> 7";
             //Fetching rows into the Data Set
             myAdapter.Fill(myDataSet);
             //Show the users in the Data Grid
@@ -77,7 +77,7 @@ namespace FoodApp
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 string item = e.Row.Cells[0].Text;
-                foreach (Button button in e.Row.Cells[2].Controls.OfType<Button>())
+                foreach (Button button in e.Row.Cells[1].Controls.OfType<Button>())
                 {
                     if (button.CommandName == "Delete")
                     {
@@ -128,6 +128,7 @@ namespace FoodApp
             Response.Redirect("Login.aspx");
         }
 
+        
     }
 
 }
