@@ -14,19 +14,26 @@
         <asp:TextBox ID="txtRecipeName" runat="server" CssClass="form-control" placeholder="Recipe name"></asp:TextBox>
     </div>
     <div class="form-group">
-        <asp:DropDownList ID="DlRecipeType" runat="server" CssClass="form-control" DataSourceID="MealTypeData" DataTextField="Name" DataValueField="MealTypeID"></asp:DropDownList>
+        <label>Mealtype</label>
+        <asp:DropDownList ID="DlRecipeType" runat="server" CssClass="browser-default form-control" DataSourceID="MealTypeData" DataTextField="Name" DataValueField="MealTypeID"></asp:DropDownList>
 
         <asp:SqlDataSource ID="MealTypeData" runat="server" ConnectionString="" ProviderName="System.Data.OleDb" SelectCommand="SELECT [MealTypeID], [Name] FROM [MealType]"></asp:SqlDataSource>
-
+    <br />
     </div>
-    <div class="form-group">
-        <asp:TextBox ID="txtCookingTime" runat="server" CssClass="form-control" placeholder="Cooking time"></asp:TextBox>
+    <div class="input-field col s6 l6">
+        <i class="material-icons prefix">query_builder</i>
+        <asp:TextBox ID="txtCookingTime" runat="server" CssClass="input-field icon_prefix" placeholder="Cooking time"></asp:TextBox>
     </div>
-    <div class="form-group">
-        <asp:TextBox ID="txtPortion" runat="server"  CssClass="form-control" placeholder="Portions"></asp:TextBox>
+        
+    <div class="input-field col s6 l6">
+        <i class="material-icons prefix">assignment_ind</i>
+        <asp:TextBox ID="txtPortion" runat="server"  CssClass="input-field icon_prefix " placeholder="Portions"></asp:TextBox>
     </div>
+ <br />
+    <br />
     <div class="form-group">
-        <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" CssClass="form-control" placeholder="Descriptions"></asp:TextBox>
+        <label>Directions</label>
+        <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" CssClass="input-field grey lighten-3" placeholder="Write instruction how to cook this meal" BorderColor="#CCCCCC" Height="150px"></asp:TextBox>
     </div>
     <asp:PlaceHolder ID="PlaceHolder1" runat="server">
         <h5>Add Ingredients</h5>
