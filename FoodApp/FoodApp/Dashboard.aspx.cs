@@ -12,14 +12,7 @@ namespace FoodApp
         protected void Page_Load(object sender, EventArgs e)
         {
             checkUserAuthentication();
-            if ((Convert.ToString(Session["userlevel"])) ==  "1")
-            {
-                Label1.Text = "Admin";
-            }
-            else
-            {
-                Label1.Text = Convert.ToString(Session["username"]);
-            }
+           
 
         }
         private void checkUserAuthentication()
@@ -29,10 +22,7 @@ namespace FoodApp
                 Response.Redirect("Login.aspx");
             }
 
-            if (Session["userlevel"].ToString() != "Admin")
-            {
-                Ingredients.Visible = false;
-            }
+            
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

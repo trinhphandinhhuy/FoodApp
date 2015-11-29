@@ -98,12 +98,12 @@ namespace FoodApp
         }
         protected void btnAddNewUser_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminAddUser.aspx");
+            Response.Redirect("Admin/AdminAddUser.aspx");
         }
 
         protected void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminDeleteUser.aspx");
+            Response.Redirect("Admin/AdminDeleteUser.aspx");
         }
 
         protected void btnEditUsernameAndEmail_Click(object sender, EventArgs e)

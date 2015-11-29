@@ -5,15 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FoodApp
+namespace FoodApp.MasterPage
 {
-    public partial class ExploringRecipes : System.Web.UI.Page
+    public partial class MPIngreManagement : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
 
-        
+        }
     }
 }

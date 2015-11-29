@@ -6472,15 +6472,7 @@ Picker.extend( 'pickadate', DatePicker )
   }
 
   $(document).ready(function(){
-      $('input, textarea').characterCounter();
-      $(".dropdown-button").dropdown();
+    $('input, textarea').characterCounter();
   });
 
-  $(document).ready(function () {
-      $('select').material_select();
-  });
-
-
-}(jQuery));
-
-
+}( jQuery ));

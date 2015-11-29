@@ -36,11 +36,7 @@ namespace FoodApp
                 getDB();
             }
 
-            if (Session["userlevel"].ToString() != "Admin")
-            {
-                btnManageUserRecipes.Visible = false;
-                Ingredients.Visible = false;
-            }
+            
         }
 
         private void checkAdminAuthentication()

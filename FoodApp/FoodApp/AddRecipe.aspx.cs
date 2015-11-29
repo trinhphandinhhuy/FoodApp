@@ -175,7 +175,7 @@ namespace FoodApp
 
         protected void btnManageUserRecipes_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminManageUserRecipes.aspx");
+            Response.Redirect("Admin/AdminManageUserRecipes.aspx");
         }
 
         protected void btnExploreRecipes_Click(object sender, EventArgs e)

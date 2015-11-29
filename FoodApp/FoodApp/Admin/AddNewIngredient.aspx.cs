@@ -73,40 +73,6 @@ namespace FoodApp
             myConnection.Close(); //closing connection
         }
 
-        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("ManageIngredient.aspx");
-        }
-
-        protected void btnAddIngredient_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddNewIngredient.aspx");
-        }
-
-        protected void btnListAllIngredient_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ListAllIngredient.aspx");
-        }
-
-        protected void btnSearchIngredient_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("SearchIngredient.aspx");
-        }
-
-        protected void Recipes_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("RecipeManagement.aspx");
-        }
-
-        protected void MyList_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("UserManagement.aspx");
-        }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Response.Redirect("Login.aspx");
-        }
+        
     }
 }

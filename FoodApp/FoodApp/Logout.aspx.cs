@@ -7,13 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace FoodApp
 {
-    public partial class ExploringRecipes : System.Web.UI.Page
+    public partial class Logout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
-
-        
     }
 }

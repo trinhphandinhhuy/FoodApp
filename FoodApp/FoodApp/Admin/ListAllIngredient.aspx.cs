@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace FoodApp
 {
-    public partial class SearchIngredient : System.Web.UI.Page
+    public partial class ListAllIngredient : System.Web.UI.Page
     {
         private OleDbConnection myConnection = new OleDbConnection();
         private OleDbCommand mySelectCommand = new OleDbCommand();
@@ -22,76 +22,49 @@ namespace FoodApp
         private DataSet myDataSet = new DataSet();
         private string connectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"Database\DatabaseforApp.mdb;";
         private int foodid;
-        private OleDbDataReader myReader;
-
         protected void Page_Init(object sender, EventArgs e)
         {
-            //checkAuthentication();
-
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            
+            //  checkAdminAuthentication();
             myConnection.ConnectionString = connectionString;
             myConnection.Open();
             mySelectCommand.Connection = myConnection;
             myAdapter.SelectCommand = mySelectCommand;
 
-            //mySelectCommand.Connection = myConnection;
-            mySelectCommand.CommandType = CommandType.Text;
-            mySelectCommand.CommandText = "SELECT Name FROM FoodType";
-            myReader = mySelectCommand.ExecuteReader();
-            bool notEoF;
-            //read first row from database
-            notEoF = myReader.Read();
-            //read row by row until the last row
-            if(ddlCategory.Items.Count == 0)
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
             {
-                ddlCategory.Items.Add("All Categories");
-                while (notEoF)
-                {
-                    ddlCategory.Items.Add(myReader["Name"].ToString());
-                    notEoF = myReader.Read();
-                }
-            } else { }
-            
-            myReader.Close();
+                getDB();
+            }
 
             if (Session["userlevel"].ToString() != "Admin")
             {
                 Response.Redirect("Dashboard.aspx");
             }
         }
-
+        private void checkAdminAuthentication()
+        {
+            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "") { Response.Redirect("Login.aspx"); }
+            if (Session["userlevel"] != null && Session["userlevel"].ToString() != "Admin") { Response.Redirect("Login.aspx"); }
+        }
         private void getDB()
         {
-
+            
             FoodTable.DataSource = null;
             FoodTable.DataBind();
             //Define the command objects (SQL commands)
-            if(ddlCategory.SelectedItem.Text == "All Categories")
-            {
-                mySelectCommand.CommandText = "SELECT FoodItem.* FROM FoodItem INNER JOIN FoodType ON FoodItem.FoodTypeID = FoodType.FoodTypeID WHERE FoodItem.Name LIKE '%" + txtBoxSearchName.Text + "%';";
-            } else
-            {
-                mySelectCommand.CommandText = "SELECT FoodItem.* FROM FoodItem INNER JOIN FoodType ON FoodItem.FoodTypeID = FoodType.FoodTypeID WHERE FoodItem.Name LIKE '%" + txtBoxSearchName.Text + "%' AND FoodType.Name = '" + ddlCategory.SelectedItem.Text + "';";
-            }
+            
+            mySelectCommand.CommandText = "SELECT * FROM FoodItem";
             //Fetching rows into the Data Set
-
+            
             myAdapter.Fill(myDataSet);
             //Show the users in the Data Grid
             FoodTable.DataSource = myDataSet;
             FoodTable.DataBind();
         }
 
-        private void checkAuthentication()
-        {
-            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "")
-            {
-                Response.Redirect("Login.aspx");
-            }
-        }
+
 
         protected void FoodTable_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -164,47 +137,6 @@ namespace FoodApp
             }
         }
 
-        protected void btnSearchIngredient_Click(object sender, EventArgs e)
-        {
-            getDB();
-
-        }
-
-        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("ManageIngredient.aspx");
-        }
-
-        protected void btnAddIngredient_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddNewIngredient.aspx");
-        }
-
-        protected void btnListAllIngredient_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ListAllIngredient.aspx");
-        }
-
-        protected void btnSearchIngredient1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("SearchIngredient.aspx");
-        }
-
-        protected void Recipes_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("RecipeManagement.aspx");
-            
-        }
-
-        protected void MyList_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("UserManagement.aspx");
-        }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Response.Redirect("Login.aspx");
-        }
+      
     }
 }
