@@ -12,7 +12,11 @@
         </div>
 
         <div class="upload-link container">
-            
+            <div id="wrapper">
+                <input id="fileUpload" type="file" /><br />
+                <div id="image-holder"></div>
+            </div>
+
         </div>
 
         <div class="form-group">
@@ -71,7 +75,29 @@
     <asp:RequiredFieldValidator ID="RfvPortion" runat="server" ErrorMessage="Portions Required" ForeColor="#FF3300" ControlToValidate="txtPortion" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvDescription" runat="server" ErrorMessage="Description Required" ForeColor="#FF3300" ControlToValidate="txtDescription" Display="None"></asp:RequiredFieldValidator>
     <asp:Label ID="lblMsg" runat="server" ForeColor="#CC3300"></asp:Label>
-   
+<script>//*
+    $("#fileUpload").on('change', function () {
+
+        if (typeof (FileReader) != "undefined") {
+
+            var image_holder = $("#image-holder");
+            image_holder.empty();
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image"
+                }).appendTo(image_holder);
+
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+    //*</script>
 
 </asp:Content>
 

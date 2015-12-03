@@ -40,6 +40,7 @@ namespace FoodApp
         {
             CheckRecipeID();
 
+
             if (!Page.IsPostBack)
             {
                 getDB();
@@ -163,46 +164,10 @@ namespace FoodApp
         }
 
 
-        protected void btnAddRecipe_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddRecipe.aspx");
-        }
 
-        protected void btnManageOwnRecipes_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AdminManageOwnRecipe.aspx");
-        }
 
-        protected void btnManageUserRecipes_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Admin/AdminManageUserRecipes.aspx");
-        }
-
-        protected void btnExploreRecipes_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ExploringRecipes.aspx");
-        }
-
-        protected void Recipe_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("RecipeManagement.aspx");
-        }
-
-        protected void Ingredients_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("ManageIngredient.aspx");
-        }
-
-        protected void User_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("UserManagement.aspx");
-        }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Response.Redirect("Login.aspx");
-        }
 
     }
+
 }
+

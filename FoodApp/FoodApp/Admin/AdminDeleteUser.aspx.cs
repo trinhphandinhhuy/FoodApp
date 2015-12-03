@@ -13,6 +13,7 @@ namespace FoodApp
 {
     public partial class AdminDeleteUser : System.Web.UI.Page
     {
+
         private OleDbConnection myConnection = new OleDbConnection();
         private OleDbCommand mySelectCommand = new OleDbCommand();
         private OleDbCommand myInsertCommand = new OleDbCommand();
