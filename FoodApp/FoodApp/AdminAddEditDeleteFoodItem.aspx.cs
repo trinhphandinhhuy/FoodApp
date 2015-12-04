@@ -43,12 +43,14 @@ namespace FoodApp
                 }
                 reader.Close();
             }
+            string[] unitType = { "g", "ml" };
             if (ddlUnitType.Items.Count == 0)
             {
-                ddlUnitType.Items.Add("kg");
-                ddlUnitType.Items[ddlUnitType.Items.Count - 1].Value = "kg";
-                ddlUnitType.Items.Add("l");
-                ddlUnitType.Items[ddlUnitType.Items.Count - 1].Value = "l";
+                foreach (string u in unitType)
+                {
+                    ddlUnitType.Items.Add(u);
+                    ddlUnitType.Items[ddlUnitType.Items.Count - 1].Value = u;
+                }
             }
         }
         protected void Page_Load(object sender, EventArgs e)

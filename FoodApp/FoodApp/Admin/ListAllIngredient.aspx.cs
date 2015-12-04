@@ -125,12 +125,14 @@ namespace FoodApp
                         }
                         reader.Close();
                         DropDownList ddlUpdateUnitType = (DropDownList)e.Row.FindControl("ddlUpdateUnitType");
+                        string[] unitType = { "g", "ml" };
                         if (ddlUpdateUnitType.Items.Count == 0)
                         {
-                            ddlUpdateUnitType.Items.Add("kg");
-                            ddlUpdateUnitType.Items[ddlUpdateUnitType.Items.Count - 1].Value = "kg";
-                            ddlUpdateUnitType.Items.Add("l");
-                            ddlUpdateUnitType.Items[ddlUpdateUnitType.Items.Count - 1].Value = "l";
+                            foreach (string u in unitType)
+                            {
+                                ddlUpdateUnitType.Items.Add(u);
+                                ddlUpdateUnitType.Items[ddlUpdateUnitType.Items.Count - 1].Value = u;
+                            }
                         }
                     }
                 }

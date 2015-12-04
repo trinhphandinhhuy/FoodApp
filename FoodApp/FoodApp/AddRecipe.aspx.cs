@@ -117,7 +117,6 @@ namespace FoodApp
             }
 
         }
-
         protected void AddIngButton_Click(object sender, EventArgs e)
         {
             try
@@ -157,17 +156,9 @@ namespace FoodApp
                 }
                 notEoF = reader.Read();
             }
-
-
             reader.Close();
 
         }
-
-
-
-
-
     }
-
 }
 
