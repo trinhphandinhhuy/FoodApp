@@ -145,16 +145,27 @@ namespace FoodApp
 
         protected void btnConfirmPlannedMeal_Click(object sender, EventArgs e)
         {
+            int portion = Convert.ToInt32(ddlPortion.SelectedValue);
+            DateTime now = DateTime.Now;
             ArrayList chosenRecipe = new ArrayList();
+            OleDbCommand command = new OleDbCommand("INSERT INTO PlannedMeal(UserDataID, Portion, DateTime) values(@UserDataID, @Portion, @DateTime)", myConnection);
+            command.CommandType = CommandType.Text;
+            //adding parameters with value
+            command.Parameters.AddWithValue("@UserDataID", userid.ToString());
+            command.Parameters.AddWithValue("@Portion", portion.ToString());
+            command.Parameters.AddWithValue("@DateTime", now.ToString());
+            command.ExecuteNonQuery();  //executing query 
             if (lbChosenRecipe.Items.Count > 0)
             {
                 for (int i = 0; i < lbChosenRecipe.Items.Count; i++)
                 {
                     chosenRecipe.Add(lbChosenRecipe.Items[i]);
+                    int recipeid = Convert.ToInt32(lbChosenRecipe.Items[i].Value);
                 }
             }
+            myConnection.Close(); //closing connection
             Session["chosenRecipe"] = chosenRecipe;
-            Session["portion"] = ddlPortion.SelectedValue;
+            Session["portion"] = portion;
             Response.Redirect("ShoppingList.aspx");
         }
     }

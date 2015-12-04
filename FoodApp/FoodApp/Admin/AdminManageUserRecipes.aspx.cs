@@ -123,8 +123,5 @@ namespace FoodApp
             Session.Clear();
             Response.Redirect("Login.aspx");
         }
-
-        
     }
-
 }

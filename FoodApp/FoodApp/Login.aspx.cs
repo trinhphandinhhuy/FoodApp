@@ -15,6 +15,7 @@ namespace FoodApp
     {
         private string user_name;
         private string password;
+        private int user_id;
         private int user_role_id;
         private string user_role;
         OleDbConnection myConnection = new OleDbConnection();
@@ -43,6 +44,7 @@ namespace FoodApp
                     password = txtPassword.Text;
                     if (PasswordHash.PasswordHash.ValidatePassword(password, reader["UserPassword"].ToString()))
                     {
+                        user_id = Convert.ToInt32(reader["UserDataID"].ToString());
                         user_role_id = Convert.ToInt32(reader["UserRoleID"].ToString());
                         correctPassword = true;
                     }
@@ -80,6 +82,7 @@ namespace FoodApp
                 myConnection.Close();
                 Session["username"] = user_name;
                 Session["userlevel"] = user_role;
+                Session["userid"] = user_id;
                 Response.Redirect("Dashboard.aspx");
             }
         }

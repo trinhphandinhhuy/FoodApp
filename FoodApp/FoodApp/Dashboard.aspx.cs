@@ -12,8 +12,6 @@ namespace FoodApp
         protected void Page_Load(object sender, EventArgs e)
         {
             checkUserAuthentication();
-           
-
         }
         private void checkUserAuthentication()
         {
@@ -21,8 +19,6 @@ namespace FoodApp
             {
                 Response.Redirect("Login.aspx");
             }
-
-            
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

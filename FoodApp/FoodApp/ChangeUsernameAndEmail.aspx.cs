@@ -46,8 +46,6 @@ namespace FoodApp
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-
             
         }
         private void checkUserAuthentication()
@@ -66,6 +64,5 @@ namespace FoodApp
             cmd2.ExecuteNonQuery();  //executing query
             myConnection.Close(); //closing connection
         }
-        
     }
 }

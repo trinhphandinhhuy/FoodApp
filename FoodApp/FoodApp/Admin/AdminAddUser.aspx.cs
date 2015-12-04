@@ -19,6 +19,7 @@ namespace FoodApp
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
         private DataSet myDataSet = new DataSet();
         private string connectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"Database\DatabaseforApp.mdb;";
+
         protected void Page_Init(object sender, EventArgs e)
         {
             checkAdminAuthentication();
@@ -27,6 +28,7 @@ namespace FoodApp
             mySelectCommand.Connection = myConnection;
             myAdapter.SelectCommand = mySelectCommand;
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -52,6 +54,5 @@ namespace FoodApp
             myInsertCommand.ExecuteNonQuery();  //executing query
             myConnection.Close(); //closing connection
         }
-       
     }
 }

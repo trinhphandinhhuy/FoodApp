@@ -1,9 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" MasterPageFile="~/MasterPage/loginPage1.Master" Inherits="FoodApp.Login" EnableSessionState="True" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Login Page</title>
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" />
     <div class="form-group">

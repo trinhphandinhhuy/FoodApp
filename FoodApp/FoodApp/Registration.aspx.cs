@@ -19,10 +19,7 @@ namespace FoodApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            String connstr;
-
-            connstr = "Provider = Microsoft.Jet.OLEDB.4.0;" +
-             @"Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
+            String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
             myConnection.ConnectionString = connstr;
             myConnection.Open();
         }

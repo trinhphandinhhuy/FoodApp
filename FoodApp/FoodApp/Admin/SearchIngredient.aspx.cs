@@ -32,7 +32,6 @@ namespace FoodApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             myConnection.ConnectionString = connectionString;
             myConnection.Open();
             mySelectCommand.Connection = myConnection;
@@ -66,7 +65,6 @@ namespace FoodApp
 
         private void getDB()
         {
-
             FoodTable.DataSource = null;
             FoodTable.DataBind();
             //Define the command objects (SQL commands)
@@ -168,7 +166,6 @@ namespace FoodApp
         protected void btnSearchIngredient_Click(object sender, EventArgs e)
         {
             getDB();
-
         }
     }
 }

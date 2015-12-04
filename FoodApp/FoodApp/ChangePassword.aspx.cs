@@ -72,6 +72,5 @@ namespace FoodApp
                 myConnection.Close(); //closing connection
             }
         }
-       
     }
 }

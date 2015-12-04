@@ -37,8 +37,6 @@ namespace FoodApp
             {
                 Response.Redirect("Login.aspx");
             }
-
-            
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -47,8 +45,6 @@ namespace FoodApp
             {
                 getDB();
             }
-
-           
         }
 
         
@@ -199,7 +195,5 @@ namespace FoodApp
             Session.Clear();
             Response.Redirect("Login.aspx");
         }
-
-        
     }
 }

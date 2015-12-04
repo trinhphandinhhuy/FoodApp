@@ -38,11 +38,13 @@ namespace FoodApp
             }
            
         }
+
         private void checkAdminAuthentication()
         {
             if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "") { Response.Redirect("Login.aspx"); }
             if (Session["userlevel"] != null && Session["userlevel"].ToString() != "Admin") { Response.Redirect("Login.aspx"); }
         }
+
         private void getDB()
         {
             UserDataTable.DataSource = null;
@@ -56,6 +58,7 @@ namespace FoodApp
             UserDataTable.DataMember = "UserData";
             UserDataTable.DataBind();
         }
+
         protected void UserDataTable_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             userid = Convert.ToInt32(UserDataTable.Rows[e.RowIndex].Cells[1].Text);
@@ -66,6 +69,5 @@ namespace FoodApp
             myConnection.Close(); //closing connection
             getDB();
         }
-       
     }
 }

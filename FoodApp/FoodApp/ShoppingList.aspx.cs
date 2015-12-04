@@ -53,6 +53,7 @@ namespace FoodApp
                             
                             int basePortion = Convert.ToInt32(reader["Portion"].ToString());
                             double resultPortion = portion / basePortion;
+                            
                             lbRecipePortion.Items.Add(resultPortion.ToString());
                             lbRecipePortion.Items[lbRecipePortion.Items.Count - 1].Value = reader["RecipeID"].ToString();
                             notEoF = reader.Read();

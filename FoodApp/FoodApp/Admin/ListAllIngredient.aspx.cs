@@ -64,8 +64,6 @@ namespace FoodApp
             FoodTable.DataBind();
         }
 
-
-
         protected void FoodTable_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             foodid = Convert.ToInt32(FoodTable.Rows[e.RowIndex].Cells[1].Text);
@@ -138,7 +136,5 @@ namespace FoodApp
                 }
             }
         }
-
-      
     }
 }

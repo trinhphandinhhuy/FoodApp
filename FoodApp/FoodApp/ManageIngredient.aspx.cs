@@ -16,7 +16,5 @@ namespace FoodApp
                 Response.Redirect("Dashboard.aspx");
             }
         }
-
-       
     }
 }

@@ -20,8 +20,7 @@ namespace FoodApp
         private OleDbCommand cmd2 = new OleDbCommand();
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
         private DataSet myDataSet = new DataSet();
-        String connstr = "Provider = Microsoft.Jet.OLEDB.4.0;" +
-             @"Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
+        String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private string user_data_ID;
         private string tmpRecipeID;
 
@@ -39,8 +38,6 @@ namespace FoodApp
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckRecipeID();
-
-
             if (!Page.IsPostBack)
             {
                 getDB();
@@ -90,19 +87,14 @@ namespace FoodApp
                     }
                     reader.Close();
                     //adding parameters with value
-
-
                     cmd.Parameters.AddWithValue("@UserDataID", Convert.ToInt32(user_data_ID));
                     cmd.Parameters.AddWithValue("@Name", txtRecipeName.Text.ToString());
                     cmd.Parameters.AddWithValue("@Portion", Convert.ToInt32(txtPortion.Text));
                     cmd.Parameters.AddWithValue("@CookingTime", Convert.ToInt32(txtCookingTime.Text));
                     cmd.Parameters.AddWithValue("@Description", txtDescription.Text.ToString());
                     cmd.Parameters.AddWithValue("@MealTypeID", Convert.ToInt32(DlRecipeType.SelectedValue));
-
-
                     cmd.ExecuteNonQuery();  //executing query
                     myConnection.Close(); //closing connection
-
                     //lblMsg.Text = "Registered Successfully..";
                     Response.Redirect("Dashboard.aspx");
                 }
@@ -115,7 +107,6 @@ namespace FoodApp
             {
                 //lblMsg.Text = "Register fail!";
             }
-
         }
         protected void AddIngButton_Click(object sender, EventArgs e)
         {
@@ -157,7 +148,6 @@ namespace FoodApp
                 notEoF = reader.Read();
             }
             reader.Close();
-
         }
     }
 }
