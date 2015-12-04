@@ -16,12 +16,14 @@ namespace FoodApp
     {
         private OleDbConnection myConnection = new OleDbConnection();
         string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
+        private int userID;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             checkAuthentication();
             myConnection.ConnectionString = connstr;
             myConnection.Open();
+            userID = Convert.ToInt32(Session["userid"].ToString());
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +32,6 @@ namespace FoodApp
             if (Session["portion"].ToString() != "" && Session["portion"].ToString() != null)
             {
                 portion = Convert.ToInt32(Session["portion"].ToString());
-                lblPortion.Text = Session["portion"].ToString();
             }
             if (lbRecipe.Items.Count == 0)
             {
@@ -39,6 +40,7 @@ namespace FoodApp
                 {
                     lbRecipe.Items.Add(((ListItem)chosenRecipe[i]));
                 }
+                //get portion
                 if (lbRecipePortion.Items.Count == 0)
                 {
                     for (int l = 0; l < lbRecipe.Items.Count; l++)
@@ -50,16 +52,15 @@ namespace FoodApp
                         bool notEoF = reader.Read();
                         while (notEoF)
                         {
-                            
                             int basePortion = Convert.ToInt32(reader["Portion"].ToString());
-                            double resultPortion = portion / basePortion;
-                            
-                            lbRecipePortion.Items.Add(resultPortion.ToString());
+                            double resultPortion = Convert.ToDouble(portion)/ Convert.ToDouble(basePortion);
+                            lbRecipePortion.Items.Add(resultPortion.ToString("F2"));
                             lbRecipePortion.Items[lbRecipePortion.Items.Count - 1].Value = reader["RecipeID"].ToString();
                             notEoF = reader.Read();
                         }
                         reader.Close();
                     }
+                    //get food item
                     if (lbFoodItemID.Items.Count == 0)
                     {
                         for (int j = 0; j < lbRecipePortion.Items.Count; j++)
@@ -71,14 +72,65 @@ namespace FoodApp
                             bool notEoF = reader.Read();
                             while (notEoF)
                             {
-                                lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
-                                lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(lbRecipePortion.Items[j].Text)).ToString();
+                                if (lbFoodItemID.Items.Count != 0)
+                                {
+                                    bool checkExistingFoodItem = false;
+                                    for (int m = 0; m < lbFoodItemID.Items.Count; m++)
+                                    {
+                                        if (reader["FoodItemID"].ToString() == lbFoodItemID.Items[m].Text)
+                                        {
+                                            checkExistingFoodItem = true;
+                                            lbFoodItemID.Items[m].Value = (Convert.ToDouble(lbFoodItemID.Items[m].Value) + Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(lbRecipePortion.Items[j].Text)).ToString();
+                                        }
+                                    }
+                                    if (checkExistingFoodItem == false)
+                                    {
+                                        lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
+                                        lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(lbRecipePortion.Items[j].Text)).ToString();
+                                    }
+                                }
+                                else
+                                {
+                                    lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
+                                    lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(lbRecipePortion.Items[j].Text)).ToString();
+                                }
                                 notEoF = reader.Read();
                             }
                             reader.Close();
                         }
-                        if (lbFoodItem.Items.Count == 0)
+                        //check amount from storage
+                        for (int n = 0; n < lbFoodItemID.Items.Count; n++)
                         {
+                            string foodItemID = lbFoodItemID.Items[n].Text;
+                            OleDbCommand command = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + userID.ToString() + " AND FoodItemID = " + foodItemID.ToString(), myConnection);
+                            command.CommandType = CommandType.Text;
+                            OleDbDataReader reader = command.ExecuteReader();
+                            bool notEoF = reader.Read();
+                            while (notEoF)
+                            {
+                                if (lbFoodItemID.Items[n].Text == reader["FoodItemID"].ToString())
+                                {
+                                    lbFoodItemID.Items[n].Value = (Convert.ToDouble(lbFoodItemID.Items[n].Value) - Convert.ToDouble(reader["Amount"].ToString())).ToString();
+                                }
+                                notEoF = reader.Read();
+                            }
+                            reader.Close();
+                            if (Convert.ToDouble(lbFoodItemID.Items[n].Value) <= 0)
+                            {
+                                lbFoodItemID.Items.Remove(lbFoodItemID.Items[n]);
+                                n -= 1;
+                            }
+                        }
+                        if (tbShoppingList.Rows.Count == 0)
+                        {
+                            TableHeaderRow tbHeaderRow = new TableHeaderRow();
+                            tbShoppingList.Rows.Add(tbHeaderRow);
+                            TableHeaderCell tbHeaderCellName = new TableHeaderCell();
+                            TableHeaderCell tbHeaderCellAmount = new TableHeaderCell();
+                            tbHeaderCellName.Text = "Name";
+                            tbHeaderCellAmount.Text = "Amount";
+                            tbHeaderRow.Cells.Add(tbHeaderCellName);
+                            tbHeaderRow.Cells.Add(tbHeaderCellAmount);
                             for (int k = 0; k < lbFoodItemID.Items.Count; k++)
                             {
                                 string foodid = lbFoodItemID.Items[k].Text;
@@ -88,8 +140,14 @@ namespace FoodApp
                                 bool notEoF = reader.Read();
                                 while (notEoF)
                                 {
-                                    lbFoodItem.Items.Add(reader["Name"].ToString());
-                                    lbFoodItem.Items[lbFoodItem.Items.Count - 1].Value = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
+                                    TableRow tbRow = new TableHeaderRow();
+                                    tbShoppingList.Rows.Add(tbRow);
+                                    TableCell tbCellName = new TableHeaderCell();
+                                    TableCell tbCellAmount = new TableHeaderCell();
+                                    tbCellName.Text = reader["Name"].ToString();
+                                    tbCellAmount.Text = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
+                                    tbRow.Cells.Add(tbCellName);
+                                    tbRow.Cells.Add(tbCellAmount);
                                     notEoF = reader.Read();
                                 }
                                 reader.Close();
@@ -106,11 +164,6 @@ namespace FoodApp
             {
                 Response.Redirect("Login.aspx");
             }
-        }
-
-        protected void btnCheck_Click(object sender, EventArgs e)
-        {
-            lblCheck.Text = lbFoodItem.SelectedValue;
         }
     }
 }

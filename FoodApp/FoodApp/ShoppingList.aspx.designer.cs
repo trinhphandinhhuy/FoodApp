@@ -40,15 +40,6 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.ListBox lbRecipePortion;
         
         /// <summary>
-        /// lblPortion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPortion;
-        
-        /// <summary>
         /// lbFoodItemID control.
         /// </summary>
         /// <remarks>
@@ -58,30 +49,12 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.ListBox lbFoodItemID;
         
         /// <summary>
-        /// lbFoodItem control.
+        /// tbShoppingList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbFoodItem;
-        
-        /// <summary>
-        /// btnCheck control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCheck;
-        
-        /// <summary>
-        /// lblCheck control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCheck;
+        protected global::System.Web.UI.WebControls.Table tbShoppingList;
     }
 }

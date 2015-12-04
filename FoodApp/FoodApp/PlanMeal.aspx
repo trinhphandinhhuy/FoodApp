@@ -6,7 +6,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:DropDownList ID="ddlRecipe" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="ddlRecipe" runat="server"></asp:DropDownList><br /><br />
         <asp:Panel ID="Panel1" runat="server">
             <asp:Button ID="btnAddRecipeToPlannedMeal" runat="server" Text="Add Recipe To Planned Meal" OnClick="btnAddRecipeToPlannedMeal_Click" /><br /><br />
             <asp:Button ID="btnRemoveChosenRecipe" runat="server" Text="Remove Chosen Recipe" OnClick="btnRemoveChosenRecipe_Click" /><br /><br />
@@ -14,6 +14,7 @@
         <asp:ListBox ID="lbChosenRecipe" runat="server" Rows="5"></asp:ListBox><br /><br />
         <asp:DropDownList ID="ddlPortion" runat="server"></asp:DropDownList><br /><br />
         <asp:Button ID="btnConfirmPlannedMeal" runat="server" Text="Confirm" OnClick="btnConfirmPlannedMeal_Click" /><br /><br />
+        <asp:Label ID="lblCheckChosenRecipe" runat="server"></asp:Label>
     </form>
 </body>
 </html>
