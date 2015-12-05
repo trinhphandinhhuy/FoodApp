@@ -53,7 +53,7 @@ namespace FoodApp
                         while (notEoF)
                         {
                             int basePortion = Convert.ToInt32(reader["Portion"].ToString());
-                            double resultPortion = Convert.ToDouble(portion)/ Convert.ToDouble(basePortion);
+                            double resultPortion = Convert.ToDouble(portion) / Convert.ToDouble(basePortion);
                             lbRecipePortion.Items.Add(resultPortion.ToString("F2"));
                             lbRecipePortion.Items[lbRecipePortion.Items.Count - 1].Value = reader["RecipeID"].ToString();
                             notEoF = reader.Read();
@@ -152,17 +152,89 @@ namespace FoodApp
                                 }
                                 reader.Close();
                             }
-                        }
-                    }
-                }
-            }
-        }
+                        }//End if tbShoppingList.Rows.Count == 0
+                        if (tbRealShoppingList.Rows.Count == 0)
+                        {
+                            TableHeaderRow tbHeaderRow = new TableHeaderRow();
+                            tbRealShoppingList.Rows.Add(tbHeaderRow);
+                            TableHeaderCell tbHeaderCellName = new TableHeaderCell();
+                            TableHeaderCell tbHeaderCellAmount = new TableHeaderCell();
+                            tbHeaderCellName.Text = "Name";
+                            tbHeaderCellAmount.Text = "Real Amount";
+                            tbHeaderRow.Cells.Add(tbHeaderCellName);
+                            tbHeaderRow.Cells.Add(tbHeaderCellAmount);
+                            for (int k = 0; k < lbFoodItemID.Items.Count; k++)
+                            {
+                                string foodid = lbFoodItemID.Items[k].Text;
+                                OleDbCommand command = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
+                                command.CommandType = CommandType.Text;
+                                OleDbDataReader reader = command.ExecuteReader();
+                                bool notEoF = reader.Read();
+                                while (notEoF)
+                                {
+                                    TableRow tbRow = new TableHeaderRow();
+                                    tbRealShoppingList.Rows.Add(tbRow);
+                                    TextBox tb = new TextBox();
+                                    tb.ID = reader["Name"].ToString();
+                                    tb.Text = lbFoodItemID.Items[k].Value;
+                                    TableCell tbCellName = new TableHeaderCell();
+                                    TableCell tbCellRealAmount = new TableHeaderCell();
+                                    tbCellName.Text = reader["Name"].ToString();
+                                    //tbCellAmount.Text = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
+                                    tbCellRealAmount.Controls.Add(tb);
+                                    tbRow.Cells.Add(tbCellName);
+                                    tbRow.Cells.Add(tbCellRealAmount);
+                                    notEoF = reader.Read();
+                                }
+                                reader.Close();
+                            }
+                        }//End if tbRealShoppingList.Rows.Count == 0
+
+                    }//End if lbFoodItemID.Items.Count == 0
+                }//End if lbRecipePortion.Items.Count == 0
+            }//End if lbRecipe.Items.Count == 0
+        }//End page load
 
         private void checkAuthentication()
         {
             if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "")
             {
                 Response.Redirect("Login.aspx");
+            }
+        }
+
+        protected void btnComfirm_Click(object sender, EventArgs e)
+        {
+            Table table1 = (Table)Page.FindControl("tbRealShoppingList");
+            //Table table2 = (Table)Page.FindControl("tbShoppingList");
+            if (table1 != null)
+            {
+                if (tbUpdateDB.Rows.Count == 0)
+                {
+                    for (int k = 0; k < lbFoodItemID.Items.Count; k++)
+                    {
+                        string foodid = lbFoodItemID.Items[k].Text;
+                        OleDbCommand command = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
+                        command.CommandType = CommandType.Text;
+                        OleDbDataReader reader = command.ExecuteReader();
+                        bool notEoF = reader.Read();
+                        while (notEoF)
+                        {
+                            TableRow tbRow = new TableHeaderRow();
+                            tbUpdateDB.Rows.Add(tbRow);
+                            TableCell tbCellName = new TableHeaderCell();
+                            TableCell tbCellAmount = new TableHeaderCell();
+                            tbCellName.Text = reader["Name"].ToString();
+                            //tbCellAmount.Text = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
+                            double temp = Convert.ToDouble(Request.Form[reader["Name"].ToString()]) - Convert.ToDouble(lbFoodItemID.Items[k].Value);
+                            tbCellAmount.Text = temp.ToString();
+                            tbRow.Cells.Add(tbCellName);
+                            tbRow.Cells.Add(tbCellAmount);
+                            notEoF = reader.Read();
+                        }
+                        reader.Close();
+                    }
+                }
             }
         }
     }

@@ -12,6 +12,13 @@
         <asp:ListBox ID="lbRecipePortion" runat="server" Visible="false"></asp:ListBox>
         <asp:ListBox ID="lbFoodItemID" runat="server" Visible="false"></asp:ListBox>
         <asp:Table ID="tbShoppingList" runat="server"></asp:Table>
+        <br />
+        <asp:Table ID="tbRealShoppingList" runat="server"></asp:Table>
+        <asp:Button ID="btnComfirm" runat="server" Text="Confirm Shopping List" OnClick="btnComfirm_Click" />
+        <br />
+        <br />
+        <asp:Table ID="tbUpdateDB" runat="server">
+        </asp:Table>
     </form>
 </body>
 </html>
