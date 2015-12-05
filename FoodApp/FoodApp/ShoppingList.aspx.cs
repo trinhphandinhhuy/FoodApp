@@ -117,6 +117,12 @@ namespace FoodApp
                             reader.Close();
                             if (Convert.ToDouble(lbFoodItemID.Items[n].Value) <= 0)
                             {
+                                OleDbCommand command3 = new OleDbCommand("UPDATE UserFoodItem SET UserDataID=@UserDataID , FoodItemID=@FoodItemID , Amount=@Amount WHERE UserDataID= " + userID + " AND FoodItemID= " + foodItemID + ";", myConnection);
+                                command3.CommandType = CommandType.Text;
+                                command3.Parameters.AddWithValue("@UserDataID", userID);
+                                command3.Parameters.AddWithValue("@FoodItemID", foodItemID);
+                                command3.Parameters.AddWithValue("@Amount", Convert.ToDouble(lbFoodItemID.Items[n].Value)*(-1));
+                                command3.ExecuteNonQuery();
                                 lbFoodItemID.Items.Remove(lbFoodItemID.Items[n]);
                                 n -= 1;
                             }
@@ -206,16 +212,18 @@ namespace FoodApp
         protected void btnComfirm_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-            OleDbCommand command = new OleDbCommand("INSERT INTO ShoppingList(UserDataID, CreatedDate) VALUES(@UserDataID, @DateTime);", myConnection);
+            OleDbCommand command = new OleDbCommand();
+            command.CommandText = "INSERT INTO ShoppingList(UserDataID, CreatedDate) VALUES(@UserDataID, @DateTime);";
+            command.Connection = myConnection;
             command.CommandType = CommandType.Text;
             //adding parameters with value
             command.Parameters.AddWithValue("@UserDataID", userID);
             command.Parameters.AddWithValue("@DateTime", now.ToShortDateString());
             command.ExecuteNonQuery();  //executing query
-
-            //int shoppingListID = Convert.ToInt32(command.ExecuteScalar());
+            command.CommandText = "SELECT @@IDENTITY;";
+            int shoppingListID = Convert.ToInt32(command.ExecuteScalar());
          ////////////////////////
-         Table table1 = (Table)Page.FindControl("tbRealShoppingList");
+            Table table1 = (Table)Page.FindControl("tbRealShoppingList");
             //Table table2 = (Table)Page.FindControl("tbShoppingList");
             if (table1 != null)
             {
@@ -228,6 +236,8 @@ namespace FoodApp
                         command.CommandType = CommandType.Text;
                         OleDbDataReader reader = command.ExecuteReader();
                         bool notEoF = reader.Read();
+                        double realAmount = 0;
+                        double temp = 0;
                         while (notEoF)
                         {
                             TableRow tbRow = new TableHeaderRow();
@@ -236,13 +246,54 @@ namespace FoodApp
                             TableCell tbCellAmount = new TableHeaderCell();
                             tbCellName.Text = reader["Name"].ToString();
                             //tbCellAmount.Text = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
-                            double temp = Convert.ToDouble(Request.Form[reader["Name"].ToString()]) - Convert.ToDouble(lbFoodItemID.Items[k].Value);
+                            realAmount = Convert.ToDouble(Request.Form[reader["Name"].ToString()]);
+                            temp = realAmount - Convert.ToDouble(lbFoodItemID.Items[k].Value);
                             tbCellAmount.Text = temp.ToString();
                             tbRow.Cells.Add(tbCellName);
                             tbRow.Cells.Add(tbCellAmount);
+
                             notEoF = reader.Read();
                         }
                         reader.Close();
+                        /////////////////////
+                        command.CommandText = "INSERT INTO ShoppingListFoodItem(ShoppingListID, FoodItemID, Amount) VALUES(@ShoppingListID, @FoodItemID, @Amount);";
+                        command.Connection = myConnection;
+                        command.CommandType = CommandType.Text;
+                        //adding parameters with value
+                        command.Parameters.AddWithValue("@ShoppingListID", shoppingListID);
+                        command.Parameters.AddWithValue("@FoodItemID", foodid);
+                        command.Parameters.AddWithValue("@Amount", realAmount);
+                        command.ExecuteNonQuery();  //executing query
+                                                    //////////////////////
+                                                    //--- Alter User storage ---//
+                        command.CommandText = "SELECT * FROM UserFoodItem WHERE UserDataID= " + userID + " AND FoodItemID= " + foodid+ ";";
+                        command.Connection = myConnection;
+                        command.CommandType = CommandType.Text;
+                        OleDbDataReader reader1 = command.ExecuteReader();
+                        bool notEoF1 = reader1.Read();
+                        if(notEoF1 == false)
+                        {
+                            OleDbCommand command1 = new OleDbCommand("INSERT INTO UserFoodItem(UserDataID, FoodItemID, Amount) VALUES(@UserDataID, @FoodItemID, @Amount);", myConnection);
+                            command1.CommandType = CommandType.Text;
+                            command1.Parameters.AddWithValue("@UserDataID", userID);
+                            command1.Parameters.AddWithValue("@FoodItemID", foodid);
+                            command1.Parameters.AddWithValue("@Amount", temp);
+                            command1.ExecuteNonQuery();
+                        }else
+                        {
+                            while (notEoF1)
+                            {
+                                OleDbCommand command2 = new OleDbCommand("UPDATE UserFoodItem SET UserDataID=@UserDataID , FoodItemID=@FoodItemID , Amount=@Amount WHERE UserDataID= " + userID + " AND FoodItemID= " + foodid + ";", myConnection);
+                                command2.CommandType = CommandType.Text;
+                                command2.Parameters.AddWithValue("@UserDataID", userID);
+                                command2.Parameters.AddWithValue("@FoodItemID", foodid);
+                                command2.Parameters.AddWithValue("@Amount", temp);
+                                command2.ExecuteNonQuery();
+                                notEoF1 = reader1.Read();
+                            }
+                            reader1.Close();
+                        }
+                       
                     }
                 }
             }
