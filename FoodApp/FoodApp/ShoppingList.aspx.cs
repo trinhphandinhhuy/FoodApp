@@ -205,7 +205,17 @@ namespace FoodApp
 
         protected void btnComfirm_Click(object sender, EventArgs e)
         {
-            Table table1 = (Table)Page.FindControl("tbRealShoppingList");
+            DateTime now = DateTime.Now;
+            OleDbCommand command = new OleDbCommand("INSERT INTO ShoppingList(UserDataID, CreatedDate) VALUES(@UserDataID, @DateTime);", myConnection);
+            command.CommandType = CommandType.Text;
+            //adding parameters with value
+            command.Parameters.AddWithValue("@UserDataID", userID);
+            command.Parameters.AddWithValue("@DateTime", now.ToShortDateString());
+            command.ExecuteNonQuery();  //executing query
+
+            //int shoppingListID = Convert.ToInt32(command.ExecuteScalar());
+         ////////////////////////
+         Table table1 = (Table)Page.FindControl("tbRealShoppingList");
             //Table table2 = (Table)Page.FindControl("tbShoppingList");
             if (table1 != null)
             {
@@ -214,7 +224,7 @@ namespace FoodApp
                     for (int k = 0; k < lbFoodItemID.Items.Count; k++)
                     {
                         string foodid = lbFoodItemID.Items[k].Text;
-                        OleDbCommand command = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
+                        command = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
                         command.CommandType = CommandType.Text;
                         OleDbDataReader reader = command.ExecuteReader();
                         bool notEoF = reader.Read();
