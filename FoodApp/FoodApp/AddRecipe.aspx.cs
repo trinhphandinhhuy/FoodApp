@@ -81,8 +81,9 @@ namespace FoodApp
                     //Upload image into server
                     if (fileUpload.HasFile)
                     {
-                       filename = "~/img/recipeImg/"+ Path.GetFileName(fileUpload.PostedFile.FileName);
-                        fileUpload.SaveAs(filename);
+                       string fileName = Path.GetFileName(fileUpload.PostedFile.FileName);
+                        filename = "~/img/recipeImg/" + Path.GetFileName(fileUpload.PostedFile.FileName);
+                        fileUpload.PostedFile.SaveAs(Server.MapPath("~/img/recipeImg/") + fileName);
                     }
                     
                     cmd.Connection = myConnection;
@@ -110,7 +111,7 @@ namespace FoodApp
                     cmd.ExecuteNonQuery();  //executing query
                     myConnection.Close(); //closing connection
                     //lblMsg.Text = "Registered Successfully..";
-                    Session["RecipeAdded"] = txtRecipeName.Text;
+                    Session["RecipeAdded"]= txtRecipeName.Text;
                     Response.Redirect("RecipeView.aspx");
                 }
                 catch (Exception ex)
