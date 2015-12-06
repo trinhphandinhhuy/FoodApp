@@ -81,9 +81,8 @@ namespace FoodApp
                     //Upload image into server
                     if (fileUpload.HasFile)
                     {
-                       string fileName = Server.MapPath("~/img/recipeImg/") + Path.GetFileName(fileUpload.PostedFile.FileName);
-                        filename = "~/img/recipeImg/" + Path.GetFileName(fileUpload.PostedFile.FileName);
-                        fileUpload.SaveAs(fileName);
+                       filename = "~/img/recipeImg/"+ Path.GetFileName(fileUpload.PostedFile.FileName);
+                        fileUpload.SaveAs(filename);
                     }
                     
                     cmd.Connection = myConnection;
