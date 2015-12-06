@@ -15,7 +15,6 @@ namespace FoodApp
     {
         private OleDbConnection myConnection = new OleDbConnection();
         private OleDbCommand mySelectCommand = new OleDbCommand();
-        private OleDbCommand myInsertCommand = new OleDbCommand();
         private OleDbCommand myDeleteCommand;
         
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
