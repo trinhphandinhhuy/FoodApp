@@ -7,16 +7,20 @@
         <h3 class="grey-text center-on-small-only">ADD YOUR RECIPE</h3>
         <asp:ValidationSummary ID="VsRecipe" runat="server" CssClass="alert alert-danger" />
 
-        <div class="form-group">
-            <asp:TextBox ID="txtRecipeName" runat="server" CssClass="form-control" placeholder="RECIPE NAME"></asp:TextBox>
-        </div>
+
 
         <div class="upload-link container">
             <div id="wrapper">
-                <input id="fileUpload" type="file" /><br />
-                <div id="image-holder"></div>
+                <asp:FileUpload ID="fileUpload" class="fileUpload" runat="server" />
+                <br />
+                <div id="image-holder" class="col s12 l9 center"></div>
             </div>
 
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <asp:TextBox ID="txtRecipeName" runat="server" CssClass="form-control" placeholder="RECIPE NAME"></asp:TextBox>
         </div>
 
         <div class="form-group">
@@ -43,61 +47,76 @@
         </div>
         <asp:PlaceHolder ID="PlaceHolder1" runat="server">
             <h5>Add Ingredients</h5>
-            <div class="col-lg-6">
+            <div class="col l6">
                 <div class="form-group">
-                    <asp:DropDownList ID="DlIngredients" AutoPostBack="true" CssClass="form-control" runat="server" DataSourceID="FoodStuffDS" DataTextField="Name" DataValueField="FoodItemID"></asp:DropDownList>
-                    <asp:SqlDataSource ID="FoodStuffDS" runat="server" ConnectionString="" ProviderName="System.Data.OleDb" SelectCommand="SELECT [FoodItemID], [Name] FROM [FoodItem]"></asp:SqlDataSource>
-                    &nbsp;
-                </div>
-                <div class="form-group">
-                    <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" placeholder="Amount"></asp:TextBox>
-                </div>
-                <asp:Button ID="AddIngButton" runat="server" Text="Add Ingredients" OnClick="AddIngButton_Click" />
-                <br />
-                <br />
+                            <asp:DropDownList ID="DlIngredients" AutoPostBack="true" CssClass="form-control" runat="server" DataSourceID="FoodStuffDS" DataTextField="Name" DataValueField="FoodItemID"></asp:DropDownList>
+                            <asp:SqlDataSource ID="FoodStuffDS" runat="server" ConnectionString="" ProviderName="System.Data.OleDb" SelectCommand="SELECT [FoodItemID], [Name] FROM [FoodItem]"></asp:SqlDataSource>
+                            &nbsp;
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="txtAmount" runat="server" placeholder="Amount"></asp:TextBox>
+                        </div>
+                        <asp:Button ID="AddIngButton" runat="server" Text="Add Ingredients" OnClick="AddIngButton_Click" />
+                        <br />
+                        <br />
+         
             </div>
-            <div class="col-lg-6">
+            <div class="col-l6">
                 <asp:GridView ID="IngredientRecipeDB" AutoGenerateColumns="true" runat="server"></asp:GridView>
             </div>
         </asp:PlaceHolder>
 
         <div class="form-group">
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-
-                    <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" CssClass="form-control btn btn-register" />
-                </div>
+            <div class="col s6 offset-s3">
+                <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" CssClass="form-control btn btn-register" />
             </div>
         </div>
+
     </div>
     <asp:RequiredFieldValidator ID="RfvRecipeName" runat="server" ErrorMessage="Recipe name Required" ForeColor="#FF3300" ControlToValidate="txtRecipeName" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvCookingTime" runat="server" ErrorMessage="Cooking time Required" ForeColor="#FF3300" ControlToValidate="txtCookingTime" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvPortion" runat="server" ErrorMessage="Portions Required" ForeColor="#FF3300" ControlToValidate="txtPortion" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvDescription" runat="server" ErrorMessage="Description Required" ForeColor="#FF3300" ControlToValidate="txtDescription" Display="None"></asp:RequiredFieldValidator>
     <asp:Label ID="lblMsg" runat="server" ForeColor="#CC3300"></asp:Label>
-<script>//*
-    $("#fileUpload").on('change', function () {
+    <script>//*
+        $(document).ready(function () {
+            $(".fileUpload").change(function () {
 
-        if (typeof (FileReader) != "undefined") {
+                //Get count of selected files
+                var countFiles = $(this)[0].files.length;
 
-            var image_holder = $("#image-holder");
-            image_holder.empty();
+                var imgPath = $(this)[0].value;
+                var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+                var image_holder = $("#image-holder");
+                image_holder.empty();
 
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $("<img />", {
-                    "src": e.target.result,
-                    "class": "thumb-image"
-                }).appendTo(image_holder);
+                if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+                    if (typeof (FileReader) != "undefined") {
 
-            }
-            image_holder.show();
-            reader.readAsDataURL($(this)[0].files[0]);
-        } else {
-            alert("This browser does not support FileReader.");
-        }
-    });
-    //*</script>
+                        //loop for each file selected for uploaded.
+                        for (var i = 0; i < countFiles; i++) {
+
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $("<img />", {
+                                    "src": e.target.result,
+                                    "class": "thumb-image"
+                                }).appendTo(image_holder);
+                            }
+
+                            image_holder.show();
+                            reader.readAsDataURL($(this)[0].files[i]);
+                        }
+
+                    } else {
+                        alert("This browser does not support FileReader.");
+                    }
+                } else {
+                    alert("Pls select only images");
+                }
+            });
+        });
+        //*</script>
 
 </asp:Content>
 
