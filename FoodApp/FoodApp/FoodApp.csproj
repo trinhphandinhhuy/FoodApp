@@ -104,8 +104,10 @@
     </Content>
     <Content Include="PlanMeal.aspx" />
     <Content Include="RecipeManagement.aspx" />
+    <Content Include="RecipeView.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\Ingredient.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="MasterPage\frontPage1.Master" />
@@ -122,6 +124,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="ShoppingList.aspx" />
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
@@ -332,6 +335,13 @@
     </Compile>
     <Compile Include="RecipeManagement.aspx.designer.cs">
       <DependentUpon>RecipeManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeView.aspx.cs">
+      <DependentUpon>RecipeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecipeView.aspx.designer.cs">
+      <DependentUpon>RecipeView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
