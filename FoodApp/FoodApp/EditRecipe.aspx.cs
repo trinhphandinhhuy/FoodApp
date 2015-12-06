@@ -132,6 +132,11 @@ namespace FoodApp
                 //lblMsg.Text = "Register fail!";
             }
         }
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminManageOwnRecipe.aspx");
+        }
+            
         protected void AddIngButton_Click(object sender, EventArgs e)
         {
             try
