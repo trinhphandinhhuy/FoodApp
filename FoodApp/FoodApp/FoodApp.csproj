@@ -86,6 +86,7 @@
     <Content Include="DatabaseBackup\DatabaseforApp.mdb" />
     <Content Include="Database\Database.mdb" />
     <Content Include="Database\DatabaseforApp.mdb" />
+    <Content Include="EditRecipe.aspx" />
     <Content Include="Example.aspx" />
     <Content Include="ExploringRecipes.aspx" />
     <Content Include="Global.asax" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditRecipe.aspx.cs">
+      <DependentUpon>EditRecipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditRecipe.aspx.designer.cs">
+      <DependentUpon>EditRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Example.aspx.cs">
       <DependentUpon>Example.aspx</DependentUpon>
