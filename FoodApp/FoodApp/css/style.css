@@ -8,84 +8,98 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+    color: #444;
 }
 
-nav ul a{
-    padding:0 5px;
+nav ul a {
+    padding: 0 5px;
 }
 
 p {
-  line-height: 2rem;
+    line-height: 2rem;
 }
 
 .button-collapse {
-  color: #26a69a;
+    color: #26a69a;
 }
 
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
+
+    .parallax-container .section {
+        width: 100%;
+    }
 
 @media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+
+    #index-banner .section {
+        top: 10%;
+    }
 }
 
 @media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+    #index-banner .section {
+        top: 0;
+    }
 }
 
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
-.icon-block .material-icons {
-  font-size: inherit;
-}
+
+    .icon-block .material-icons {
+        font-size: inherit;
+    }
 
 footer.page-footer {
-  margin: 0;
+    margin: 0;
 }
 
-.navLogo{
-    height:64px;
-    padding:10px 0;
+.navLogo {
+    height: 64px;
+    padding: 10px 0;
 }
 
-.PageLogo{
-    height:64px;
+.PageLogo {
+    height: 64px;
 }
 
-UsernameDisplay{
-
+UsernameDisplay {
 }
 
-.image-box{
+.image-box {
     min-height: 130px;
     position: relative;
-    text-align: center;}
+    text-align: center;
+}
 
-#dvPreview
-{
+#dvPreview {
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
     min-height: 400px;
     min-width: 400px;
     display: none;
 }
 
-.lineheightnone{
-    line-height:none;
+.lineheightnone {
+    line-height: none;
 }
+
+#image-holder img {
+    width: 100%;
+    max-height: 200px;
+    opacity: 0.8;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+    #image-holder img:hover {
+        opacity: 1.0;
+        filter: alpha(opacity=100); /* For IE8 and earlier */
+    }

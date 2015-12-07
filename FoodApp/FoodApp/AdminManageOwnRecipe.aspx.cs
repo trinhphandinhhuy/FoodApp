@@ -15,9 +15,8 @@ namespace FoodApp
     {
         private OleDbConnection myConnection = new OleDbConnection();
         private OleDbCommand mySelectCommand = new OleDbCommand();
-        private OleDbCommand myInsertCommand = new OleDbCommand();
         private OleDbCommand myDeleteCommand;
-        private OleDbCommand myUpdateCommand;
+        
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
         private DataSet myDataSet = new DataSet();
         private string connectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"Database\DatabaseforApp.mdb;";
@@ -77,83 +76,7 @@ namespace FoodApp
             getDB();
         }
 
-        protected void AdminRecipeTable_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            AdminRecipeTable.EditIndex = e.NewEditIndex;
-            getDB();
-        }
-
-        protected void AdminRecipeTable_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            AdminRecipeTable.EditIndex = -1;
-            getDB();
-        }
-
-        protected void AdminRecipeTable_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = AdminRecipeTable.Rows[e.RowIndex];
-            TextBox EditRecipeName = (TextBox)row.FindControl("EditRecipeName");
-            DropDownList EditMealType = (DropDownList)row.FindControl("EditMealType");
-            DropDownList EditPortion = (DropDownList)row.FindControl("EditPortion");
-            DropDownList EditCookingTime = (DropDownList)row.FindControl("EditCookingTime");
-            TextBox EditDescription = (TextBox)row.FindControl("EditDescription");
-            
-            recipeid = Convert.ToInt32(AdminRecipeTable.Rows[e.RowIndex].Cells[1].Text);
-            myUpdateCommand = new OleDbCommand("Update Recipe SET Name='" + EditRecipeName.Text + "', MealTypeID= '" + EditMealType.SelectedValue 
-                + "', Portion='" + EditPortion.SelectedValue + "', CookingTime='" + EditCookingTime.SelectedValue + "', Description='" + EditDescription.Text + "'  WHERE RecipeID = " + recipeid.ToString(), myConnection);
-            myUpdateCommand.CommandType = CommandType.Text;
-            myUpdateCommand.ExecuteNonQuery(); //executing query
-            myConnection.Close(); //closing connection
-            AdminRecipeTable.EditIndex = -1;
-            getDB();
-        }
-
-        protected void AdminRecipeTable_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                if (e.Row.DataItem != null)
-                {
-                    //check if is in edit mode
-                    if ((e.Row.RowState & DataControlRowState.Edit) > 0)
-                    {
-                        DropDownList EditMealType = (DropDownList)e.Row.FindControl("EditMealType");
-                        OleDbCommand cmd = new OleDbCommand("SELECT DISTINCT * FROM Recipe", myConnection);
-                        cmd.CommandType = CommandType.Text;
-                        OleDbDataReader reader = cmd.ExecuteReader();
-                        bool notEoF = reader.Read();
-                        while (notEoF)
-                        {
-                            EditMealType.Items.Add(reader["MealTypeID"].ToString());
-                            EditMealType.Items[EditMealType.Items.Count - 1].Value = reader["MealTypeID"].ToString();
-                            notEoF = reader.Read();
-                        }
-                        reader.Close();
-
-                        DropDownList EditPortion = (DropDownList)e.Row.FindControl("EditPortion");
-                        if (EditPortion.Items.Count == 0)
-                        {
-                            for (int i = 0; i < 10; i++ )
-                            {
-                                EditPortion.Items.Add(i.ToString());
-                                EditPortion.Items[EditPortion.Items.Count - 1].Value = i.ToString();
-                            }   
-                        }
-
-                        DropDownList EditCookingTime = (DropDownList)e.Row.FindControl("EditCookingTime");
-                        if (EditPortion.Items.Count == 0)
-                        {
-                            for (int i = 0; i < 4; i++)
-                            {
-                                EditCookingTime.Items.Add((i * 15 + 15).ToString());
-                                EditCookingTime.Items[EditPortion.Items.Count - 1].Value = (i * 15 + 15).ToString();
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
+        
 
         protected void btnAddRecipe_Click(object sender, EventArgs e)
         {
@@ -195,5 +118,18 @@ namespace FoodApp
             Session.Clear();
             Response.Redirect("Login.aspx");
         }
+
+
+        protected void AdminRecipeTable_OnSelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            Response.Redirect("EditRecipe.aspx?RecipeID=" + AdminRecipeTable.Rows[e.NewSelectedIndex].Cells[1].Text);
+        }
+
+        protected void AdminRecipeTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

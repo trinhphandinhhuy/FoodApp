@@ -8,6 +8,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI.HtmlControls;
+
 
 
 namespace FoodApp
@@ -23,6 +26,7 @@ namespace FoodApp
         String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private string user_data_ID;
         private string tmpRecipeID;
+        private string filename;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -42,6 +46,8 @@ namespace FoodApp
             {
                 getDB();
             }
+
+           
         }
 
         private void checkAuthentication()
@@ -72,9 +78,17 @@ namespace FoodApp
             {
                 try
                 {
+                    //Upload image into server
+                    if (fileUpload.HasFile)
+                    {
+                       string fileName = Path.GetFileName(fileUpload.PostedFile.FileName);
+                        filename = "~/img/recipeImg/" + Path.GetFileName(fileUpload.PostedFile.FileName);
+                        fileUpload.PostedFile.SaveAs(Server.MapPath("~/img/recipeImg/") + fileName);
+                    }
+                    
                     cmd.Connection = myConnection;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO Recipe(UserDataID, Name, Portion, CookingTime, Description,MealTypeID) values(@UserDataID, @Name, @Portion, @CookingTime, @Description,@MealTypeID)";
+                    cmd.CommandText = "INSERT INTO Recipe(UserDataID, Name, Portion, CookingTime, Description,MealTypeID,ImageURL) values(@UserDataID, @Name, @Portion, @CookingTime, @Description,@MealTypeID,@ImageURL)";
                     cmd2.Connection = myConnection;
                     cmd2.CommandType = CommandType.Text;
                     cmd2.CommandText = "SELECT UserDataID FROM UserData WHERE Username ='" + Session["username"].ToString() + "'";
@@ -93,10 +107,12 @@ namespace FoodApp
                     cmd.Parameters.AddWithValue("@CookingTime", Convert.ToInt32(txtCookingTime.Text));
                     cmd.Parameters.AddWithValue("@Description", txtDescription.Text.ToString());
                     cmd.Parameters.AddWithValue("@MealTypeID", Convert.ToInt32(DlRecipeType.SelectedValue));
+                    cmd.Parameters.AddWithValue("@ImageURL", filename);
                     cmd.ExecuteNonQuery();  //executing query
                     myConnection.Close(); //closing connection
                     //lblMsg.Text = "Registered Successfully..";
-                    Response.Redirect("Dashboard.aspx");
+                    Session["RecipeAdded"]= txtRecipeName.Text;
+                    Response.Redirect("RecipeView.aspx");
                 }
                 catch (Exception ex)
                 {
@@ -110,6 +126,8 @@ namespace FoodApp
         }
         protected void AddIngButton_Click(object sender, EventArgs e)
         {
+            Response.Cookies["Ingredients"]["FoodItemID"] = DlIngredients.SelectedValue;
+            Response.Cookies["Ingredients"]["Amount"] = txtAmount.Text;
             try
             {
                 //add ingredients

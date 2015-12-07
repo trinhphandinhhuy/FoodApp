@@ -10,7 +10,7 @@
 namespace FoodApp {
     
     
-    public partial class AddRecipe {
+    public partial class EditRecipe {
         
         /// <summary>
         /// VsRecipe control.
@@ -22,13 +22,13 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.ValidationSummary VsRecipe;
         
         /// <summary>
-        /// fileUpload control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
         /// txtRecipeName control.
@@ -38,6 +38,15 @@ namespace FoodApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRecipeName;
+        
+        /// <summary>
+        /// LblMealType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMealType;
         
         /// <summary>
         /// DlRecipeType control.
@@ -94,6 +103,15 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
         
         /// <summary>
+        /// IngredientRecipeDB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView IngredientRecipeDB;
+        
+        /// <summary>
         /// DlIngredients control.
         /// </summary>
         /// <remarks>
@@ -128,15 +146,6 @@ namespace FoodApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AddIngButton;
-        
-        /// <summary>
-        /// IngredientRecipeDB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView IngredientRecipeDB;
         
         /// <summary>
         /// btnConfirm control.
