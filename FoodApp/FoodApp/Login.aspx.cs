@@ -83,7 +83,7 @@ namespace FoodApp
                 Session["username"] = user_name;
                 Session["userlevel"] = user_role;
                 Session["userid"] = user_id;
-                Response.Redirect("Dashboard.aspx");
+                Response.Redirect("ExploringRecipes.aspx");
             }
         }
     }
