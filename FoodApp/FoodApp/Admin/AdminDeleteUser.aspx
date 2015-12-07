@@ -4,7 +4,7 @@
 
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container" style="min-height:57vh">
         <div class="row">
             <div class="section"></div>
         <div class="col l12 m12 s12">

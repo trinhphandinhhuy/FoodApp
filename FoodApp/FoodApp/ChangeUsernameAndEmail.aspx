@@ -5,14 +5,15 @@
 
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-    <br />
-    <div class="container">
+   
+    <div class="container" style="min-height:64vh" >
         <div class="section">
             <h4 class="center">EDIT PROFILE</h4>
         </div>
         <div class="section">
             <div class="col-md-6 col-md-offset-3">
+                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+    <br />
                 Username:<br />
                 <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox><br />
                 Email:<br />

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage/MPIngreManagement.master" CodeBehind="SearchIngredient.aspx.cs" Inherits="FoodApp.SearchIngredient" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container" style="min-height:57vh">
          <div class="section"><h4 class="center">SEARCH INGREDIENTS</h4></div>
          <div class="section">
         <div class="row">

@@ -4,7 +4,7 @@
 
 
  <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat ="server">
-     <div class="container">
+     <div class="container" style="min-height:57vh">
      <br />
          <div class="section">
              <h4 class="center">MANAGE OWN RECIPES</h4>
