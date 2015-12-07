@@ -95,6 +95,8 @@
     <Content Include="img\logo.png" />
     <Content Include="img\personal.png" />
     <Content Include="img\recipe.png" />
+    <Content Include="img\recipeImg\header-full.png" />
+    <Content Include="img\ShopingList.png" />
     <Content Include="img\testLogin.aspx" />
     <Content Include="index.aspx" />
     <Content Include="Admin\ListAllIngredient.aspx" />
@@ -120,6 +122,8 @@
     <Content Include="MasterPage\MainLayout.Master" />
     <Content Include="MasterPage\MPRecipeManagement.master" />
     <Content Include="MasterPage\MPIngreManagement.master" />
+    <Content Include="MasterPage\MPUserManagement.master" />
+    <Content Include="MasterPage\MPPlanedMeal.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -329,12 +333,26 @@
     <Compile Include="MasterPage\MPIngreManagement.master.designer.cs">
       <DependentUpon>MPIngreManagement.master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage\MPPlanedMeal.master.cs">
+      <DependentUpon>MPPlanedMeal.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\MPPlanedMeal.master.designer.cs">
+      <DependentUpon>MPPlanedMeal.master</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\MPRecipeManagement.master.cs">
       <DependentUpon>MPRecipeManagement.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPage\MPRecipeManagement.master.designer.cs">
       <DependentUpon>MPRecipeManagement.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\MPUserManagement.master.cs">
+      <DependentUpon>MPUserManagement.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\MPUserManagement.master.designer.cs">
+      <DependentUpon>MPUserManagement.master</DependentUpon>
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="PlanMeal.aspx.cs">
@@ -405,7 +423,6 @@
   <ItemGroup>
     <Folder Include="fonts\material-design-icons\" />
     <Folder Include="fonts\roboto\" />
-    <Folder Include="img\recipeImg\" />
     <Folder Include="Web Control\" />
   </ItemGroup>
   <PropertyGroup>
