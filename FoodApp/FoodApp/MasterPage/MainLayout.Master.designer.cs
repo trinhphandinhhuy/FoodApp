@@ -22,15 +22,6 @@ namespace FoodApp.MasterPage {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// AdminTab control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder AdminTab;
-        
-        /// <summary>
         /// AdminIngredientTab control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,33 @@ namespace FoodApp.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder AdminIngredientTab;
+        
+        /// <summary>
+        /// UserIngredientTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder UserIngredientTab;
+        
+        /// <summary>
+        /// ShopingListTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ShopingListTab;
+        
+        /// <summary>
+        /// AdminManagementTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder AdminManagementTab;
         
         /// <summary>
         /// UserNameAc control.

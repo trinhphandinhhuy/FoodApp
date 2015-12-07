@@ -1,0 +1,19 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/MainLayout.Master" AutoEventWireup="true" CodeBehind="MPUserManagement.master.cs" Inherits="FoodApp.MasterPage.MPUserManagement" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav class="grey">
+        <div class="nav-wrapper container">
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              
+                <li><a href="../Admin/AdminAddUser.aspx">Add user</a></li>
+                <li><a href="../Admin/AdminDeleteUser.aspx">Delete User</a></li>
+        <li class="amber-text">
+                    User Management</li>
+            </ul>
+        </div>
+    </nav>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

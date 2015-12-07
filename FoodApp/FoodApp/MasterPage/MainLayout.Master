@@ -17,11 +17,7 @@
 
 <body>
     <!--Start navigation-->
-    <ul id="dropdown1" class="dropdown-content">
-        <asp:PlaceHolder ID="AdminTab" runat="server">
-            <li><a href="../Admin/AdminAddUser.aspx">Add user</a></li>
-            <li><a href="../Admin/AdminDeleteUser.aspx">Delete User</a></li>
-        </asp:PlaceHolder>
+    <ul id="dropdown1" class="dropdown-content">        
         <li><a href="../ChangeUsernameAndEmail.aspx">Edit Profile</a></li>
         <li><a href="../ChangePassword.aspx">Change password</a></li>
         <li class="divider"></li>
@@ -30,18 +26,31 @@
     <nav class="teal" role="navigation">
          <div class="nav-wrapper">
                 <a id="logo-container" class="brand-logo">
-                <a href="../Dashboard.aspx">
+                <a href="../ExploringRecipes.aspx">
                     <img class="PageLogo" src="../img/logo.png" /></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="../RecipeManagement.aspx">
+                    <li><a href="../AddRecipe.aspx">
                         <img class="navLogo" src="../img/recipe.png" /></a></li>
                     <asp:PlaceHolder ID="AdminIngredientTab" runat="server">
-                        <li><a href="../ManageIngredient.aspx">
+                        <li><a href="../Admin/ListAllIngredient.aspx">
                             <img class="navLogo" src="../img/ingredients.png" /></a>
                         </li>
                     </asp:PlaceHolder>
-                    <li><a href="#">
+                    <asp:PlaceHolder ID="UserIngredientTab" runat="server">
+                        <li><a href="../foodstorage.aspx">
+                            <img class="navLogo" src="../img/ingredients.png" /></a>
+                        </li>
+                    </asp:PlaceHolder>
+                     <asp:PlaceHolder ID="ShopingListTab" runat="server">
+                        <li><a href="../Planmeal.aspx">
+                            <img class="navLogo" src="../img/ShopingList.png" />" </a>
+                        </li>
+                    </asp:PlaceHolder>
+
+                    <asp:PlaceHolder ID="AdminManagementTab" runat="server">
+                    <li><a href="../AdminManagement.aspx">
                         <img class="navLogo" src="../img/personal.png" /></a></li>
+                    </asp:PlaceHolder>
                     <li class=""><a class="dropdown-button" href="#!" data-activates="dropdown1">
                         <asp:Label ID="UserNameAc" runat="server" Text="Account"></asp:Label>
                         <i class="material-icons right">arrow_drop_down</i></a></li>

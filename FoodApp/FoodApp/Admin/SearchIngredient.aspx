@@ -2,6 +2,8 @@
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
+         <div class="section"><h4 class="center">SEARCH INGREDIENTS</h4></div>
+         <div class="section">
         <div class="row">
             <div class="col s12 m4 l4">
                 Search by name<br />
@@ -46,6 +48,7 @@
                 </Columns>
             </asp:GridView>
         </div>
+            </div>
             </div>
     </div>
 </asp:Content>

@@ -14,15 +14,21 @@ namespace FoodApp.MasterPage
             //check show of button
             if (Session["userlevel"].ToString() == "Admin")
             {
-                AdminTab.Visible = true;
+               
                 AdminIngredientTab.Visible = true;
                 AdminManageRe.Visible = true;
+                ShopingListTab.Visible = false;
+                UserIngredientTab.Visible = false;
+                AdminManagementTab.Visible = true;
             }
             else
             {
-                AdminTab.Visible = false;
+                
                 AdminIngredientTab.Visible = false;
                 AdminManageRe.Visible = false;
+                ShopingListTab.Visible = true;
+                UserIngredientTab.Visible = true;
+                AdminManagementTab.Visible = false;
             }
 
             //print username

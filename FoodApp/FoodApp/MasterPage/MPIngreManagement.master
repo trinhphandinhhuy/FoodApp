@@ -10,7 +10,7 @@
                 <li><a href="../Admin/AddNewIngredient.aspx">Add ingredient</a></li>
                 <li><a href="../Admin/ListAllIngredient.aspx">List All</a></li>
                 <li><a href="../Admin/SearchIngredient.aspx">Search</a></li>
-                <li><a href="../ManageIngredient.aspx" class="amber-text">Ingredients Management ADMIN</a></li>
+                <li class="amber-text">Ingredients Management ADMIN</li>
             </ul>
         </div>
     </nav>
