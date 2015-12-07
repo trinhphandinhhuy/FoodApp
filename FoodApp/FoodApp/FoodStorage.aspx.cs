@@ -24,15 +24,21 @@ namespace FoodApp
         private int foodid;
         private int userID;
         private OleDbDataReader myReader;
-        protected void Page_Load(object sender, EventArgs e)
+
+        protected void Page_Init(object sender, EventArgs e)
         {
             myConnection.ConnectionString = connectionString;
             myConnection.Open();
             mySelectCommand.Connection = myConnection;
             myAdapter.SelectCommand = mySelectCommand;
             userID = Convert.ToInt32(Session["userid"].ToString());
+            checkAuthentication();
+            //ListAll();
+        }
 
-            //mySelectCommand.Connection = myConnection;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
             mySelectCommand.CommandType = CommandType.Text;
             mySelectCommand.CommandText = "SELECT Name, FoodTypeID FROM FoodType";
             myReader = mySelectCommand.ExecuteReader();
@@ -53,7 +59,11 @@ namespace FoodApp
             else { }
 
             myReader.Close();
-
+            if(!Page.IsPostBack)
+            {
+                getDB();
+            }
+            
         }
 
         private void checkAuthentication()
@@ -77,6 +87,22 @@ namespace FoodApp
             {
                 mySelectCommand.CommandText = "SELECT FoodItem.Name , UserFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN UserFoodItem ON FoodItem.FoodItemID = UserFoodItem.FoodItemID WHERE FoodItem.Name LIKE '%" + txtBoxSearchName.Text + "%' AND UserFoodItem.UserDataID = " + userID + " AND FoodItem.FoodTypeID =" + ddlCategory.SelectedItem.Value + ";";
             }
+            //Fetching rows into the Data Set
+
+            myAdapter.Fill(myDataSet, "UserFoodItem");
+            //Show the users in the Data Grid
+            FoodTable.DataSource = myDataSet;
+            FoodTable.DataMember = "UserFoodItem";
+            FoodTable.DataBind();
+        }
+
+        private void ListAll()
+        {
+            FoodTable.DataSource = null;
+            FoodTable.DataBind();
+
+            mySelectCommand.CommandText = "SELECT FoodItem.Name , UserFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN UserFoodItem ON FoodItem.FoodItemID = UserFoodItem.FoodItemID WHERE UserFoodItem.UserDataID = " + userID + ";";
+
             //Fetching rows into the Data Set
 
             myAdapter.Fill(myDataSet, "UserFoodItem");
