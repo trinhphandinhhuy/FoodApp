@@ -89,6 +89,7 @@
     <Content Include="EditRecipe.aspx" />
     <Content Include="Example.aspx" />
     <Content Include="ExploringRecipes.aspx" />
+    <Content Include="FoodStorage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\ingredients.png" />
     <Content Include="img\logo.png" />
@@ -247,6 +248,13 @@
     </Compile>
     <Compile Include="Admin\ListAllIngredient.aspx.designer.cs">
       <DependentUpon>ListAllIngredient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FoodStorage.aspx.cs">
+      <DependentUpon>FoodStorage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodStorage.aspx.designer.cs">
+      <DependentUpon>FoodStorage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

@@ -26,7 +26,7 @@ namespace FoodApp
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            //checkAuthentication();
+            checkAuthentication();
 
         }
 
