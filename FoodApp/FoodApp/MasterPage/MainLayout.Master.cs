@@ -20,6 +20,10 @@ namespace FoodApp.MasterPage
                 ShopingListTab.Visible = false;
                 UserIngredientTab.Visible = false;
                 AdminManagementTab.Visible = true;
+                IngreAdminTab.Visible = true;
+                IngreUsertab.Visible = false;
+                ShoppinglistUserTab.Visible = false;
+                UsermanaAdminTab.Visible = true;
             }
             else
             {
@@ -29,6 +33,10 @@ namespace FoodApp.MasterPage
                 ShopingListTab.Visible = true;
                 UserIngredientTab.Visible = true;
                 AdminManagementTab.Visible = false;
+                IngreAdminTab.Visible = false;
+                IngreUsertab.Visible = true;
+                ShoppinglistUserTab.Visible = true;
+                UsermanaAdminTab.Visible = false;
             }
 
             //print username
