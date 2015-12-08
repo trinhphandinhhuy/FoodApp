@@ -13,12 +13,12 @@ namespace FoodApp {
     public partial class ExploringRecipes {
         
         /// <summary>
-        /// RecipeList control.
+        /// Recipe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList RecipeList;
+        protected global::System.Web.UI.WebControls.Repeater Recipe;
     }
 }
