@@ -158,9 +158,11 @@ namespace FoodApp
         }
 
         protected void IngredientRecipeDB_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
+        
+       {
             string selectedIngredient = IngredientRecipeDB.Rows[e.RowIndex].Cells[1].Text;
-            myDeleteCommand.CommandText = "DELETE FROM RecipeFoodItem INNER JOIN FoodItem ON FoodItem.FoodItemID = RecipeFoodItem.FoodItemID WHERE RecipeID" + RecipeID + "AND FoodItem.Name = " + selectedIngredient;
+            myDeleteCommand.Connection = myConnection;
+            myDeleteCommand.CommandText = "DELETE * FROM RecipeFoodItem INNER JOIN FoodItem ON FoodItem.FoodItemID = RecipeFoodItem.FoodItemID WHERE RecipeFoodItem.RecipeID = " + RecipeID + " AND FoodItem.Name = '" + selectedIngredient + "';";
             myDeleteCommand.ExecuteNonQuery();
             myConnection.Close();
             getIngredients();
@@ -180,9 +182,12 @@ namespace FoodApp
             DropDownList ddlUpdateIngName = (DropDownList)row.FindControl("ddlUpdateIngName");
             TextBox txtUpdateIngAmount = (TextBox)row.FindControl("txtUpdateIngAmount");
             string selectedIngredient = IngredientRecipeDB.Rows[e.RowIndex].Cells[1].Text;
+            myUpdateCommand.Connection = myConnection;
             myUpdateCommand.CommandText = "Update RecipeFoodItem INNER JOIN INNER JOIN FoodItem ON FoodItem.FoodItemID = RecipeFoodItem.FoodItemID"
-            + "SET FoodItemID= (SELECT FoodItemID FROM FoodItem WHERE Name = '" + ddlUpdateIngName.SelectedValue 
-            + "'), Amount='" + Convert.ToInt32(txtUpdateIngAmount.ToString()) + "'  WHERE RecipeID = " + RecipeID + " AND FoodItemID = (SELECT FoodItemID FROM FoodItem WHERE Name = '" + selectedIngredient + "');";
+            + "SET FoodItemID= (SELECT FoodItemID FROM FoodItem WHERE Name = @IngName"
+            + ", Amount= @IngAmount WHERE RecipeID = " + RecipeID + " AND FoodItemID = (SELECT FoodItemID FROM FoodItem WHERE Name = '" + selectedIngredient + "');";
+            myUpdateCommand.Parameters.AddWithValue("@IngName", ddlUpdateIngName.SelectedItem.Text);
+            myUpdateCommand.Parameters.AddWithValue("@IngAmount", Convert.ToDouble(txtUpdateIngAmount.Text));
             myUpdateCommand.ExecuteNonQuery(); //executing query
             myConnection.Close(); //closing connection
             IngredientRecipeDB.EditIndex = -1;
