@@ -17,6 +17,7 @@
 
 
 <body>
+    
     <!--Start navigation-->
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="../ChangeUsernameAndEmail.aspx">Edit Profile</a></li>
@@ -44,7 +45,7 @@
                     </asp:PlaceHolder>
                     <asp:PlaceHolder ID="ShopingListTab" runat="server">
                         <li><a href="../Planmeal.aspx">
-                            <img class="navLogo" src="../img/ShopingList.png" />" </a>
+                            <img class="navLogo" src="../img/ShopingList.png" /></a>
                         </li>
                     </asp:PlaceHolder>
 
@@ -144,6 +145,7 @@
     </nav>
     <!--End navigation-->
     <form id="form1" runat="server">
+        
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

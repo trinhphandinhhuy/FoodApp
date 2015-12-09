@@ -297,6 +297,7 @@ namespace FoodApp
                     }
                 }
             }
+            Response.Redirect("ShoppingListHistory.aspx");
         }
     }
 }
