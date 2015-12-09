@@ -12,7 +12,7 @@ namespace FoodApp.MasterPage
         protected void Page_Load(object sender, EventArgs e)
         {
             string user_level = Session["userlevel"].ToString();
-            if (user_level == "admin")
+            if (user_level == "Admin")
             {
                 AdminMenu.Visible = true;
             }

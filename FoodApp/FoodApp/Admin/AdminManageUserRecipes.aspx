@@ -6,7 +6,7 @@
             <h4 class="center">MANAGE USER RECIPE</h4>
         </div>
          <div class="section">
-            <asp:GridView ID="RecipeTable" runat="server" OnRowDeleting="RecipeTable_RowDeleting" OnRowDataBound="RecipeTable_RowDataBound" CssClass="striped highlight">
+            <asp:GridView ID="RecipeTable" runat="server" OnRowDeleting="RecipeTable_RowDeleting" OnRowDataBound="RecipeTable_RowDataBound" Width="100%" CssClass="striped highlight">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
                 </Columns>
