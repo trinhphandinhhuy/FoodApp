@@ -22,15 +22,6 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.ValidationSummary VsRecipe;
         
         /// <summary>
-        /// fileUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
-        
-        /// <summary>
         /// txtRecipeName control.
         /// </summary>
         /// <remarks>
@@ -130,13 +121,31 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.Button AddIngButton;
         
         /// <summary>
-        /// IngredientRecipeDB control.
+        /// lbChosenFoodItemID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView IngredientRecipeDB;
+        protected global::System.Web.UI.WebControls.ListBox lbChosenFoodItemID;
+        
+        /// <summary>
+        /// tbChosenFoodItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tbChosenFoodItem;
+        
+        /// <summary>
+        /// fileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
         
         /// <summary>
         /// btnConfirm control.
