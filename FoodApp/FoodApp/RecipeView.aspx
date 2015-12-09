@@ -1,12 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MPRecipeManagement.master" AutoEventWireup="true" CodeBehind="RecipeView.aspx.cs" Inherits="FoodApp.RecipeView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <asp:Image ID="RecipeImage" CssClass="responsive-img" runat="server" />
         <div class="container">
-            <h4>
-                <asp:Label ID="RecipeName" runat="server" Text="Cupcake"></asp:Label></h4>
+            <h3 class="grey-text center"><asp:Label ID="RecipeName" runat="server" Text="Cupcake"></asp:Label></h3>
             <div class="divider"></div>
             <br />
+            <asp:Image ID="RecipeImage" CssClass="responsive-img" runat="server" />
             <div class="chip">
                 Created by:
                 <asp:Label ID="recipeAuthor" runat="server" Text="coco"></asp:Label>

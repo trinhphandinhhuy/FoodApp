@@ -13,15 +13,6 @@ namespace FoodApp {
     public partial class RecipeView {
         
         /// <summary>
-        /// RecipeImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image RecipeImage;
-        
-        /// <summary>
         /// RecipeName control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace FoodApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label RecipeName;
+        
+        /// <summary>
+        /// RecipeImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image RecipeImage;
         
         /// <summary>
         /// recipeAuthor control.
