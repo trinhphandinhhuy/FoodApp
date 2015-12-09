@@ -3,11 +3,11 @@
     <div class="row" >
         <asp:Repeater ID="Recipe" runat="server">
             <ItemTemplate>
-                <div class="col l4 s12 m6">
-                    <div class="card">
-                        <div class="card-image" style="height:300px;">
+                <div class="col l3 s12 m6">
+                    <div class="card small hoverable">
+                        <div class="card-image">
                             <img class="responsive-img" src="<%#Eval("ImageURL")%>" />
-                            <span class="card-title teal-text"><%#Eval("Name")%></span>
+                            <span class="card-title white-text "><%#Eval("Name")%></span>
                         </div>
                         <div class="card-content">
                             <p>Recipe by: <%#Eval("Username")%></p>

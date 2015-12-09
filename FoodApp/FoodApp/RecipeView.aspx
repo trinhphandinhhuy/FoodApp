@@ -5,7 +5,10 @@
             <h3 class="grey-text center"><asp:Label ID="RecipeName" runat="server" Text="Cupcake"></asp:Label></h3>
             <div class="divider"></div>
             <br />
-            <asp:Image ID="RecipeImage" CssClass="responsive-img" runat="server" />
+            <div class="col l12 center">
+            <asp:Image ID="RecipeImage" CssClass="responsive-img materialboxed" runat="server" Width="100%" />
+                </div>
+            <div class="section center">
             <div class="chip">
                 Created by:
                 <asp:Label ID="recipeAuthor" runat="server" Text="coco"></asp:Label>
@@ -13,13 +16,15 @@
             <div class="chip">
                 <asp:Label ID="MealType" runat="server" Text="Soup"></asp:Label><br />
             </div>
+
+                </div>
             <div class="section">
                 <div class="col l6">
-                    <b>Portions:</b>
+                    <i class="tiny material-icons">perm_identity</i><b>Portions:</b>
                     <asp:Label ID="portions" runat="server" Text="Label"></asp:Label>
                 </div>
                 <div class="col l6">
-                    <b>Cookingtime:</b>
+                    <i class="tiny material-icons">av_timer</i><b>Cookingtime:</b>
                     <asp:Label ID="cookingtime" runat="server" Text="Label"></asp:Label>
                 </div>
             </div>
