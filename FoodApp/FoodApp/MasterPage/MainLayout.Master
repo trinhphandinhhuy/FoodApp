@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainLayout.master.cs" Inherits="FoodApp.MasterPage.MainLayout" %>
 
 <html lang="en">
-
+    <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>FoodNStuff</title>
@@ -108,8 +108,8 @@
                                     <div class="collapsible-body">
                                         <ul>
                                             <li><a href="../Planmeal.aspx">Planned meal</a></li>
-                                            <li><a href="#">Planned meal history</a></li>
-                                            <li><a href="#">Shopping list history</a></li>
+                                            <li><a href="../PlannedMealHistory.aspx">Planned meal history</a></li>
+                                            <li><a href="../ShoppingListHistory.aspx">Shopping list history</a></li>
                                         </ul>
                                     </div>
                                         </li>
