@@ -103,7 +103,16 @@
     <Content Include="img\logo.png" />
     <Content Include="img\personal.png" />
     <Content Include="img\recipe.png" />
+    <Content Include="img\recipeImg\ANCHO CHILE,SHRIM,AND PASTA.jpg" />
+    <Content Include="img\recipeImg\BEEF STROGANOFF.jpg" />
+    <Content Include="img\recipeImg\CLASSIC TOMATO SPAGHETTI.jpg" />
+    <Content Include="img\recipeImg\CRANBERRY APPLE STUFFED PORK LOIN.jpg" />
+    <Content Include="img\recipeImg\DEVILS CHOC MALT COOKIES.jpg" />
+    <Content Include="img\recipeImg\EASY RICE SALAD.jpg" />
     <Content Include="img\recipeImg\header-full.png" />
+    <Content Include="img\recipeImg\HIBACHI STEAK.jpg" />
+    <Content Include="img\recipeImg\KFC ORIGINAL CHICKEN.jpg" />
+    <Content Include="img\recipeImg\PAN FRIED POTATOES.jpg" />
     <Content Include="img\ShopingList.png" />
     <Content Include="img\testLogin.aspx" />
     <Content Include="index.aspx" />
