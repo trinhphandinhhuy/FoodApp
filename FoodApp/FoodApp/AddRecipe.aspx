@@ -40,7 +40,7 @@
                 </div>
                 <asp:Button ID="AddIngButton" runat="server" Text="Add Ingredients" OnClick="AddIngButton_Click" />
                 <asp:ListBox ID="lbChosenFoodItemID" runat="server" Visible="false"></asp:ListBox>
-                <asp:Table ID="tbChosenFoodItem" runat="server" BorderWidth="1" BorderColor="Black" BorderStyle="Solid"></asp:Table>
+                <asp:Table ID="tbChosenFoodItem" runat="server" Width="100%" CssClass="striped highlight"></asp:Table>
             </div>
         </asp:PlaceHolder>
     </div>
