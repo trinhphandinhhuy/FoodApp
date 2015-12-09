@@ -44,10 +44,7 @@ namespace FoodApp
                 notEoF = reader.Read();
             }
             reader.Close();
-            myConnection.Close();
-            
+            myConnection.Close();  
         }
-
-     
     }
 }
