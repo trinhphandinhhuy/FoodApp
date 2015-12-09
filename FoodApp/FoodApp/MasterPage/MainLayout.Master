@@ -12,12 +12,8 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
 </head>
-
-
 <body>
-    
     <!--Start navigation-->
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="../ChangeUsernameAndEmail.aspx">Edit Profile</a></li>
@@ -29,38 +25,50 @@
         <div class="nav-wrapper">
             <a id="logo-container" class="brand-logo">
                 <a href="../ExploringRecipes.aspx">
-                    <img class="PageLogo" src="../img/logo.png" /></a>
+                    <img class="PageLogo" src="../img/logo.png" />
+                </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="../AddRecipe.aspx">
-                        <img class="navLogo" src="../img/recipe.png" /></a></li>
+                    <li>
+                        <a href="../AddRecipe.aspx">
+                            <img class="navLogo" src="../img/recipe.png" />
+                        </a>
+                    </li>
                     <asp:PlaceHolder ID="AdminIngredientTab" runat="server">
-                        <li><a href="../Admin/ListAllIngredient.aspx">
-                            <img class="navLogo" src="../img/ingredients.png" /></a>
+                        <li>
+                            <a href="../Admin/ListAllIngredient.aspx">
+                                <img class="navLogo" src="../img/ingredients.png" />
+                            </a>
                         </li>
                     </asp:PlaceHolder>
                     <asp:PlaceHolder ID="UserIngredientTab" runat="server">
-                        <li><a href="../foodstorage.aspx">
-                            <img class="navLogo" src="../img/ingredients.png" /></a>
+                        <li>
+                            <a href="../foodstorage.aspx">
+                                <img class="navLogo" src="../img/ingredients.png" />
+                            </a>
                         </li>
                     </asp:PlaceHolder>
                     <asp:PlaceHolder ID="ShopingListTab" runat="server">
-                        <li><a href="../Planmeal.aspx">
-                            <img class="navLogo" src="../img/ShopingList.png" /></a>
+                        <li>
+                            <a href="../Planmeal.aspx">
+                                <img class="navLogo" src="../img/ShopingList.png" />
+                            </a>
                         </li>
                     </asp:PlaceHolder>
-
                     <asp:PlaceHolder ID="AdminManagementTab" runat="server">
-                        <li><a href="../AdminManagement.aspx">
-                            <img class="navLogo" src="../img/personal.png" /></a></li>
+                        <li>
+                            <a href="../AdminManagement.aspx">
+                                <img class="navLogo" src="../img/personal.png" />
+                            </a>
+                        </li>
                     </asp:PlaceHolder>
-                    <li class=""><a class="dropdown-button" href="#!" data-activates="dropdown1">
-                        <asp:Label ID="UserNameAc" runat="server" Text="Account"></asp:Label>
-                        <i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li class="">
+                        <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                            <asp:Label ID="UserNameAc" runat="server" Text="Account"></asp:Label>
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
                 </ul>
-
-
                 <ul id="nav-mobile" class="side-nav">
-
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
                             <li>
@@ -133,10 +141,6 @@
                             </li>
                         </ul>
                     </li>
-
-
-
-
                 </ul>
 
 
@@ -151,38 +155,17 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
-
     <!--Footer-->
     <footer class="page-footer teal">
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
+                <div class="col l12 s12">
                     <h5 class="white-text">About us</h5>
                     <p class="grey-text text-lighten-4">
                         WINNER TEAM
                         <br>
                         We are a team of LAMK's students working on FoodNStuff project.
                     </p>
-
-
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -192,11 +175,9 @@
             </div>
         </div>
     </footer>
-
     <!--  Scripts-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../Scripts/materialize.min.js"></script>
     <script type="text/javascript" src="../Scripts/init.js"></script>
-
 </body>
 </html>
