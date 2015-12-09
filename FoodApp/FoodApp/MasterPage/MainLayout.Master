@@ -45,7 +45,7 @@
                     </asp:PlaceHolder>
                     <asp:PlaceHolder ID="ShopingListTab" runat="server">
                         <li><a href="../Planmeal.aspx">
-                            <img class="navLogo" src="../img/ShopingList.png" />" </a>
+                            <img class="navLogo" src="../img/ShopingList.png" /></a>
                         </li>
                     </asp:PlaceHolder>
 
