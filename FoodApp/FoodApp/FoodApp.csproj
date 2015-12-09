@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accordion, Version=3.5.40128.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accordion.1.0.0\lib\Accordion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AjaxControlToolkit, Version=15.1.4.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.15.1.4.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -95,7 +103,16 @@
     <Content Include="img\logo.png" />
     <Content Include="img\personal.png" />
     <Content Include="img\recipe.png" />
+    <Content Include="img\recipeImg\ANCHO CHILE,SHRIM,AND PASTA.jpg" />
+    <Content Include="img\recipeImg\BEEF STROGANOFF.jpg" />
+    <Content Include="img\recipeImg\CLASSIC TOMATO SPAGHETTI.jpg" />
+    <Content Include="img\recipeImg\CRANBERRY APPLE STUFFED PORK LOIN.jpg" />
+    <Content Include="img\recipeImg\DEVILS CHOC MALT COOKIES.jpg" />
+    <Content Include="img\recipeImg\EASY RICE SALAD.jpg" />
     <Content Include="img\recipeImg\header-full.png" />
+    <Content Include="img\recipeImg\HIBACHI STEAK.jpg" />
+    <Content Include="img\recipeImg\KFC ORIGINAL CHICKEN.jpg" />
+    <Content Include="img\recipeImg\PAN FRIED POTATOES.jpg" />
     <Content Include="img\ShopingList.png" />
     <Content Include="img\testLogin.aspx" />
     <Content Include="index.aspx" />
@@ -107,6 +124,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="PlanMeal.aspx" />
+    <Content Include="PlannedMealHistory.aspx" />
     <Content Include="RecipeManagement.aspx" />
     <Content Include="RecipeView.aspx" />
     <Content Include="Registration.aspx" />
@@ -132,6 +150,9 @@
     </None>
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="ShoppingList.aspx" />
+    <Content Include="ShoppingListHistory.aspx" />
+    <Content Include="ViewPlannedMeal.aspx" />
+    <Content Include="ViewSPList.aspx" />
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
     </Content>
@@ -362,6 +383,13 @@
     <Compile Include="PlanMeal.aspx.designer.cs">
       <DependentUpon>PlanMeal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PlannedMealHistory.aspx.cs">
+      <DependentUpon>PlannedMealHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlannedMealHistory.aspx.designer.cs">
+      <DependentUpon>PlannedMealHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeManagement.aspx.cs">
       <DependentUpon>RecipeManagement.aspx</DependentUpon>
@@ -412,12 +440,33 @@
     <Compile Include="ShoppingList.aspx.designer.cs">
       <DependentUpon>ShoppingList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShoppingListHistory.aspx.cs">
+      <DependentUpon>ShoppingListHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingListHistory.aspx.designer.cs">
+      <DependentUpon>ShoppingListHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPlannedMeal.aspx.cs">
+      <DependentUpon>ViewPlannedMeal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPlannedMeal.aspx.designer.cs">
+      <DependentUpon>ViewPlannedMeal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSPList.aspx.cs">
+      <DependentUpon>ViewSPList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSPList.aspx.designer.cs">
+      <DependentUpon>ViewSPList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -10,44 +10,75 @@ using System.Data.OleDb;
 namespace FoodApp
 {
     public partial class RecipeView : System.Web.UI.Page
-
     {
         private OleDbConnection myConnection = new OleDbConnection();
-        private OleDbCommand mySelectCommand = new OleDbCommand();
-        private OleDbCommand cmd = new OleDbCommand();
-        private OleDbCommand cmd2 = new OleDbCommand();
-      
-        String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
-    
+        string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int recipeID = 0;
+            if (Request.QueryString["RecipeID"] != null && Request.QueryString["RecipeID"] != "")
+            {
+                recipeID = Convert.ToInt32(Request.QueryString["RecipeID"]);
+            }
+            else
+            {
+                Response.Redirect("ExploringRecipe.aspx");
+            }
             myConnection.ConnectionString = connstr;
             myConnection.Open();
-        
-            cmd2.Connection = myConnection;
-            cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "SELECT UserData.Username, Recipe.Name, Recipe.Portion, Recipe.CookingTime, Recipe.Description, MealType.Name, Recipe.ImageURL,Recipe.RecipeID FROM MealType INNER JOIN (Recipe INNER JOIN UserData ON Recipe.UserDataID = UserData.UserDataID) ON MealType.MealTypeID = Recipe.MealTypeID WHERE(((Recipe.Name) = '" + Session["RecipeAdded"].ToString() + "'))";
-            OleDbDataReader reader = cmd2.ExecuteReader();
+
+            OleDbCommand cmd = new OleDbCommand("SELECT * FROM UserData AS u INNER JOIN Recipe AS r ON r.UserDataID = u.UserDataID WHERE r.RecipeID = " + recipeID, myConnection);
+            cmd.CommandType = CommandType.Text;
+            OleDbDataReader reader = cmd.ExecuteReader();
             bool notEoF = reader.Read();
             while (notEoF)
             {
                 recipeAuthor.Text = reader["Username"].ToString();                
-                RecipeName.Text = reader[1].ToString();
+                RecipeName.Text = reader["Name"].ToString();
                 portions.Text = reader["Portion"].ToString();
                 cookingtime.Text = reader["CookingTime"].ToString();
                 descriptions.Text = reader["Description"].ToString();
-                MealType.Text = reader[5].ToString();
-               
+                OleDbCommand cmd2 = new OleDbCommand("SELECT * FROM MealType WHERE MealTypeID = " + reader["MealTypeID"].ToString(), myConnection);
+                cmd2.CommandType = CommandType.Text;
+                OleDbDataReader reader2 = cmd2.ExecuteReader();
+                bool notEoF2 = reader2.Read();
+                while (notEoF2)
+                {
+                    MealType.Text = reader2["Name"].ToString();
+                    notEoF2 = reader2.Read();
+                }
+                reader2.Close();
                 RecipeImage.ImageUrl = reader["ImageURL"].ToString();
-                Session["RecipeID"] = reader["RecipeID"].ToString();
                 notEoF = reader.Read();
             }
             reader.Close();
-            myConnection.Close();
-            
+            TableHeaderRow tbHeaderRow = new TableHeaderRow();
+            tbFoodItem.Rows.Add(tbHeaderRow);
+            TableHeaderCell tbHeaderCellName = new TableHeaderCell();
+            TableHeaderCell tbHeaderCellAmount = new TableHeaderCell();
+            tbHeaderCellName.Text = "Name";
+            tbHeaderCellAmount.Text = "Amount";
+            tbHeaderRow.Cells.Add(tbHeaderCellName);
+            tbHeaderRow.Cells.Add(tbHeaderCellAmount);
+            OleDbCommand cmd3 = new OleDbCommand("SELECT * FROM RecipeFoodItem INNER JOIN FoodItem ON RecipeFoodItem.FoodItemID = FoodItem.FoodItemID WHERE RecipeFoodItem.RecipeID = " + recipeID.ToString(), myConnection);
+            cmd3.CommandType = CommandType.Text;
+            OleDbDataReader reader3 = cmd3.ExecuteReader();
+            bool notEoF3 = reader3.Read();
+            while (notEoF3)
+            {
+                TableRow tbRow = new TableRow();
+                tbFoodItem.Rows.Add(tbRow);
+                TableCell tbCellName = new TableCell();
+                TableCell tbCellAmount = new TableCell();
+                tbCellName.Text = reader3["Name"].ToString();
+                tbCellAmount.Text = reader3["Amount"].ToString() + " " + reader3["UnitType"].ToString();
+                tbRow.Cells.Add(tbCellName);
+                tbRow.Cells.Add(tbCellAmount);
+                notEoF3 = reader3.Read();
+            }
+            reader3.Close();
+            myConnection.Close();  
         }
-
-     
     }
 }

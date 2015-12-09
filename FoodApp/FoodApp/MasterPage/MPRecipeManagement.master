@@ -13,7 +13,6 @@
                     <asp:PlaceHolder ID="AdminManageRe" runat="server">
                     <li><a href="../Admin/AdminManageUserRecipes.aspx">Manage Recipe</a></li></asp:PlaceHolder>
                     <li><a href="../ExploringRecipes.aspx">Explore</a></li>
-                    <li class="amber-text">  Recipe Management</li>
                 </ul>
             </div>
         </nav>

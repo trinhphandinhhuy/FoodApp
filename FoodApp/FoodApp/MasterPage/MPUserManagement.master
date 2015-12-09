@@ -9,8 +9,7 @@
               
                 <li><a href="../Admin/AdminAddUser.aspx">Add user</a></li>
                 <li><a href="../Admin/AdminDeleteUser.aspx">Delete User</a></li>
-        <li class="amber-text">
-                    User Management</li>
+        
             </ul>
         </div>
     </nav>

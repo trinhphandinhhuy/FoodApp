@@ -12,13 +12,9 @@
                 <br />
                 <br />
             </div>
-        
-        
-        <div class="col s12 m8 l8">
-            <asp:GridView ID="FoodTable" runat="server" AutoGenerateColumns="true" Width="100%" CssClass="striped highlight">
-
-            </asp:GridView>
-        </div>
+            <div class="col s12 m8 l8">
+                <asp:GridView ID="FoodTable" runat="server" AutoGenerateColumns="true" Width="100%" CssClass="striped highlight"></asp:GridView>
             </div>
+        </div>
     </div>
 </asp:Content>

@@ -20,26 +20,19 @@ namespace FoodApp
         private object imageG;
         
         protected void Page_Load(object sender, EventArgs e)
-
         {
             myConnection.ConnectionString = connstr;
             myConnection.Open();
             cmd.Connection = myConnection;
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Recipe.Name, Recipe.ImageURL, UserData.Username FROM UserData INNER JOIN Recipe ON UserData.UserDataID = Recipe.UserDataID; ";
-           //cmd.ExecuteNonQuery();
-           // DataTable dt = new DataTable();
-           // OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-           // da.Fill(dt);
-           // Recipe.DataSource = dt;
-           // Recipe.DataBind();
-
+            cmd.CommandText = "SELECT Recipe.RecipeID, Recipe.Name, Recipe.ImageURL, UserData.Username FROM UserData INNER JOIN Recipe ON UserData.UserDataID = Recipe.UserDataID; ";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            da.Fill(dt);
+            Recipe.DataSource = dt;
+            Recipe.DataBind();
             myConnection.Close();
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Session["RecipeAdded"] = Recipe.;
         }
     }
 }
