@@ -7,7 +7,7 @@
                     <div class="card small hoverable">
                         <div class="card-image">
                             <img class="responsive-img"  src="<%#Eval("ImageURL")%>" />
-                            <span class="card-title white-text "><blockquote class="black"><%#Eval("Name")%></blockquote></span>
+                            <span class="card-title white-text "><blockquote class="blacktrs"><%#Eval("Name")%></blockquote></span>
                         </div>
                         <div class="card-content">
                             <p>Recipe by: <%#Eval("Username")%></p>

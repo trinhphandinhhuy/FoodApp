@@ -22,7 +22,7 @@
         <li class="divider"></li>
         <li><a href="../Logout.aspx">Log out</li>
     </ul>
-    <nav class="teal" role="navigation">
+    <nav class="teal " role="navigation">
         <div class="nav-wrapper">
             <a id="logo-container" class="brand-logo">
                 <a href="../ExploringRecipes.aspx">
