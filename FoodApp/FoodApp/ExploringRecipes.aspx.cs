@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data.OleDb;
 //System.Data for command object
 using System.Data;
+using System.IO;
 
 namespace FoodApp
 {
@@ -16,8 +17,8 @@ namespace FoodApp
         private OleDbConnection myConnection = new OleDbConnection();
         private OleDbCommand cmd = new OleDbCommand();
         String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
-       
-
+        private object imageG;
+        
         protected void Page_Load(object sender, EventArgs e)
 
         {
@@ -26,12 +27,12 @@ namespace FoodApp
             cmd.Connection = myConnection;
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT Recipe.Name, Recipe.ImageURL, UserData.Username FROM UserData INNER JOIN Recipe ON UserData.UserDataID = Recipe.UserDataID; ";
-            cmd.ExecuteNonQuery();
+           cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd); 
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             da.Fill(dt);
-            RecipeList.DataSource = dt;
-            RecipeList.DataBind();
+            Recipe.DataSource = dt;
+            Recipe.DataBind();
 
             myConnection.Close();
         }

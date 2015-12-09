@@ -76,6 +76,42 @@ namespace FoodApp.MasterPage {
         protected global::System.Web.UI.WebControls.PlaceHolder AdminManageRe;
         
         /// <summary>
+        /// IngreAdminTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder IngreAdminTab;
+        
+        /// <summary>
+        /// IngreUsertab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder IngreUsertab;
+        
+        /// <summary>
+        /// ShoppinglistUserTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ShoppinglistUserTab;
+        
+        /// <summary>
+        /// UsermanaAdminTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder UsermanaAdminTab;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>

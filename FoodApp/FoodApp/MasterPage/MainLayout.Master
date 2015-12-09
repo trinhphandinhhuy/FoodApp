@@ -8,8 +8,9 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
 </head>
@@ -17,15 +18,15 @@
 
 <body>
     <!--Start navigation-->
-    <ul id="dropdown1" class="dropdown-content">        
+    <ul id="dropdown1" class="dropdown-content">
         <li><a href="../ChangeUsernameAndEmail.aspx">Edit Profile</a></li>
         <li><a href="../ChangePassword.aspx">Change password</a></li>
         <li class="divider"></li>
         <li><a href="../Logout.aspx">Log out</li>
     </ul>
     <nav class="teal" role="navigation">
-         <div class="nav-wrapper">
-                <a id="logo-container" class="brand-logo">
+        <div class="nav-wrapper">
+            <a id="logo-container" class="brand-logo">
                 <a href="../ExploringRecipes.aspx">
                     <img class="PageLogo" src="../img/logo.png" /></a>
                 <ul class="right hide-on-med-and-down">
@@ -41,15 +42,15 @@
                             <img class="navLogo" src="../img/ingredients.png" /></a>
                         </li>
                     </asp:PlaceHolder>
-                     <asp:PlaceHolder ID="ShopingListTab" runat="server">
+                    <asp:PlaceHolder ID="ShopingListTab" runat="server">
                         <li><a href="../Planmeal.aspx">
                             <img class="navLogo" src="../img/ShopingList.png" />" </a>
                         </li>
                     </asp:PlaceHolder>
 
                     <asp:PlaceHolder ID="AdminManagementTab" runat="server">
-                    <li><a href="../AdminManagement.aspx">
-                        <img class="navLogo" src="../img/personal.png" /></a></li>
+                        <li><a href="../AdminManagement.aspx">
+                            <img class="navLogo" src="../img/personal.png" /></a></li>
                     </asp:PlaceHolder>
                     <li class=""><a class="dropdown-button" href="#!" data-activates="dropdown1">
                         <asp:Label ID="UserNameAc" runat="server" Text="Account"></asp:Label>
@@ -58,54 +59,87 @@
 
 
                 <ul id="nav-mobile" class="side-nav">
-                   
-                       
-                            <!--Recipe-->
-                            <li class="bold">
-                                <a class="waves-effect waves-teal">Recipe</a>
-                                <div class="">
-                                    <ul >
+
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <div class="collapsible-header grey-text  waves-effect waves-teal">Recipe</div>
+                                <div class="collapsible-body">
+                                    <ul>
                                         <li><a href="../AddRecipe.aspx">Add Recipe</a></li>
                                         <li><a href="../AdminManageOwnRecipe.aspx">Own Recipe</a></li>
                                         <asp:PlaceHolder ID="AdminManageRe" runat="server">
                                             <li><a href="../Admin/AdminManageUserRecipes.aspx">Manage Recipe</a></li>
                                         </asp:PlaceHolder>
                                         <li><a href="../ExploringRecipes.aspx">Explore</a></li>
-                                        <li><a href="../RecipeManagement.aspx" class="amber-text">
                                     </ul>
                                 </div>
                             </li>
-                            <!--Ingredient Management-->
-                           <%-- <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Ingredient management</a>
+                            <li>
+                                <!--Ingredient Management-->
+                                <div class="collapsible-header grey-text  waves-effect waves-teal">Ingredient management</div>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="../Admin/AddNewIngredient.aspx">Add ingredient</a></li>
-                                        <li><a href="../Admin/ListAllIngredient.aspx">List All</a></li>
-                                        <li><a href="../Admin/SearchIngredient.aspx">Search</a></li>
-                                        <li><a href="../ManageIngredient.aspx" class="amber-text">Ingredients Management ADMIN</a></li>
+                                        <asp:PlaceHolder ID="IngreAdminTab" runat="server">
+                                            <li><a href="../Admin/AddNewIngredient.aspx">Add ingredient</a></li>
+                                            <li><a href="../Admin/ListAllIngredient.aspx">List All</a></li>
+                                            <li><a href="../Admin/SearchIngredient.aspx">Search</a></li>
+                                        </asp:PlaceHolder>
+                                        <asp:PlaceHolder ID="IngreUsertab" runat="server">
+                                            <li><a href="../foodstorage.aspx">Food Storage</a></li>
+                                        </asp:PlaceHolder>
                                     </ul>
                                 </div>
                             </li>
-                            <!--Account-->
-                            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Account</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <asp:PlaceHolder ID="PlaceHolder2" runat="server">
+                            
+                                <!--ShoppingList-->
+                                <asp:PlaceHolder ID="ShoppinglistUserTab" runat="server">
+                                    <li>
+                                    <div class="collapsible-header grey-text  waves-effect waves-teal">Shopping list</div>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li><a href="../Planmeal.aspx">Planned meal</a></li>
+                                            <li><a href="#">Planned meal history</a></li>
+                                            <li><a href="#">Shopping list history</a></li>
+                                        </ul>
+                                    </div>
+                                        </li>
+                                </asp:PlaceHolder>
+                                                       
+                            <!-- User Management-->
+                             <asp:PlaceHolder ID="UsermanaAdminTab" runat="server">
+                                    <li>
+                                    <div class="collapsible-header grey-text  waves-effect waves-teal">User management</div>
+                                    <div class="collapsible-body">
+                                        <ul>
                                             <li><a href="../Admin/AdminAddUser.aspx">Add user</a></li>
                                             <li><a href="../Admin/AdminDeleteUser.aspx">Delete User</a></li>
-                                        </asp:PlaceHolder>
+                                        </ul>
+                                    </div>
+                                          </li>
+                                </asp:PlaceHolder>
+                          
+                            <!--Account-->
+                            <li>
+                                <div class="collapsible-header grey-text  waves-effect waves-teal">Account</div>
+                                <div class="collapsible-body">
+                                    <ul>
                                         <li><a href="../ChangeUsernameAndEmail.aspx">Edit Profile</a></li>
                                         <li><a href="../ChangePassword.aspx">Change password</a></li>
                                         <li><a href="../Logout.aspx">Log out</li>
                                     </ul>
                                 </div>
-                            </li>--%>
-                            
-                        
-                     </ul>
-                    
-                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                    
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                </ul>
+
+
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
     <!--End navigation-->
@@ -158,9 +192,9 @@
     </footer>
 
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="../Scripts/materialize.js"></script>
-    <script src="../Scripts/init.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/materialize.min.js"></script>
+    <script type="text/javascript" src="../Scripts/init.js"></script>
 
 </body>
 </html>
