@@ -27,6 +27,7 @@ namespace FoodApp
 
         protected void Page_Init(object sender, EventArgs e)
         {
+
             checkUserAuthentication();
             userid = Convert.ToInt32(Session["userid"].ToString());
             myConnection.ConnectionString = connectionString;
