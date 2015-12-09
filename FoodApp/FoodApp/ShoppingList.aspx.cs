@@ -223,10 +223,10 @@ namespace FoodApp
             command.CommandText = "SELECT @@IDENTITY;";
             int shoppingListID = Convert.ToInt32(command.ExecuteScalar());
          ////////////////////////
-            Table table1 = (Table)Page.FindControl("tbRealShoppingList");
+            //Table table1 = (Table)Page.FindControl("tbRealShoppingList");
             //Table table2 = (Table)Page.FindControl("tbShoppingList");
-            if (table1 != null)
-            {
+            //if (table1 != null)
+            //{
                 if (tbUpdateDB.Rows.Count == 0)
                 {
                     for (int k = 0; k < lbFoodItemID.Items.Count; k++)
@@ -245,8 +245,9 @@ namespace FoodApp
                             TableCell tbCellName = new TableHeaderCell();
                             TableCell tbCellAmount = new TableHeaderCell();
                             tbCellName.Text = reader["Name"].ToString();
-                            //tbCellAmount.Text = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
-                            realAmount = Convert.ToDouble(Request.Form[reader["Name"].ToString()]);
+                        //tbCellAmount.Text = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
+                        realAmount = Convert.ToDouble(Request.Form["ctl00$ctl00$ContentPlaceHolder1$ContentPlaceHolder1$" + reader["Name"].ToString()]);
+                        //realAmount = Convert.ToDouble(this.FindControl("ContentPlaceHolder1_ContentPlaceHolder1_" + reader["Name"].ToString()));
                             temp = realAmount - Convert.ToDouble(lbFoodItemID.Items[k].Value);
                             tbCellAmount.Text = temp.ToString();
                             tbRow.Cells.Add(tbCellName);
@@ -296,7 +297,7 @@ namespace FoodApp
                        
                     }
                 }
-            }
+            //}
             Response.Redirect("ShoppingListHistory.aspx");
         }
     }
