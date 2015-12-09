@@ -115,6 +115,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="PlanMeal.aspx" />
+    <Content Include="PlannedMealHistory.aspx" />
     <Content Include="RecipeManagement.aspx" />
     <Content Include="RecipeView.aspx" />
     <Content Include="Registration.aspx" />
@@ -371,6 +372,13 @@
     </Compile>
     <Compile Include="PlanMeal.aspx.designer.cs">
       <DependentUpon>PlanMeal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlannedMealHistory.aspx.cs">
+      <DependentUpon>PlannedMealHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlannedMealHistory.aspx.designer.cs">
+      <DependentUpon>PlannedMealHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeManagement.aspx.cs">
