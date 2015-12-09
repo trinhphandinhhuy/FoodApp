@@ -13,10 +13,12 @@ namespace FoodApp
     {
         private OleDbConnection myConnection = new OleDbConnection();
         string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
+        private int recipeID, userID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int recipeID = 0;
+            checkAuthentication();
+            userID = Convert.ToInt32(Session["userid"].ToString());
             if (Request.QueryString["RecipeID"] != null && Request.QueryString["RecipeID"] != "")
             {
                 recipeID = Convert.ToInt32(Request.QueryString["RecipeID"]);
@@ -27,7 +29,19 @@ namespace FoodApp
             }
             myConnection.ConnectionString = connstr;
             myConnection.Open();
-
+            OleDbCommand cmd5 = new OleDbCommand("SELECT * FROM UserRecipe WHERE UserDataID = " + userID.ToString(), myConnection);
+            cmd5.CommandType = CommandType.Text;
+            OleDbDataReader reader5 = cmd5.ExecuteReader();
+            bool notEoF5 = reader5.Read();
+            while (notEoF5)
+            {
+                if (recipeID.ToString() == reader5["RecipeID"].ToString())
+                {
+                    btnAddRecipeToOwn.Visible = false;
+                }
+                notEoF5 = reader5.Read();
+            }
+            reader5.Close();
             OleDbCommand cmd = new OleDbCommand("SELECT * FROM UserData AS u INNER JOIN Recipe AS r ON r.UserDataID = u.UserDataID WHERE r.RecipeID = " + recipeID, myConnection);
             cmd.CommandType = CommandType.Text;
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -78,7 +92,26 @@ namespace FoodApp
                 notEoF3 = reader3.Read();
             }
             reader3.Close();
-            myConnection.Close();  
+        }
+        private void checkAuthentication()
+        {
+            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "")
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+        //checkRecipe
+        protected void btnAddRecipeToOwn_Click(object sender, EventArgs e)
+        {
+            OleDbCommand cmd = new OleDbCommand("INSERT INTO UserRecipe(RecipeID, UserDataID, Owner) values(@RecipeID, @UserDataID, @Owner)", myConnection);
+            cmd.CommandType = CommandType.Text;
+            //adding parameters with value
+            cmd.Parameters.AddWithValue("@RecipeID", recipeID.ToString());
+            cmd.Parameters.AddWithValue("@UserDataID", userID.ToString());
+            cmd.Parameters.AddWithValue("@Owner", 0);
+            cmd.ExecuteNonQuery();  //executing query
+            myConnection.Close();
+            Response.Redirect("AdminManageOwnRecipe.aspx");
         }
     }
 }

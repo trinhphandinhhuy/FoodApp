@@ -17,7 +17,6 @@ namespace FoodApp
         private OleDbCommand mySelectCommand = new OleDbCommand();
         private OleDbCommand myInsertCommand = new OleDbCommand();
         private OleDbCommand myDeleteCommand;
-        private OleDbCommand myUpdateCommand;
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
         private DataSet myDataSet = new DataSet();
         private string connectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"Database\DatabaseforApp.mdb;";
