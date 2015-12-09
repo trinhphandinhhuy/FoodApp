@@ -127,8 +127,7 @@ namespace FoodApp
                 cmd4.Parameters.AddWithValue("@Owner", "Yes");
                 cmd4.ExecuteNonQuery();  //executing query
                 myConnection.Close();
-                Session["recipeid"] = newRecipeID;
-                Response.Redirect("RecipeManagement.aspx");
+                Response.Redirect("AdminManageOwnRecipe.aspx");
             }
             else
             {

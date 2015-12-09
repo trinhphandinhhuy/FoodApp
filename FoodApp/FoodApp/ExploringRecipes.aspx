@@ -3,7 +3,7 @@
     <div class="row" >
         <asp:Repeater ID="Recipe" runat="server">
             <ItemTemplate>
-                <div class="col l4 s12 m6 " >
+                <div class="col l4 s12 m6">
                     <div class="card">
                         <div class="card-image" style="height:300px;">
                             <img class="responsive-img" src="<%#Eval("ImageURL")%>" />
@@ -13,7 +13,7 @@
                             <p>Recipe by: <%#Eval("Username")%></p>
                         </div>
                         <div class="card-action">
-                            <a href="RecipeView.aspx">Viewmore</a>
+                            <a href="RecipeView.aspx?RecipeID=<%#Eval("RecipeID")%>">Viewmore</a>
                         </div>
                     </div>
                 </div>
