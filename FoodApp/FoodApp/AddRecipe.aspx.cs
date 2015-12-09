@@ -88,7 +88,7 @@ namespace FoodApp
                 if (fileUpload.HasFile)
                 {
                     string fileName = Path.GetFileName(fileUpload.PostedFile.FileName);
-                    filename = "~/img/recipeImg/" + Path.GetFileName(fileUpload.PostedFile.FileName);
+                    filename = "/img/recipeImg/" + Path.GetFileName(fileUpload.PostedFile.FileName);
                     fileUpload.PostedFile.SaveAs(Server.MapPath("~/img/recipeImg/") + fileName);
                 }
                 cmd = new OleDbCommand("INSERT INTO Recipe(UserDataID, Name, Portion, CookingTime, Description,MealTypeID,ImageURL) values(@UserDataID, @Name, @Portion, @CookingTime, @Description,@MealTypeID,@ImageURL)", myConnection);

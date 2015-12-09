@@ -103,7 +103,16 @@
     <Content Include="img\logo.png" />
     <Content Include="img\personal.png" />
     <Content Include="img\recipe.png" />
+    <Content Include="img\recipeImg\ANCHO CHILE,SHRIM,AND PASTA.jpg" />
+    <Content Include="img\recipeImg\BEEF STROGANOFF.jpg" />
+    <Content Include="img\recipeImg\CLASSIC TOMATO SPAGHETTI.jpg" />
+    <Content Include="img\recipeImg\CRANBERRY APPLE STUFFED PORK LOIN.jpg" />
+    <Content Include="img\recipeImg\DEVILS CHOC MALT COOKIES.jpg" />
+    <Content Include="img\recipeImg\EASY RICE SALAD.jpg" />
     <Content Include="img\recipeImg\header-full.png" />
+    <Content Include="img\recipeImg\HIBACHI STEAK.jpg" />
+    <Content Include="img\recipeImg\KFC ORIGINAL CHICKEN.jpg" />
+    <Content Include="img\recipeImg\PAN FRIED POTATOES.jpg" />
     <Content Include="img\ShopingList.png" />
     <Content Include="img\testLogin.aspx" />
     <Content Include="index.aspx" />
@@ -115,6 +124,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="PlanMeal.aspx" />
+    <Content Include="PlannedMealHistory.aspx" />
     <Content Include="RecipeManagement.aspx" />
     <Content Include="RecipeView.aspx" />
     <Content Include="Registration.aspx" />
@@ -371,6 +381,13 @@
     </Compile>
     <Compile Include="PlanMeal.aspx.designer.cs">
       <DependentUpon>PlanMeal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlannedMealHistory.aspx.cs">
+      <DependentUpon>PlannedMealHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlannedMealHistory.aspx.designer.cs">
+      <DependentUpon>PlannedMealHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeManagement.aspx.cs">
