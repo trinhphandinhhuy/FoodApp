@@ -8,7 +8,7 @@
    
     <div class="container" style="min-height:64vh" >
         <div class="section">
-            <h4 class="center">EDIT PROFILE</h4>
+            <h3 class="center grey-text">EDIT PROFILE</h3>
         </div>
         <div class="section">
             <div class="col-md-6 col-md-offset-3">

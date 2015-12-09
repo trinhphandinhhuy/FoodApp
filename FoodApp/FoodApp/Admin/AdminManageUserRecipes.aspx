@@ -3,12 +3,12 @@
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container center">
         <div class="section">
-            <h4 class="center">MANAGE USER RECIPE</h4>
+            <h3 class="center grey-text">MANAGE USER RECIPE</h3>
         </div>
          <div class="section">
             <asp:GridView ID="RecipeTable" runat="server" OnRowDeleting="RecipeTable_RowDeleting" OnRowDataBound="RecipeTable_RowDataBound" Width="100%" CssClass="striped highlight">
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
+                    <asp:CommandField ShowDeleteButton="True" ButtonType="Button" ControlStyle-CssClass="btn" />
                 </Columns>
             </asp:GridView>
         </div>

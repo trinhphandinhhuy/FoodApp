@@ -8,7 +8,7 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="container" style="min-height:64vh">
-        <div class="section"><h4 class="center">CHANGE PASSWORD</h4></div>
+        <div class="section"><h3 class="center grey-text">CHANGE PASSWORD</h3></div>
          <div class="section">
          <div class="col-md-6 col-md-offset-3">
              <asp:ValidationSummary ID="ValidationSummary1" runat="server" />

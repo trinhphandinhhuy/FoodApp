@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" style="min-height:57vh">
-         <div class="section"><h4 class="center">SEARCH INGREDIENTS</h4></div>
+         <div class="section"><h3 class="center grey-text">SEARCH INGREDIENTS</h3></div>
          <div class="section">
         <div class="row">
             <div class="col s12 m4 l4">

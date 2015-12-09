@@ -29,9 +29,9 @@
             <asp:PostBackTrigger ControlID="btnRemoveChosenRecipe" />
         </Triggers>
     </asp:UpdatePanel>
-    <div class="row">
-        <div class="col l4 offset-l4">
-            <asp:Button ID="btnConfirmPlannedMeal" runat="server" Text="Confirm" OnClick="btnConfirmPlannedMeal_Click" CssClass="form-control btn centered"/><br /><br />
+    <div class="section">
+        <div class="center">
+            <asp:Button ID="btnConfirmPlannedMeal" runat="server" Text="Confirm" OnClick="btnConfirmPlannedMeal_Click" CssClass="btn large blue-grey"/><br /><br />
         </div>
     </div>
 </asp:Content>
