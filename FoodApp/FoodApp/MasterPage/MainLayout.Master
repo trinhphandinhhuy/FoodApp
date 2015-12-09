@@ -14,6 +14,7 @@
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 <body>
+    <header>
     <!--Start navigation-->
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="../ChangeUsernameAndEmail.aspx">Edit Profile</a></li>
@@ -147,7 +148,9 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
+    </header>
     <!--End navigation-->
+    <main>
     <form id="form1" runat="server">
         
         <div>
@@ -155,6 +158,7 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
+        </main>
     <!--Footer-->
     <footer class="page-footer teal">
         <div class="container">
@@ -179,5 +183,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../Scripts/materialize.min.js"></script>
     <script type="text/javascript" src="../Scripts/init.js"></script>
+        
 </body>
 </html>
