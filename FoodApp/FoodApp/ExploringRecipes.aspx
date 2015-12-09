@@ -1,9 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage/MPRecipeManagement.master" CodeBehind="ExploringRecipes.aspx.cs" Inherits="FoodApp.ExploringRecipes" EnableSessionState="True" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
     <div class="row" >
         <asp:Repeater ID="Recipe" runat="server">
             <ItemTemplate>
-                <div class="col l3 s12 m6">
+                <div class="col l4 s12 m6">
                     <div class="card small hoverable">
                         <div class="card-image">
                             <img class="responsive-img"  src="<%#Eval("ImageURL")%>" />
@@ -20,5 +21,6 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
+        </div>
 </asp:Content>
 
