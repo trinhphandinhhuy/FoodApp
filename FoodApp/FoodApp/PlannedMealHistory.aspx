@@ -21,7 +21,7 @@
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="ViewSPList.aspx">View this meal</a>
+                            <a href="ViewPlannedMeal.aspx">View this meal</a>
                         </div>
                     </div>
 

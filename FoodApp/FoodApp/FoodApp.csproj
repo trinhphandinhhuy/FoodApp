@@ -151,6 +151,7 @@
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="ShoppingList.aspx" />
     <Content Include="ShoppingListHistory.aspx" />
+    <Content Include="ViewPlannedMeal.aspx" />
     <Content Include="ViewSPList.aspx" />
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
@@ -452,6 +453,13 @@
     </Compile>
     <Compile Include="UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPlannedMeal.aspx.cs">
+      <DependentUpon>ViewPlannedMeal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPlannedMeal.aspx.designer.cs">
+      <DependentUpon>ViewPlannedMeal.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSPList.aspx.cs">
       <DependentUpon>ViewSPList.aspx</DependentUpon>
