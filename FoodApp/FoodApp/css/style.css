@@ -113,3 +113,7 @@ UsernameDisplay {
   main {
     flex: 1 0 auto;
   }
+  .blacktrs{
+      background-color:rgba(0,0,0,0.3) !important
+  }
+
