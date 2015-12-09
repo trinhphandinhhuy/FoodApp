@@ -3,8 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <nav class="grey">
-            <div class="nav-wrapper container">
+        
+    <nav class="grey lighten-3">
+            <div class="nav-wrapper container ">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="../AddRecipe.aspx">Add Recipe</a></li>
                     <li><a href="../AdminManageOwnRecipe.aspx">Own Recipe</a></li>
@@ -14,6 +15,7 @@
                 </ul>
             </div>
         </nav>
+            
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>  
 </asp:Content>

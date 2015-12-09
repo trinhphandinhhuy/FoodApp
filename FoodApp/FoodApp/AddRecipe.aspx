@@ -62,7 +62,7 @@
             <div class="container">
                 <div class="center">
                     <h5>Add recipe image</h5>
-                    <asp:FileUpload ID="fileUpload" class="fileUpload" placeholder="Upload your recipe Image" runat="server" CssClass="" BorderWidth="1px"  /><br />
+                    <asp:FileUpload ID="fileUpload" class="fileUpload" placeholder="Upload your recipe Image" runat="server" CssClass="file-field input-field" BorderWidth="1px"  /><br />
                    
                     <div id="image-holder" class="col s12 l12 center responsive-img"></div>
                 </div>
