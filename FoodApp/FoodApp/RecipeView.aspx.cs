@@ -12,11 +12,7 @@ namespace FoodApp
     public partial class RecipeView : System.Web.UI.Page
     {
         private OleDbConnection myConnection = new OleDbConnection();
-        private OleDbCommand mySelectCommand = new OleDbCommand();
-        private OleDbCommand cmd = new OleDbCommand();
-        private OleDbCommand cmd2 = new OleDbCommand();
         string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
-    
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,10 +27,9 @@ namespace FoodApp
             }
             myConnection.ConnectionString = connstr;
             myConnection.Open();
-        
-            cmd.Connection = myConnection;
+
+            OleDbCommand cmd = new OleDbCommand("SELECT * FROM UserData AS u INNER JOIN Recipe AS r ON r.UserDataID = u.UserDataID WHERE r.RecipeID = " + recipeID, myConnection);
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT * FROM UserData AS u INNER JOIN Recipe AS r ON r.UserDataID = u.UserDataID WHERE r.RecipeID = " + recipeID;
             OleDbDataReader reader = cmd.ExecuteReader();
             bool notEoF = reader.Read();
             while (notEoF)

@@ -24,9 +24,8 @@
                 </div>
             </div>
             <div class="section">
-                <asp:Table runat="server" ID="tbFoodItem" Width="100%" CssClass="striped highlight">
-
-                </asp:Table>
+                <h5>INGREDIENTS</h5>
+                <asp:Table runat="server" ID="tbFoodItem" Width="100%" CssClass="striped highlight"></asp:Table>
             </div>
             <div class="section">
                 <h5>DIRECTION</h5>

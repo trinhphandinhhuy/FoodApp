@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-title">
                     
-                            <span class="teal-text">Planned Meal number <%#Eval("PlannedMealID")%></span>
+                            <span class="teal-text">Planned Meal No. <%#Eval("PlannedMealID")%></span>
                         </div>
                         <div class="card-content">
                             <p>
@@ -21,7 +21,7 @@
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="ViewPlannedMeal.aspx">View this meal</a>
+                            <a href="ViewPlannedMeal.aspx?PlannedMealID=<%#Eval("PlannedMealID")%>">View this meal</a>
                         </div>
                     </div>
 
