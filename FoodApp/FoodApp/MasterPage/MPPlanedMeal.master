@@ -8,10 +8,9 @@
                 
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="../Planmeal.aspx">Add planned meal</a></li>
-                    <li><a href="#">Planned meal history</a></li>                    
-                    <li><a href="#">Shopping List history</a></li>                    
-                    <li class="amber-text">
-                    Shopping list</li>
+                    <li><a href="../PlannedMealHistory.aspx">Planned meal history</a></li>                    
+                    <li><a href="../ShoppingListHistory.aspx">Shopping List history</a></li>                    
+                    
                 </ul>
             </div>
         </nav>
