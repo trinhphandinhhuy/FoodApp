@@ -7,7 +7,6 @@
                 <div class="col s12 m8 l8">
                     <div class="card">
                         <div class="card-title">
-                    
                             <span class="teal-text">Shopping List number <%#Eval("ShoppingListID")%></span>
                         </div>
                         <div class="card-content">
@@ -19,12 +18,9 @@
                             <a href="ViewSPList.aspx">View this list</a>
                         </div>
                     </div>
-
                 </div>
                 </div>
-
             </ItemTemplate>
         </asp:DataList>
     </div>
-
 </asp:Content>
