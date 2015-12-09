@@ -36,6 +36,9 @@
                 <h5>DIRECTION</h5>
                 <asp:Label ID="descriptions" runat="server" Text="Label"></asp:Label>
             </div>
+            <div class="section">
+                <asp:Button ID="btnAddRecipeToOwn" runat="server" Text="Add Recipe To My Own Recipe" OnClick="btnAddRecipeToOwn_Click" CssClass="form-control btn btn-register" />
+            </div>
         </div>
     </div>
 </asp:Content>

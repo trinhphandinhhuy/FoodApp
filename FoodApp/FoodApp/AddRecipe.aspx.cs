@@ -124,7 +124,7 @@ namespace FoodApp
                 //adding parameters with value
                 cmd4.Parameters.AddWithValue("@RecipeID", newRecipeID.ToString());
                 cmd4.Parameters.AddWithValue("@UserDataID", user_data_ID.ToString());
-                cmd4.Parameters.AddWithValue("@Owner", "Yes");
+                cmd4.Parameters.AddWithValue("@Owner", -1);
                 cmd4.ExecuteNonQuery();  //executing query
                 myConnection.Close();
                 Response.Redirect("AdminManageOwnRecipe.aspx");
