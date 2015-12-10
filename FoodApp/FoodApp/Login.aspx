@@ -17,7 +17,7 @@
                     <asp:Button ID="btnLogIn" runat="server"  Text="Log In" OnClick="btnLogIn_Click" CssClass="form-control btn btn-info "/>
         </div>
         <div class="row">
-                    <a href="Registration.aspx" class="form-control btn btn-info" role="button"> Register an account now </a>
+                    <a href="Registration.aspx" class="form-control btn btn-info" role="button"> Register now </a>
         </div>
       
       </div>

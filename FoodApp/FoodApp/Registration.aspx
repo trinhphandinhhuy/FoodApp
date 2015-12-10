@@ -26,7 +26,7 @@
         
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <a href="Login.aspx" class="form-control btn btn-info" role="button"> I've already had an account </a>
+                    <a href="Login.aspx" class="form-control btn btn-info" role="button"> Login </a>
                 </div>
             </div>
   
