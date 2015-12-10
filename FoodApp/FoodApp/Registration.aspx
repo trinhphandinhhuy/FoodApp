@@ -4,31 +4,32 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger"/>
-    <div class="form-group">
-        <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
-    </div>
-    <div class="form-group">
-        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
-    </div>
-    <div class="form-group">
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
-    </div>
-    <div class="form-group">
-        <asp:TextBox ID="txtConfirmPwd" runat="server" TextMode="Password" CssClass="form-control" placeholder="Confirm Password"></asp:TextBox>
-    </div>
-    <div class="form-group">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <asp:Button ID="btnSubmit" runat="server" Text="Register Now" OnClick="btnSubmit_Click" CssClass="form-control btn btn-register"/>
-            </div>
+            <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
         </div>
-    </div>
-    <div class="form-group">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <a href="Login.aspx" class="form-control btn btn-info" role="button"> I've already had an account </a>
-            </div>
+            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
         </div>
+        <div class="row">
+            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
+        </div>
+        <div class="row">
+            <asp:TextBox ID="txtConfirmPwd" runat="server" TextMode="Password" CssClass="form-control" placeholder="Confirm Password"></asp:TextBox>
+        </div>
+     
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <asp:Button ID="btnSubmit" runat="server" Text="Register Now" OnClick="btnSubmit_Click" CssClass="form-control btn btn-register"/>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <a href="Login.aspx" class="form-control btn btn-info" role="button"> I've already had an account </a>
+                </div>
+            </div>
+  
     </div>
     <asp:RequiredFieldValidator ID="RfvUserName" runat="server" ErrorMessage="Username Required" ForeColor="#FF3300" ControlToValidate="txtUserName" Display="None"></asp:RequiredFieldValidator>
     <asp:RequiredFieldValidator ID="RfvEmail" runat="server" ErrorMessage="Email Required" ForeColor="#FF3300" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator>
