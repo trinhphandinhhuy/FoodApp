@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
             <label>Mealtype</label>
-            <asp:DropDownList ID="DlRecipeType" runat="server" CssClass="browser-default form-control" DataSourceID="MealTypeData" DataTextField="Name" DataValueField="MealTypeID"></asp:DropDownList>
+            <asp:DropDownList ID="DlRecipeType" runat="server" CssClass="" DataSourceID="MealTypeData" DataTextField="Name" DataValueField="MealTypeID"></asp:DropDownList>
             <asp:SqlDataSource ID="MealTypeData" runat="server" ConnectionString="" ProviderName="System.Data.OleDb" SelectCommand="SELECT [MealTypeID], [Name] FROM [MealType]"></asp:SqlDataSource>
             <br />
         </div>
@@ -62,7 +62,7 @@
             <div class="container">
                 <div class="center">
                     <h5>Add recipe image</h5>
-                    <asp:FileUpload ID="fileUpload" class="fileUpload" placeholder="Upload your recipe Image" runat="server" CssClass="file-field input-field" BorderWidth="1px"  /><br />
+                    <asp:FileUpload ID="fileUpload" class="fileUpload" placeholder="Upload your recipe Image" runat="server" CssClass="" BorderWidth="1px"  /><br />
                    
                     <div id="image-holder" class="col s12 l12 center responsive-img"></div>
                 </div>
@@ -76,7 +76,7 @@
                     <asp:Button ID="btnConfirm" runat="server" Text="PUBLISH NEW RECIPE" OnClick="btnConfirm_Click" CssClass="large btn blue-grey active " />
                 </div></div></div>
             </div>
-        <
+        
         <asp:RequiredFieldValidator ID="RfvRecipeName" runat="server" ErrorMessage="Recipe name Required" ForeColor="#FF3300" ControlToValidate="txtRecipeName" Display="None"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RfvCookingTime" runat="server" ErrorMessage="Cooking time Required" ForeColor="#FF3300" ControlToValidate="txtCookingTime" Display="None"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RfvPortion" runat="server" ErrorMessage="Portions Required" ForeColor="#FF3300" ControlToValidate="txtPortion" Display="None"></asp:RequiredFieldValidator>
