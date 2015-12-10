@@ -1,10 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="FoodApp.Registration" MasterPageFile="~/MasterPage/loginPage1.Master"%>
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Registration</title>
+    <title> Registration </title>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger"/>
     <div class="form-group">
         <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
@@ -28,7 +26,7 @@
     <div class="form-group">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <a href="Login.aspx" class="form-control btn btn-info" role="button">I've already had an account</a>
+                <a href="Login.aspx" class="form-control btn btn-info" role="button"> I've already had an account </a>
             </div>
         </div>
     </div>

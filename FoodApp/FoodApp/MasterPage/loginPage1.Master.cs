@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FoodNStuff.MasterPage
+
+namespace FoodApp.MasterPage 
 {
     public partial class loginPage1 : System.Web.UI.MasterPage
     {

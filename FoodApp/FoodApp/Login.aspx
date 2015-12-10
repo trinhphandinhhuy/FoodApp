@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Login Page</title>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" />
     <div class="form-group">
         <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
@@ -12,15 +12,15 @@
     </div>
     <div class="form-group">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" CssClass="form-control btn btn-register"/>
+            <div class="col s12 l12">
+                <asp:Button ID="btnLogIn" runat="server"  Text="Log In" OnClick="btnLogIn_Click" CssClass="form-control btn btn-register"/>
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <a href="Registration.aspx" class="form-control btn btn-info" role="button">Register an account now</a>
+            <div class="col s12 l12">
+                <a href="Registration.aspx" class="form-control btn btn-info" role="button"> Register an account now </a>
             </div>
         </div>
     </div>

@@ -1,71 +1,72 @@
-﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frontPage1.Master.cs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="loginPage1.Master.cs" Inherits="FoodApp.MasterPage.loginPage1" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>FoodNStuff</title>
-
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/customize.css" rel="stylesheet" />
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title> FoodNStuff </title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <!-- CSS  -->
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 <body>
+    <header>
+    <!--Start navigation-->
+
+    <nav class="teal " role="navigation">
+        <div class="nav-wrapper">
+            <a id="logo-container" class="brand-logo">
+                <a href="../ExploringRecipes.aspx">
+                    <img class="PageLogo" src="../img/logo.png" />
+                </a>
+            </a>
+        </div>
+    </nav>
+    <!--End navigation-->
+    </header>
+    
+    <main>
     <form id="form1" runat="server">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row header">
-                    <div class="col-lg-3 col-xs-3 col-md-3">
-                        <a href="http://foodnstuff.azurewebsites.net/" ><img src="../img/logo.png" alt="food&Stuff" /></a>
-                    </div>
-                    <div class="col-lg-9 col-xs-3 col-md-9">
-                        <asp:ContentPlaceHolder ID="accountInfo" runat="server"></asp:ContentPlaceHolder>
-                    </div>
-                </div>
-                <div class="row mainContent">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="panel panel-login">
-                            <div class="panel-heading">
-						        <div class="row">
-							        <div class="col-xs-12">
-								        <strong>Login/Register</strong>
-                                    </div>
-						       </div>
-						    <hr />
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-							        <div class="col-lg-12">
-                                        <asp:ContentPlaceHolder ID="main" runat="server"> </asp:ContentPlaceHolder>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row footer">
-                    <span class="copyRight">WinnerTeam&copy;2015 . All Rights Reserved.</span>
+        <br />
+        <div class ="container">
+        <div class ="row">
+            <div class ="col l12 s12 m4 18">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        </div>
+        <br />
+    </form>
+    </main>
+    <!--Footer-->
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l12 s12">
+                    <h5 class="white-text">About us</h5>
+                    <p class="grey-text text-lighten-4">
+                        WINNER TEAM
+                        <br>
+                        We are a team of LAMK's students working on FoodNStuff project.
+                    </p>
                 </div>
             </div>
         </div>
-    </form>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../js/modernizr-2.7.1.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-     <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/custom.js"></script>
+        <div class="footer-copyright">
+            <div class="container">
+                Create by <a class="brown-text text-lighten-3" href="http://Lamk.fi"> WINNER TEAM </a>with &#9825;
+            </div>
+        </div>
+    </footer>
+    <!--  Scripts-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/materialize.min.js"></script>
+    <script type="text/javascript" src="../Scripts/init.js"></script>
+        
 </body>
 </html>

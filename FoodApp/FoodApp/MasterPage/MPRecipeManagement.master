@@ -8,7 +8,7 @@
             <div class="nav-wrapper container ">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="../AddRecipe.aspx">Add Recipe</a></li>
-                    <li><a href="../AdminManageOwnRecipe.aspx">Own Recipe</a></li>
+                    <li><a href="../AdminManageOwnRecipe.aspx">My Recipe</a></li>
                     <asp:PlaceHolder ID="AdminManageRe" runat="server">
                     <li><a href="../Admin/AdminManageUserRecipes.aspx">Manage Recipe</a></li></asp:PlaceHolder>
                     <li><a href="../ExploringRecipes.aspx">Explore</a></li>
