@@ -67,58 +67,58 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// RfvUserName control.
+        /// rfvUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvUserName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserName;
         
         /// <summary>
-        /// RfvEmail control.
+        /// rfvEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
         
         /// <summary>
-        /// RxvEmail control.
+        /// rxvEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RxvEmail;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rxvEmail;
         
         /// <summary>
-        /// RfvPwd control.
+        /// rfvPwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvPwd;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPwd;
         
         /// <summary>
-        /// RfvCnfrmPwd control.
+        /// rfvCnfrmPwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCnfrmPwd;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCnfrmPwd;
         
         /// <summary>
-        /// CvCnfmPwd control.
+        /// cvCnfmPwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CvCnfmPwd;
+        protected global::System.Web.UI.WebControls.CompareValidator cvCnfmPwd;
         
         /// <summary>
         /// lblMsg control.

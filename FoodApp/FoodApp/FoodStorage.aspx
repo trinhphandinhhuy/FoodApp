@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MPIngreManagement.master" AutoEventWireup="true" CodeBehind="FoodStorage.aspx.cs" Inherits="FoodApp.FoodStorage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="container">
-
         <div class="row">
             <h3 class="center grey-text shades-text">FOOD STORAGE</h3>
             <div class="col s12 m4 l4">
@@ -18,6 +17,5 @@
                 <asp:GridView ID="FoodTable" runat="server" AutoGenerateColumns="true" Width="100%" CssClass="striped highlight"></asp:GridView>
             </div>
         </div>
-         
     </div>
 </asp:Content>

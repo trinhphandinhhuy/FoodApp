@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminAddEditDeleteFoodItem.aspx.cs" Inherits="FoodApp.AdminAddEditDeleteFoodItem" %>
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Add / Edit / Delete Food Item</title>
@@ -20,24 +18,18 @@
                         <asp:TextBox ID="txtUpdateFoodName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
-
-
                 <asp:TemplateField HeaderText="Unit Type">
                     <ItemTemplate>
                         <asp:Label ID="lblUnitType" runat="server" Text='<%# Bind("UnitType") %>'></asp:Label>
                     </ItemTemplate>
-
                     <EditItemTemplate>
                         <asp:DropDownList ID="ddlUpdateUnitType" runat="server"></asp:DropDownList>
                     </EditItemTemplate>
                 </asp:TemplateField>
-
-
                 <asp:TemplateField HeaderText="Food Type">
                     <ItemTemplate>
                         <asp:Label ID="lblFoodType" runat="server" Text='<%# Bind("FoodTypeID") %>'></asp:Label>
                     </ItemTemplate>
-
                     <EditItemTemplate>
                         <asp:DropDownList ID="ddlUpdateFoodType" runat="server"></asp:DropDownList>
                     </EditItemTemplate>

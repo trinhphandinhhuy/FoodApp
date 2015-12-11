@@ -6,18 +6,16 @@
             <div class="divider"></div>
             <br />
             <div class="col l12 center">
-            <asp:Image ID="RecipeImage" CssClass="responsive-img materialboxed" runat="server" Width="100%" />
-                </div>
+                <asp:Image ID="RecipeImage" CssClass="responsive-img materialboxed" runat="server" Width="100%" />
+            </div>
             <div class="section center">
-            <div class="chip">
-                Created by:
-                <asp:Label ID="recipeAuthor" runat="server" Text="coco"></asp:Label>
-            </div>
-            <div class="chip">
-                <asp:Label ID="MealType" runat="server" Text="Soup"></asp:Label><br />
-            </div>
-
+                <div class="chip">
+                    Created by:<asp:Label ID="recipeAuthor" runat="server" Text="coco"></asp:Label>
                 </div>
+                <div class="chip">
+                    <asp:Label ID="MealType" runat="server" Text="Soup"></asp:Label><br />
+                </div>
+            </div>
             <div class="section">
                 <div class="col l6">
                     <i class="tiny material-icons">perm_identity</i><b>Portions:</b>

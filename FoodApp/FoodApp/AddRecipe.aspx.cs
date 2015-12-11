@@ -48,38 +48,56 @@ namespace FoodApp
         }
         protected void AddIngButton_Click(object sender, EventArgs e)
         {
-            lbChosenFoodItemID.Items.Add(DlIngredients.SelectedValue);
-            lbChosenFoodItemID.Items[lbChosenFoodItemID.Items.Count - 1].Value = txtAmount.Text;
-            tbChosenFoodItem.Rows.Clear();
-            TableHeaderRow tbHeaderRow = new TableHeaderRow();
-            tbChosenFoodItem.Rows.Add(tbHeaderRow);
-            TableHeaderCell tbHeaderCellName = new TableHeaderCell();
-            TableHeaderCell tbHeaderCellAmount = new TableHeaderCell();
-            tbHeaderCellName.Text = "Name";
-            tbHeaderCellAmount.Text = "Amount";
-            tbHeaderRow.Cells.Add(tbHeaderCellName);
-            tbHeaderRow.Cells.Add(tbHeaderCellAmount);
-            for (int k = 0; k < lbChosenFoodItemID.Items.Count; k++)
+            double num;
+            string amount = txtAmount.Text;
+            bool isNum = Double.TryParse(amount, out num);
+            if (amount != "")
             {
-                string foodid = lbChosenFoodItemID.Items[k].Text;
-                OleDbCommand command = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
-                command.CommandType = CommandType.Text;
-                OleDbDataReader reader = command.ExecuteReader();
-                bool notEoF = reader.Read();
-                while (notEoF)
+                if (isNum)
                 {
-                    TableRow tbRow = new TableRow();
-                    tbChosenFoodItem.Rows.Add(tbRow);
-                    TableCell tbCellName = new TableCell();
-                    TableCell tbCellAmount = new TableCell();
-                    tbCellName.Text = reader["Name"].ToString();
-                    tbCellAmount.Text = lbChosenFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
-                    tbRow.Cells.Add(tbCellName);
-                    tbRow.Cells.Add(tbCellAmount);
-                    notEoF = reader.Read();
+                    lbChosenFoodItemID.Items.Add(DlIngredients.SelectedValue);
+                    lbChosenFoodItemID.Items[lbChosenFoodItemID.Items.Count - 1].Value = txtAmount.Text;
+                    tbChosenFoodItem.Rows.Clear();
+                    TableHeaderRow tbHeaderRow = new TableHeaderRow();
+                    tbChosenFoodItem.Rows.Add(tbHeaderRow);
+                    TableHeaderCell tbHeaderCellName = new TableHeaderCell();
+                    TableHeaderCell tbHeaderCellAmount = new TableHeaderCell();
+                    tbHeaderCellName.Text = "Name";
+                    tbHeaderCellAmount.Text = "Amount";
+                    tbHeaderRow.Cells.Add(tbHeaderCellName);
+                    tbHeaderRow.Cells.Add(tbHeaderCellAmount);
+                    for (int k = 0; k < lbChosenFoodItemID.Items.Count; k++)
+                    {
+                        string foodid = lbChosenFoodItemID.Items[k].Text;
+                        OleDbCommand command = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
+                        command.CommandType = CommandType.Text;
+                        OleDbDataReader reader = command.ExecuteReader();
+                        bool notEoF = reader.Read();
+                        while (notEoF)
+                        {
+                            TableRow tbRow = new TableRow();
+                            tbChosenFoodItem.Rows.Add(tbRow);
+                            TableCell tbCellName = new TableCell();
+                            TableCell tbCellAmount = new TableCell();
+                            tbCellName.Text = reader["Name"].ToString();
+                            tbCellAmount.Text = lbChosenFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
+                            tbRow.Cells.Add(tbCellName);
+                            tbRow.Cells.Add(tbCellAmount);
+                            notEoF = reader.Read();
+                        }
+                        reader.Close();
+                    }
                 }
-                reader.Close();
+                else
+                {
+                    lblAmount.Text = "Amount is Invalid";
+                }
             }
+            else
+            {
+                lblAmount.Text = "Amount Required";
+            }
+            
         } 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {

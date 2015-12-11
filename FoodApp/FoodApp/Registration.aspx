@@ -17,26 +17,23 @@
         <div class="row">
             <asp:TextBox ID="txtConfirmPwd" runat="server" TextMode="Password" CssClass="form-control" placeholder="Confirm Password"></asp:TextBox>
         </div>
-     
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <asp:Button ID="btnSubmit" runat="server" Text="Register Now" OnClick="btnSubmit_Click" CssClass="form-control btn btn-register"/>
-                </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <asp:Button ID="btnSubmit" runat="server" Text="Register Now" OnClick="btnSubmit_Click" CssClass="form-control btn btn-register"/>
             </div>
-        
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <a href="Login.aspx" class="form-control btn btn-info" role="button"> Login </a>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <a href="Login.aspx" class="form-control btn btn-info" role="button"> Login </a>
             </div>
-  
+        </div>
     </div>
-    <asp:RequiredFieldValidator ID="RfvUserName" runat="server" ErrorMessage="Username Required" ForeColor="#FF3300" ControlToValidate="txtUserName" Display="None"></asp:RequiredFieldValidator>
-    <asp:RequiredFieldValidator ID="RfvEmail" runat="server" ErrorMessage="Email Required" ForeColor="#FF3300" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RxvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid E-mail Address" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="None"></asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RfvPwd" runat="server" ErrorMessage="Password Required" ForeColor="#FF3300" ControlToValidate="txtPassword" Display="None"></asp:RequiredFieldValidator>
-    <asp:RequiredFieldValidator ID="RfvCnfrmPwd" runat="server" ErrorMessage="Confirm Password Required" ForeColor="#FF3300" ControlToValidate="txtConfirmPwd" Display="None"></asp:RequiredFieldValidator>
-    <asp:CompareValidator ID="CvCnfmPwd" runat="server" ErrorMessage="Password and Confirm Password didn't matched" ForeColor="#FF3300" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPwd" Display="None"></asp:CompareValidator>
+    <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="Username Required" ForeColor="#FF3300" ControlToValidate="txtUserName" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Email Required" ForeColor="#FF3300" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="rxvEmail" runat="server" ErrorMessage="Invalid E-mail Address" ControlToValidate="txtEmail" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="None"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="rfvPwd" runat="server" ErrorMessage="Password Required" ForeColor="#FF3300" ControlToValidate="txtPassword" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="rfvCnfrmPwd" runat="server" ErrorMessage="Confirm Password Required" ForeColor="#FF3300" ControlToValidate="txtConfirmPwd" Display="None"></asp:RequiredFieldValidator>
+    <asp:CompareValidator ID="cvCnfmPwd" runat="server" ErrorMessage="Password and Confirm Password didn't matched" ForeColor="#FF3300" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPwd" Display="None"></asp:CompareValidator>
     <asp:Label ID="lblMsg" runat="server" ForeColor="#CC3300"></asp:Label>
 </asp:Content>
 
