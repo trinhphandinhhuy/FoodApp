@@ -31,7 +31,7 @@ namespace FoodApp
             myAdapter.SelectCommand = mySelectCommand;
             if (ddlFoodType.Items.Count == 0)
             {
-                OleDbCommand command = new OleDbCommand("SELECT * FROM FoodType", myConnection);
+                OleDbCommand command = new OleDbCommand("SELECT * FROM FoodType ORDER BY Name DESC", myConnection);
                 command.CommandType = CommandType.Text;
                 OleDbDataReader reader = command.ExecuteReader();
                 bool notEoF = reader.Read();

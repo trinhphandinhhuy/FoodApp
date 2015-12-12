@@ -1,20 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="Dashboard.aspx" title="Home"  description="Home Page">
-
     <siteMapNode url="RecipeManagement.aspx" title="Recipe"  description="" >
       <siteMapNode url="AddRecipe.aspx" title="Add Recipe"  description="Add new recipe" />
       <siteMapNode url="AdminManageOwnRecipe.aspx" title="Own Recipe"  description="Manage own recipe" />
       <siteMapNode url="AdminManageUserRecipes.aspx" title="Manage Recipe"  description="Manage user recipe (Only for admin)"  />
       <siteMapNode url="ExploringRecipes.aspx" title="Explore"  description="Search recipe and explore new recipe" />
     </siteMapNode>
-
     <siteMapNode url="ManageIngredient.aspx" title="Food Item"  description="Food Item (Only for admin)" >
       <siteMapNode url="AddNewIngredient.aspx" title="Add"  description="Add new food item" />
       <siteMapNode url="ListAllIngredient.aspx" title="List All"  description="List all Food item" />
       <siteMapNode url="SearchIngredient.aspx" title="Search"  description="Search for specific food item" />
     </siteMapNode>
-
     <siteMapNode url="UserManagement.aspx" title="User"  description="User Management" >
       <siteMapNode url="Registration.aspx" title="Registration"  description="Registration" />
       <siteMapNode url="Login.aspx" title="Login"  description="Login" />

@@ -18,14 +18,6 @@ namespace FoodApp
         string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private int userID;
 
-        private void checkAuthentication()
-        {
-            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "")
-            {
-                Response.Redirect("Login.aspx");
-            }
-        }
-
         protected void Page_Init(object sender, EventArgs e)
         {
             checkAuthentication();
@@ -34,9 +26,22 @@ namespace FoodApp
             userID = Convert.ToInt32(Session["userid"].ToString());
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            getDB();
+        }
+
+        private void checkAuthentication()
+        {
+            if (Session["username"] == null || Session["username"].ToString() == "" || Session["userlevel"] == null || Session["userlevel"].ToString() == "")
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
         private void getDB()
         {
-            OleDbCommand command = new OleDbCommand("SELECT * FROM PlannedMeal WHERE UserDataID = " + userID, myConnection);
+            OleDbCommand command = new OleDbCommand("SELECT * FROM PlannedMeal WHERE UserDataID = " + userID + " ORDER BY CreatedDate DESC", myConnection);
             command.ExecuteNonQuery();
             DataTable dt = new DataTable();
             OleDbDataAdapter da = new OleDbDataAdapter(command);
@@ -45,12 +50,5 @@ namespace FoodApp
             PlannedMeal.DataBind();
             myConnection.Close();
         }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            getDB();
-        }
-
-        
     }
 }

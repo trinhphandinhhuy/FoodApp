@@ -65,7 +65,7 @@
         <div class="col l12">
             <div class="section">
                 <div class="section">
-                    <asp:Button ID="btnConfirm" runat="server" Text="PUBLISH NEW RECIPE" OnClick="btnConfirm_Click" CssClass="large btn blue-grey active " />
+                    <asp:Button ID="btnConfirm" runat="server" Text="PUBLISH NEW RECIPE" OnClick="btnConfirm_Click" CssClass="large btn blue-grey active" />
                 </div>
             </div>
         </div>

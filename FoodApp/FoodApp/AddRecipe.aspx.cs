@@ -20,7 +20,7 @@ namespace FoodApp
         private OleDbCommand cmd, cmd2, cmd3, cmd4;
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
         private DataSet myDataSet = new DataSet();
-        String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
+        string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private int user_data_ID;
         private string filename = "";
 

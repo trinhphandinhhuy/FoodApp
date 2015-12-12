@@ -15,12 +15,13 @@
                     <asp:Button ID="btnAddRecipeToPlannedMeal" Width="100%" runat="server" Text="Add Recipe(s)" OnClick="btnAddRecipeToPlannedMeal_Click" CssClass="form-control btn btn-register" /><br /><br />
                     <asp:Button ID="btnRemoveChosenRecipe" Width="100%" runat="server" Text="Remove Chosen Recipe" OnClick="btnRemoveChosenRecipe_Click" CssClass="form-control btn btn-register" /><br /><br />
                     Portion: <asp:DropDownList ID="ddlPortion" runat="server"></asp:DropDownList>
+                    Date: <asp:TextBox ID="txtDate" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                 </asp:Panel>
                 <asp:Panel ID="Panel3" runat="server" CssClass="col s12 m12 l4">
                     Added Recipes:
                     <asp:ListBox ID="lbChosenRecipe" runat="server" Rows="5"></asp:ListBox><br /><br />
                 </asp:Panel>
-                <asp:Label ID="lblCheckChosenRecipe" runat="server"></asp:Label>
+                <asp:Label ID="lblCheckChosenRecipe" runat="server" ForeColor="Red"></asp:Label>
                 </div>
             </div>
         </ContentTemplate>

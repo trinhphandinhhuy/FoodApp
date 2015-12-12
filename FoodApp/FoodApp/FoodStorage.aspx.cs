@@ -39,7 +39,7 @@ namespace FoodApp
         {
 
             mySelectCommand.CommandType = CommandType.Text;
-            mySelectCommand.CommandText = "SELECT Name, FoodTypeID FROM FoodType";
+            mySelectCommand.CommandText = "SELECT Name, FoodTypeID FROM FoodType ORDER BY Name DESC";
             myReader = mySelectCommand.ExecuteReader();
             bool notEoF;
             //read first row from database

@@ -16,8 +16,7 @@ namespace FoodApp
     {
         private OleDbConnection myConnection = new OleDbConnection();
         private OleDbCommand cmd = new OleDbCommand();
-        String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
-        private object imageG;
+        string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         
         protected void Page_Load(object sender, EventArgs e)
         {

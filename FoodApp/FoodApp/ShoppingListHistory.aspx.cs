@@ -36,7 +36,7 @@ namespace FoodApp
         protected void Page_Load(object sender, EventArgs e)
         {
              
-            OleDbCommand command = new OleDbCommand("SELECT * FROM ShoppingList WHERE UserDataID = " + userID, myConnection);
+            OleDbCommand command = new OleDbCommand("SELECT * FROM ShoppingList WHERE UserDataID = " + userID + " ORDER BY CreatedDate DESC", myConnection);
             command.ExecuteNonQuery();
             DataTable dt = new DataTable();
             OleDbDataAdapter da = new OleDbDataAdapter(command);

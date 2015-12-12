@@ -27,8 +27,8 @@ namespace FoodApp
 
         protected void Page_Init(object sender, EventArgs e)
         {
-
             checkUserAuthentication();
+            txtDate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
             userid = Convert.ToInt32(Session["userid"].ToString());
             myConnection.ConnectionString = connectionString;
             myConnection.Open();
@@ -148,38 +148,44 @@ namespace FoodApp
         {
             if (lbChosenRecipe.Items.Count != 0)
             {
-                int portion = Convert.ToInt32(ddlPortion.SelectedValue);
-                DateTime now = DateTime.Now;
-                ArrayList chosenRecipe = new ArrayList();
-                OleDbCommand command = new OleDbCommand("INSERT INTO PlannedMeal(UserDataID, Portion, CreatedDate) VALUES(@UserDataID, @Portion, @CreatedDate)", myConnection);
-                OleDbCommand command2 = new OleDbCommand("Select @@Identity", myConnection);
-                command.CommandType = CommandType.Text;
-                command2.CommandType = CommandType.Text;
-                //adding parameters with value
-                command.Parameters.AddWithValue("@UserDataID", userid.ToString());
-                command.Parameters.AddWithValue("@Portion", portion.ToString());
-                command.Parameters.AddWithValue("@CreatedDate", now.ToString());
-                command.ExecuteNonQuery(); //executing query
-                command2.ExecuteNonQuery(); //executing query
-                int plannedMealID = Convert.ToInt32(command2.ExecuteScalar());
-                if (lbChosenRecipe.Items.Count > 0)
+                if (txtDate.Text != "")
                 {
-                    for (int i = 0; i < lbChosenRecipe.Items.Count; i++)
+                    int portion = Convert.ToInt32(ddlPortion.SelectedValue);
+                    ArrayList chosenRecipe = new ArrayList();
+                    OleDbCommand command = new OleDbCommand("INSERT INTO PlannedMeal(UserDataID, Portion, CreatedDate) VALUES(@UserDataID, @Portion, @CreatedDate)", myConnection);
+                    OleDbCommand command2 = new OleDbCommand("Select @@Identity", myConnection);
+                    command.CommandType = CommandType.Text;
+                    command2.CommandType = CommandType.Text;
+                    //adding parameters with value
+                    command.Parameters.AddWithValue("@UserDataID", userid.ToString());
+                    command.Parameters.AddWithValue("@Portion", portion.ToString());
+                    command.Parameters.AddWithValue("@CreatedDate", txtDate.Text.ToString());
+                    command.ExecuteNonQuery(); //executing query
+                    command2.ExecuteNonQuery(); //executing query
+                    int plannedMealID = Convert.ToInt32(command2.ExecuteScalar());
+                    if (lbChosenRecipe.Items.Count > 0)
                     {
-                        chosenRecipe.Add(lbChosenRecipe.Items[i]);
-                        int recipeID = Convert.ToInt32(lbChosenRecipe.Items[i].Value);
-                        OleDbCommand insertCommand = new OleDbCommand("INSERT INTO PlannedMealRecipe(PlannedMealID, RecipeID) VALUES(@PlannedMealID, @RecipeID)", myConnection);
-                        insertCommand.CommandType = CommandType.Text;
-                        //adding parameters with value
-                        insertCommand.Parameters.AddWithValue("@PlannedMealID", plannedMealID.ToString());
-                        insertCommand.Parameters.AddWithValue("@RecipeID", recipeID.ToString());
-                        insertCommand.ExecuteNonQuery();  //executing query
+                        for (int i = 0; i < lbChosenRecipe.Items.Count; i++)
+                        {
+                            chosenRecipe.Add(lbChosenRecipe.Items[i]);
+                            int recipeID = Convert.ToInt32(lbChosenRecipe.Items[i].Value);
+                            OleDbCommand insertCommand = new OleDbCommand("INSERT INTO PlannedMealRecipe(PlannedMealID, RecipeID) VALUES(@PlannedMealID, @RecipeID)", myConnection);
+                            insertCommand.CommandType = CommandType.Text;
+                            //adding parameters with value
+                            insertCommand.Parameters.AddWithValue("@PlannedMealID", plannedMealID.ToString());
+                            insertCommand.Parameters.AddWithValue("@RecipeID", recipeID.ToString());
+                            insertCommand.ExecuteNonQuery();  //executing query
+                        }
                     }
+                    myConnection.Close(); //closing connection
+                    Session["chosenRecipe"] = chosenRecipe;
+                    Session["portion"] = portion;
+                    Response.Redirect("ShoppingList.aspx");
                 }
-                myConnection.Close(); //closing connection
-                Session["chosenRecipe"] = chosenRecipe;
-                Session["portion"] = portion;
-                Response.Redirect("ShoppingList.aspx");
+                else
+                {
+                    lblCheckChosenRecipe.Text = "Please choose a date";
+                }
             }
             else
             {

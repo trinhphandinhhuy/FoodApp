@@ -13,15 +13,6 @@ namespace FoodApp {
     public partial class ViewPlannedMeal {
         
         /// <summary>
-        /// lblPlannedMealID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlannedMealID;
-        
-        /// <summary>
         /// lblCreatedDate control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,24 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.Label lblPortion;
         
         /// <summary>
+        /// ddlPortion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPortion;
+        
+        /// <summary>
+        /// btnChangePortion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangePortion;
+        
+        /// <summary>
         /// tbRecipe control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,95 @@ namespace FoodApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tbRecipe;
+        
+        /// <summary>
+        /// ddlRecipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRecipe;
+        
+        /// <summary>
+        /// btnAddNewRecipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNewRecipe;
+        
+        /// <summary>
+        /// ddlChosenRecipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlChosenRecipe;
+        
+        /// <summary>
+        /// btnRemoveRecipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveRecipe;
+        
+        /// <summary>
+        /// btnCheckStorage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCheckStorage;
+        
+        /// <summary>
+        /// lblCheckStorage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCheckStorage;
+        
+        /// <summary>
+        /// btnCook control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCook;
+        
+        /// <summary>
+        /// lblDone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDone;
+        
+        /// <summary>
+        /// lbRecipePortion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbRecipePortion;
+        
+        /// <summary>
+        /// lbFoodItemID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbFoodItemID;
     }
 }

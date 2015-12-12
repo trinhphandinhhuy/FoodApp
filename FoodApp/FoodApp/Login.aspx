@@ -12,7 +12,7 @@
             <asp:TextBox ID="txtPassword"  runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
         </div>
         <div class="row">           
-            <asp:Button ID="btnLogIn" runat="server"  Text="Log In" OnClick="btnLogIn_Click" CssClass="form-control btn btn-info "/>
+            <asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" CssClass="form-control btn btn-info" />
         </div>
         <div class="row">
             <a href="Registration.aspx" class="form-control btn btn-info" role="button"> Register now </a>

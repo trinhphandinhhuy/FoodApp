@@ -8,13 +8,7 @@
                     <ItemTemplate>        
                         <div class="card">
                             <div class="card-title">
-                                <span class="teal-text">Planned Meal No. <%#Eval("PlannedMealID")%></span>
-                            </div>
-                            <div class="card-content">
-                                <p>Created Date: <%#Eval("CreatedDate")%></p>
-                            </div>
-                            <div class="card-action">
-                                <a href="ViewPlannedMeal.aspx?PlannedMealID=<%#Eval("PlannedMealID")%>">View this meal</a>
+                                <a href="ViewPlannedMeal.aspx?PlannedMealID=<%#Eval("PlannedMealID")%>"><span class="teal-text">Planned Meal For <%#Eval("CreatedDate")%></span></a>
                             </div>
                         </div>
                     </ItemTemplate>

@@ -4,21 +4,16 @@
         <asp:DataList ID="ShoppingList" runat="server">
             <ItemTemplate>
                 <div class="row">
-                <div class="col s12 m8 l8">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="teal-text">Shopping List No. <%#Eval("ShoppingListID")%></span>
-                        </div>
-                        <div class="card-content">
-                            <p>
-                               Created Date: <%#Eval("CreatedDate")%>
-                            </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="ViewSPList.aspx?ShoppingListID=<%#Eval("ShoppingListID")%>">View this list</a>
+                    <di class="col s12 m8 l8">
+                        <div class="card">
+                            <div class="card-title">
+                                <span class="teal-text">Shopping List On <%#Eval("CreatedDate")%></span>
+                            </div>
+                            <div class="card-action">
+                                <a href="ViewSPList.aspx?ShoppingListID=<%#Eval("ShoppingListID")%>">View this list</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </ItemTemplate>
         </asp:DataList>
