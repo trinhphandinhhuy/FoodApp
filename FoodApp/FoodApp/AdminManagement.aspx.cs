@@ -47,7 +47,7 @@ namespace FoodApp
             UserDataTable.DataSource = null;
             UserDataTable.DataBind();
             //Define the command objects (SQL commands)
-            mySelectCommand.CommandText = "SELECT UserDataID, Username, Email FROM UserData Where UserRoleID = 2";
+            mySelectCommand.CommandText = "SELECT Username, Email FROM UserData Where UserRoleID = 2";
             //Fetching rows into the Data Set
             myAdapter.Fill(myDataSet, "UserData");
             //Show the users in the Data Grid
@@ -55,34 +55,5 @@ namespace FoodApp
             UserDataTable.DataMember = "UserData";
             UserDataTable.DataBind();
         }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            string hashedPassword = PasswordHash.PasswordHash.CreateHash(txtPassword.Text);
-            myInsertCommand.Connection = myConnection;
-            myInsertCommand.CommandType = CommandType.Text;
-            myInsertCommand.CommandText = "INSERT INTO UserData(UserRoleID, Username, Email, UserPassword) values(2, @Username,@Email,@Password)";
-            //adding parameters with value
-            myInsertCommand.Parameters.AddWithValue("@Username", txtUsername.Text.ToString());
-            myInsertCommand.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
-            myInsertCommand.Parameters.AddWithValue("@Password", hashedPassword);
-
-            myInsertCommand.ExecuteNonQuery();  //executing query
-            myConnection.Close(); //closing connection
-            getDB();
-        }
-
-        protected void UserDataTable_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            userid = Convert.ToInt32(UserDataTable.Rows[e.RowIndex].Cells[1].Text);
-            string commandString = "DELETE FROM UserData WHERE UserDataID = " + userid.ToString();
-            OleDbCommand cmd2 = new OleDbCommand(commandString, myConnection);
-            cmd2.CommandType = CommandType.Text;
-            cmd2.ExecuteNonQuery();  //executing query
-            myConnection.Close(); //closing connection
-            getDB();
-        }
-
-        
     }
 }

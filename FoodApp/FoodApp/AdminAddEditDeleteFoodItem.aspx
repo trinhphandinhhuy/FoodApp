@@ -13,7 +13,6 @@
                     <ItemTemplate>
                         <asp:Label ID="lblFoodName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                     </ItemTemplate>
-
                     <EditItemTemplate>
                         <asp:TextBox ID="txtUpdateFoodName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
                     </EditItemTemplate>
