@@ -6,7 +6,7 @@
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" />
     <div class="container">
         <div class="row">
-            <asp:TextBox ID="txtUsername"   runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
+            <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
         </div>
         <div class="row">
             <asp:TextBox ID="txtPassword"  runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>

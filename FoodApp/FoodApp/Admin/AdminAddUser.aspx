@@ -6,14 +6,10 @@
             <div class="section"></div>
             <div class="section"><h4 class="center"> ADD NEW USER</h4></div>
             <div class="section">
-                Username:<br />
-                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox><br />
-                Email Address:<br />
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox><br />
-                Password:<br />
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
-                Confirm Password:<br />
-                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
+                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox><br />
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox><br />
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox><br />
+                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Confirm Password"></asp:TextBox><br />
                 <br />
                 <div class="section center">
                     <asp:Button ID="btnAdd" runat="server" Text="Add New User" OnClick="btnAdd_Click" CssClass="btn btn-register form-control" />
