@@ -6,29 +6,18 @@
             <div class="divider"></div>
             <br />
             <div class="section">
-                <div class="col l6">
-                    <b>Portion: <asp:Label ID="lblPortion" runat="server"></asp:Label></b>
-                    <asp:DropDownList ID="ddlPortion" runat="server"></asp:DropDownList>
-                    <asp:Button ID="btnChangePortion" runat="server" Text="Change Portion" OnClick="btnChangePortion_Click" CssClass="form-control btn btn-info" />
-                </div>
-            </div>
-            <div class="section">
+                <b>Portion: <asp:Label ID="lblPortion" runat="server"></asp:Label></b>
+                <asp:DropDownList ID="ddlPortion" runat="server"></asp:DropDownList>
+                <asp:Button ID="btnChangePortion" runat="server" Text="Change Portion" OnClick="btnChangePortion_Click" CssClass="form-control btn btn-info" />
                 <h5>RECIPE</h5>
                 <asp:Table runat="server" ID="tbRecipe" Width="100%" CssClass="striped highlight"></asp:Table>
-            </div>
-            <div class="section">
                 <asp:DropDownList ID="ddlRecipe" runat="server"></asp:DropDownList>
                 <asp:Button ID="btnAddNewRecipe" runat="server" Text="Add New Recipe To Planned Meal" OnClick="btnAddNewRecipe_Click" CssClass="form-control btn btn-info" />
-            </div>
-            <div class="section">
                 <asp:DropDownList ID="ddlChosenRecipe" runat="server"></asp:DropDownList>
                 <asp:Button ID="btnRemoveRecipe" runat="server" Text="Remove Recipe From Planned Meal" OnClick="btnRemoveRecipe_Click" CssClass="form-control btn btn-info" />
             </div>
             <div class="section">
                 <asp:Button ID="btnCheckStorage" runat="server" Text="Check Storage" OnClick="btnCheckStorage_Click" CssClass="form-control btn btn-info" />
-                <asp:Label ID="lblCheckStorage" runat="server"></asp:Label>
-            </div>
-            <div class="section">
                 <asp:Button ID="btnCook" runat="server" Text="Cook" OnClick="btnCook_Click" CssClass="form-control btn btn-info" />
                 <asp:Label ID="lblDone" runat="server"></asp:Label>
             </div>

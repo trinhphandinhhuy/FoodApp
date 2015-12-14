@@ -8,7 +8,7 @@
                     <ItemTemplate>        
                         <div class="card">
                             <div class="card-title">
-                                <a href="ViewPlannedMeal.aspx?PlannedMealID=<%#Eval("PlannedMealID")%>"><span class="teal-text">Planned Meal For <%#Eval("CreatedDate")%></span></a>
+                                <a href="ViewPlannedMeal.aspx?PlannedMealID=<%#Eval("PlannedMealID")%>"><span class="teal-text">Planned Meal For <%#Eval("CreatedDate").ToString().Split(' ')[0]%></span></a>
                             </div>
                         </div>
                     </ItemTemplate>

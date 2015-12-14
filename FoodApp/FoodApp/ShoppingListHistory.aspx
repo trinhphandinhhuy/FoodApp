@@ -7,10 +7,7 @@
                     <di class="col s12 m8 l8">
                         <div class="card">
                             <div class="card-title">
-                                <span class="teal-text">Shopping List On <%#Eval("CreatedDate")%></span>
-                            </div>
-                            <div class="card-action">
-                                <a href="ViewSPList.aspx?ShoppingListID=<%#Eval("ShoppingListID")%>">View this list</a>
+                                <a href="ViewSPList.aspx?ShoppingListID=<%#Eval("ShoppingListID")%>"><span class="teal-text">Shopping List On <%#Eval("CreatedDate").ToString().Split(' ')[0]%></span></a>
                             </div>
                         </div>
                     </div>

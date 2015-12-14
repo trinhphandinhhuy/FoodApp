@@ -29,7 +29,6 @@ namespace FoodApp
         protected void Page_Load(object sender, EventArgs e)
         {
             int portion = 0;
-
             if (Session["portion"].ToString() != "" && Session["portion"].ToString() != null)
             {
                 portion = Convert.ToInt32(Session["portion"].ToString());

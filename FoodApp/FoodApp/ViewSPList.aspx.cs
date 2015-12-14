@@ -33,8 +33,7 @@ namespace FoodApp
             bool notEoF = reader.Read();
             while (notEoF)
             {
-                lblShoppingListID.Text = reader["ShoppingListID"].ToString();
-                lblCreatedDate.Text = reader["CreatedDate"].ToString();
+                lblCreatedDate.Text = reader["CreatedDate"].ToString().Split(' ')[0].ToString();
                 notEoF = reader.Read();
             }
             reader.Close();
