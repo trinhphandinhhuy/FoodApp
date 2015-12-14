@@ -102,7 +102,7 @@ namespace FoodApp
             reader.Close();
             if (owner)
             {
-                myDeleteCommand = new OleDbCommand("DELETE FROM UserRecipe WHERE UserDataID = " + userid.ToString() + " AND RecipeID = " + recipeid.ToString() + ";", myConnection);
+                myDeleteCommand = new OleDbCommand("DELETE FROM UserRecipe WHERE RecipeID = " + recipeid.ToString() + ";", myConnection);
                 myDeleteCommand.CommandType = CommandType.Text;
                 myDeleteCommand.ExecuteNonQuery(); //executing query
                 myDeleteCommand2 = new OleDbCommand("DELETE FROM Recipe WHERE RecipeID = " + recipeid.ToString(), myConnection);

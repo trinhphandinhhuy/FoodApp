@@ -19,7 +19,6 @@ namespace FoodApp
         private OleDbDataAdapter myAdapter = new OleDbDataAdapter();
         private DataSet myDataSet = new DataSet();
         private string connectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"Database\DatabaseforApp.mdb;";
-        private int userid;
         protected void Page_Init(object sender, EventArgs e)
         {
             checkAdminAuthentication();

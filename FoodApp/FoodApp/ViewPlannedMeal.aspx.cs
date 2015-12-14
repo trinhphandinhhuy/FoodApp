@@ -17,7 +17,6 @@ namespace FoodApp
         private int userID;
         private int plannedMealID;
         private int portion;
-        private ArrayList chosenRecipe = new ArrayList();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -122,13 +121,6 @@ namespace FoodApp
         {
             bool missingFoodItem = false;
             ArrayList foodItemID = new ArrayList();
-            if (ddlChosenRecipe.Items.Count > 0)
-            {
-                foreach (ListItem cR in ddlChosenRecipe.Items)
-                {
-                    chosenRecipe.Add(cR);
-                }
-            }
             //get portion
             if (lbRecipePortion.Items.Count == 0)
             {
@@ -256,6 +248,14 @@ namespace FoodApp
 
         protected void btnCheckStorage_Click(object sender, EventArgs e)
         {
+            ArrayList chosenRecipe = new ArrayList();
+            if (ddlChosenRecipe.Items.Count > 0)
+            {
+                foreach (ListItem cR in ddlChosenRecipe.Items)
+                {
+                    chosenRecipe.Add(cR);
+                }
+            }
             myConnection.Close(); //closing connection
             Session["chosenRecipe"] = chosenRecipe;
             Session["portion"] = portion;

@@ -21,7 +21,6 @@ namespace FoodApp
         private DataSet myDataSet = new DataSet();
         private string connectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private int userid;
-        private List<int> recipeid = new List<int>();
         private ArrayList listbox1 = new ArrayList();
         private ArrayList listbox2 = new ArrayList();
 
@@ -36,37 +35,17 @@ namespace FoodApp
             myAdapter.SelectCommand = mySelectCommand;
             if (ddlRecipe.Items.Count == 0)
             {
-                OleDbCommand command1 = new OleDbCommand("SELECT * FROM UserRecipe", myConnection);
+                OleDbCommand command1 = new OleDbCommand("SELECT * FROM UserRecipe AS ur INNER JOIN Recipe AS r ON r.RecipeID = ur.RecipeID WHERE ur.UserDataID = " + userid.ToString() + " ORDER BY r.Name ASC", myConnection);
                 command1.CommandType = CommandType.Text;
                 OleDbDataReader reader1 = command1.ExecuteReader();
                 bool notEoF1 = reader1.Read();
                 while (notEoF1)
                 {
-                    if (userid == Convert.ToInt32(reader1["UserDataID"].ToString()))
-                    {
-                        recipeid.Add(Convert.ToInt32(reader1["RecipeID"].ToString()));
-                    }
+                    ddlRecipe.Items.Add(reader1["Name"].ToString());
+                    ddlRecipe.Items[ddlRecipe.Items.Count - 1].Value = reader1["r.RecipeID"].ToString();
                     notEoF1 = reader1.Read();
                 }
                 reader1.Close();
-                OleDbCommand command2 = new OleDbCommand("SELECT * FROM Recipe", myConnection);
-                command2.CommandType = CommandType.Text;
-                OleDbDataReader reader2 = command2.ExecuteReader();
-                bool notEoF2 = reader2.Read();
-                while (notEoF2)
-                {
-                    foreach (int r in recipeid)
-                    {
-                        if (r == Convert.ToInt32(reader2["RecipeID"].ToString()))
-                        {
-                            ddlRecipe.Items.Add(reader2["Name"].ToString());
-                            ddlRecipe.Items[ddlRecipe.Items.Count - 1].Value = reader2["RecipeID"].ToString();
-                            notEoF2 = reader2.Read();
-                        }
-                    }
-                    notEoF2 = reader2.Read();
-                }
-                reader2.Close();
             }
             int maxPortion = 10;
             if (ddlPortion.Items.Count == 0)
@@ -165,9 +144,9 @@ namespace FoodApp
                     int plannedMealID = Convert.ToInt32(command2.ExecuteScalar());
                     if (lbChosenRecipe.Items.Count > 0)
                     {
-                        for (int i = 0; i < lbChosenRecipe.Items.Count; i++)
+                        foreach (ListItem cr in lbChosenRecipe.Items)
                         {
-                            chosenRecipe.Add(lbChosenRecipe.Items[i]);
+                            chosenRecipe.Add(cr);
                             int recipeID = Convert.ToInt32(lbChosenRecipe.Items[i].Value);
                             OleDbCommand insertCommand = new OleDbCommand("INSERT INTO PlannedMealRecipe(PlannedMealID, RecipeID) VALUES(@PlannedMealID, @RecipeID)", myConnection);
                             insertCommand.CommandType = CommandType.Text;
