@@ -21,8 +21,6 @@ namespace FoodApp
         protected void Page_Load(object sender, EventArgs e)
         {
             checkAuthentication();
-            lbRecipePortion.Items.Clear();
-            lbFoodItemID.Items.Clear();
             userID = Convert.ToInt32(Session["userid"].ToString());
             if (Request.QueryString["PlannedMealID"] != null && Request.QueryString["PlannedMealID"] != "") { plannedMealID = Convert.ToInt32(Request.QueryString["PlannedMealID"]); }
             else { Response.Redirect("PlannedMealHistory.aspx"); }
@@ -48,6 +46,7 @@ namespace FoodApp
                 }
             }
             lblPortion.Text = portion.ToString();
+            ddlChosenRecipe.Items.Clear();
             TableHeaderRow tbHeaderRow = new TableHeaderRow();
             tbRecipe.Rows.Add(tbHeaderRow);
             TableHeaderCell tbHeaderCellName = new TableHeaderCell();

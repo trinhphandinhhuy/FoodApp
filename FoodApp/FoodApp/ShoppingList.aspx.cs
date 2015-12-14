@@ -33,6 +33,9 @@ namespace FoodApp
             {
                 portion = Convert.ToInt32(Session["portion"].ToString());
             }
+            lbRecipe.Items.Clear();
+            lbRecipePortion.Items.Clear();
+            lbFoodItemID.Items.Clear();
             if (lbRecipe.Items.Count == 0)
             {
                 ArrayList chosenRecipe = (ArrayList)Session["chosenRecipe"];

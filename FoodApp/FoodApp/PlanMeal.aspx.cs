@@ -147,7 +147,7 @@ namespace FoodApp
                         foreach (ListItem cr in lbChosenRecipe.Items)
                         {
                             chosenRecipe.Add(cr);
-                            int recipeID = Convert.ToInt32(lbChosenRecipe.Items[i].Value);
+                            int recipeID = Convert.ToInt32(cr.Value);
                             OleDbCommand insertCommand = new OleDbCommand("INSERT INTO PlannedMealRecipe(PlannedMealID, RecipeID) VALUES(@PlannedMealID, @RecipeID)", myConnection);
                             insertCommand.CommandType = CommandType.Text;
                             //adding parameters with value
