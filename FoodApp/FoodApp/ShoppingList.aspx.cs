@@ -29,6 +29,7 @@ namespace FoodApp
         protected void Page_Load(object sender, EventArgs e)
         {
             int portion = 0;
+
             if (Session["portion"].ToString() != "" && Session["portion"].ToString() != null)
             {
                 portion = Convert.ToInt32(Session["portion"].ToString());
@@ -120,7 +121,7 @@ namespace FoodApp
                                 lbFoodItemID.Items.RemoveAt(n);
                                 n -= 1;
                             }
-                       }
+                        }
                         if (tbShoppingList.Rows.Count == 0)
                         {
                             TableHeaderRow tbHeaderRow = new TableHeaderRow();
