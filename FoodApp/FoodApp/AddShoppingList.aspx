@@ -12,6 +12,7 @@
         <br />
         <asp:Table ID="tbFoodItem" runat="server" Width="100%" CssClass="striped highlight"></asp:Table>
         <br />
+
         <asp:Button ID="btnConfirmShoppingList" runat="server" Text="Confirm Shopping List" OnClick="btnConfirmShoppingList_Click" class="form-control btn btn-info" />
     </div>
 </asp:Content>
