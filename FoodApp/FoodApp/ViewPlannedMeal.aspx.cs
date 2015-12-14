@@ -19,11 +19,6 @@ namespace FoodApp
         private int portion;
         private ArrayList chosenRecipe = new ArrayList();
 
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             checkAuthentication();
@@ -101,6 +96,17 @@ namespace FoodApp
             {
                 btnCheckStorage.Visible = false;
                 btnCook.Visible = true;
+            }
+            if (checkDate(lblCreatedDate.Text))
+            {
+                btnAddNewRecipe.Visible = false;
+                btnRemoveRecipe.Visible = false;
+                btnChangePortion.Visible = false;
+                btnCheckStorage.Visible = false;
+                btnCook.Visible = false;
+                ddlChosenRecipe.Visible = false;
+                ddlPortion.Visible = false;
+                ddlRecipe.Visible = false;
             }
         }
 
@@ -217,6 +223,14 @@ namespace FoodApp
             {
                 return false;
             }
+        }
+        
+        private bool checkDate(string past)
+        {
+            DateTime now = DateTime.Now.Date;
+            DateTime check = Convert.ToDateTime(past).Date;
+            if (now > check) { return true; }
+            else { return false; }
         }
 
         protected void btnAddNewRecipe_Click(object sender, EventArgs e)
