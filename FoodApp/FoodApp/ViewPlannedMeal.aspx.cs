@@ -134,6 +134,7 @@ namespace FoodApp
                 }
             }
             //get portion
+            lbRecipePortion.Items.Clear();
             if (lbRecipePortion.Items.Count == 0)
             {
                 for (int l = 0; l < ddlChosenRecipe.Items.Count; l++)
@@ -154,6 +155,7 @@ namespace FoodApp
                     reader.Close();
                 }
                 //get food item
+                lbFoodItemID.Items.Clear();
                 if (lbFoodItemID.Items.Count == 0)
                 {
                     for (int j = 0; j < lbRecipePortion.Items.Count; j++)
