@@ -7,12 +7,9 @@
         <div class="section">
             <div class="col-md-6 col-md-offset-3">
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-                Old Password:<br />
-                <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
-                New Password:<br />
-                <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
-                Confirm Password:<br />
-                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox><br />
+                <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Old Password"></asp:TextBox><br />
+                <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="New Password"></asp:TextBox><br />
+                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Confirm Password"></asp:TextBox><br />
                 <br />
                 <div class="section center">
                     <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" CssClass="btn btn-register form-control" /><br />
