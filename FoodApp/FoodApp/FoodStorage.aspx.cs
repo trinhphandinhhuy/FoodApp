@@ -79,12 +79,12 @@ namespace FoodApp
             //Define the command objects (SQL commands)
             if (ddlCategory.SelectedItem.Text == "All Categories")
             {
-                mySelectCommand.CommandText = "SELECT FoodItem.Name , UserFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN UserFoodItem ON FoodItem.FoodItemID = UserFoodItem.FoodItemID WHERE FoodItem.Name LIKE '%" + txtBoxSearchName.Text + "%' AND UserFoodItem.UserDataID = " + userID + " ORDER BY FoodItem.Name ASC;";
+                mySelectCommand.CommandText = "SELECT FoodItem.Name , UserFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN UserFoodItem ON FoodItem.FoodItemID = UserFoodItem.FoodItemID WHERE FoodItem.Name LIKE '%" + txtBoxSearchName.Text + "%' AND UserFoodItem.UserDataID = " + userID + ";";
                 
             }
             else
             {
-                mySelectCommand.CommandText = "SELECT FoodItem.Name , UserFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN UserFoodItem ON FoodItem.FoodItemID = UserFoodItem.FoodItemID WHERE FoodItem.Name LIKE '%" + txtBoxSearchName.Text + "%' AND UserFoodItem.UserDataID = " + userID + " AND FoodItem.FoodTypeID = " + ddlCategory.SelectedItem.Value + " ORDER BY FoodItem.Name ASC;";
+                mySelectCommand.CommandText = "SELECT FoodItem.Name , UserFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN UserFoodItem ON FoodItem.FoodItemID = UserFoodItem.FoodItemID WHERE FoodItem.Name LIKE '%" + txtBoxSearchName.Text + "%' AND UserFoodItem.UserDataID = " + userID + " AND FoodItem.FoodTypeID = " + ddlCategory.SelectedItem.Value + ";";
             }
             //Fetching rows into the Data Set
 
