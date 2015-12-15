@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -132,21 +133,14 @@ namespace FoodApp
                             cmd3.Parameters.AddWithValue("@FoodItemID", fID.Text.ToString());
                             cmd3.Parameters.AddWithValue("@Amount", fID.Value.ToString());
                             cmd3.ExecuteNonQuery();  //executing query
+                            ArrayList foodItemID = new ArrayList();
                             cmd5 = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + user_data_ID, myConnection);
                             cmd5.CommandType = CommandType.Text;
                             OleDbDataReader reader = cmd5.ExecuteReader();
                             bool notEoF = reader.Read();
                             while (notEoF)
                             {
-                                bool existingFoodItem = false;
-                                foreach (ListItem f in lbFoodItemID.Items)
-                                {
-                                    if (Convert.ToInt32(f.Text) == Convert.ToInt32(reader["FoodItemID"].ToString()))
-                                    {
-                                        existingFoodItem = true;
-                                    }
-                                }
-                                if (existingFoodItem)
+                                if (Convert.ToInt32(fID.Text) == Convert.ToInt32(reader["FoodItemID"].ToString()))
                                 {
                                     double amount = Convert.ToDouble(fID.Value) + Convert.ToDouble(reader["Amount"].ToString());
                                     cmd7 = new OleDbCommand("UPDATE UserFoodItem SET Amount = " + amount.ToString() + " WHERE UserDataID = " + user_data_ID + " AND FoodItemID = " + fID.Text, myConnection);
@@ -154,18 +148,19 @@ namespace FoodApp
                                     //adding parameters with value
                                     cmd7.ExecuteNonQuery();  //executing query
                                 }
-                                else
-                                {
-                                    cmd4 = new OleDbCommand("INSERT INTO UserFoodItem(UserDataID, FoodItemID, Amount) values(@UserDataID, @FoodItemID, @Amount)", myConnection);
-                                    cmd4.CommandType = CommandType.Text;
-                                    cmd4.Parameters.AddWithValue("@UserDataID", user_data_ID.ToString());
-                                    cmd4.Parameters.AddWithValue("@FoodItemID", fID.Text);
-                                    cmd4.Parameters.AddWithValue("@Amount", fID.Value);
-                                    cmd4.ExecuteNonQuery();  //executing query
-                                }
+                                foodItemID.Add(Convert.ToInt32(reader["FoodItemID"].ToString()));
                                 notEoF = reader.Read();
                             }
                             reader.Close();
+                            if (!foodItemID.Contains(Convert.ToInt32(fID.Text)))
+                            {
+                                cmd4 = new OleDbCommand("INSERT INTO UserFoodItem(UserDataID, FoodItemID, Amount) values(@UserDataID, @FoodItemID, @Amount)", myConnection);
+                                cmd4.CommandType = CommandType.Text;
+                                cmd4.Parameters.AddWithValue("@UserDataID", user_data_ID.ToString());
+                                cmd4.Parameters.AddWithValue("@FoodItemID", fID.Text);
+                                cmd4.Parameters.AddWithValue("@Amount", fID.Value);
+                                cmd4.ExecuteNonQuery();  //executing query
+                            }
                         }
                     }
                     myConnection.Close();
