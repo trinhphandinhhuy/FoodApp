@@ -5,6 +5,9 @@
             <h3 class="grey-text center">Planned Meal For <asp:Label ID="lblCreatedDate" runat="server"></asp:Label></h3>
             <div class="divider"></div>
             <br />
+            <div class="section center">
+                <asp:Label ID="lblCheckFoodStorage" runat="server" Text="Label"></asp:Label>
+            </div>
             <div class="section">
                 <b>Portion: <asp:Label ID="lblPortion" runat="server"></asp:Label></b>
                 <asp:DropDownList ID="ddlPortion" runat="server"></asp:DropDownList>

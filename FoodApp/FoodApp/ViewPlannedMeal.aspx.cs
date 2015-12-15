@@ -87,11 +87,13 @@ namespace FoodApp
             reader3.Close();
             if (checkFoodStorage())
             {
+                lblCheckFoodStorage.Text = "You do not have enough food on the storage";
                 btnCheckStorage.Visible = true;
                 btnCook.Visible = false;
             }
             else
             {
+                lblCheckFoodStorage.Text = "You have enough food on the storage";
                 btnCheckStorage.Visible = false;
                 btnCook.Visible = true;
             }
