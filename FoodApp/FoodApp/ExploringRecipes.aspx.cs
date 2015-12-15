@@ -24,7 +24,7 @@ namespace FoodApp
             myConnection.Open();
             cmd.Connection = myConnection;
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Recipe.RecipeID, Recipe.Name, Recipe.ImageURL, UserData.Username FROM UserData INNER JOIN Recipe ON UserData.UserDataID = Recipe.UserDataID; ";
+            cmd.CommandText = "SELECT Recipe.RecipeID, Recipe.Name, Recipe.ImageURL, UserData.Username FROM UserData INNER JOIN Recipe ON UserData.UserDataID = Recipe.UserDataID ORDER BY Recipe.RecipeID DESC;";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
