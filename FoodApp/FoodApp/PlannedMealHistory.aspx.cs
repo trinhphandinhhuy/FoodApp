@@ -28,7 +28,18 @@ namespace FoodApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getDB();
+            //getDB();
+            if (!Page.IsPostBack)
+            {
+                OleDbCommand command = new OleDbCommand("SELECT * FROM PlannedMeal WHERE UserDataID = " + userID + " ORDER BY CreatedDate DESC", myConnection);
+                command.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                OleDbDataAdapter da = new OleDbDataAdapter(command);
+                da.Fill(dt);
+                PlannedMeal.DataSource = dt;
+                PlannedMeal.DataBind();
+
+            }
         }
 
         private void checkAuthentication()
@@ -41,14 +52,47 @@ namespace FoodApp
 
         private void getDB()
         {
-            OleDbCommand command = new OleDbCommand("SELECT * FROM PlannedMeal WHERE UserDataID = " + userID + " ORDER BY CreatedDate DESC", myConnection);
+
+            OleDbCommand command = new OleDbCommand("SELECT * FROM PlannedMeal WHERE UserDataID = " + userID + " AND CreatedDate = #" + datefilterPlanMeal.SelectedDate.ToShortDateString() + "# ORDER BY CreatedDate DESC", myConnection);
             command.ExecuteNonQuery();
             DataTable dt = new DataTable();
             OleDbDataAdapter da = new OleDbDataAdapter(command);
             da.Fill(dt);
             PlannedMeal.DataSource = dt;
             PlannedMeal.DataBind();
-            myConnection.Close();
+            //myConnection.Close();
+        }
+
+        protected void datefilterPlanMeal_SelectionChanged(object sender, EventArgs e)
+        {
+            getDB();
+
+        }
+
+        protected void datefilterPlanMeal_DayRender(object sender, DayRenderEventArgs e)
+        {
+            OleDbCommand command = new OleDbCommand("SELECT * FROM PlannedMeal WHERE UserDataID = " + userID + " ORDER BY CreatedDate DESC", myConnection);
+
+            OleDbDataReader dr = command.ExecuteReader();
+            // Read DataReader till it reaches the end
+            while (dr.Read() == true)
+            {
+                // Assign the Calendar control dates
+                // already contained in the database
+                //datefilterPlanMeal.SelectedDates.Add((DateTime)dr["CreatedDate"]);
+                if (e.Day.Date == (DateTime)dr["CreatedDate"])
+                {
+                    e.Cell.BackColor = System.Drawing.Color.Silver;
+                }
+            }
+            if (e.Day.IsSelected)
+            {
+                e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#4db6ac");
+                e.Cell.ForeColor = System.Drawing.Color.White;
+            }
+
+            // Close DataReader
+            dr.Close();
         }
     }
 }
