@@ -120,6 +120,7 @@
     <Content Include="index.aspx" />
     <Content Include="Admin\ListAllIngredient.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="ManageIngredient.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -305,6 +306,13 @@
     </Compile>
     <Compile Include="FoodStorage.aspx.designer.cs">
       <DependentUpon>FoodStorage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageIngredient.aspx.cs">
       <DependentUpon>ManageIngredient.aspx</DependentUpon>
