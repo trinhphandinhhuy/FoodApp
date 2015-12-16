@@ -5,21 +5,21 @@
         <h3 class="grey-text center"> PLANNED MEAL HISTORY </h3><br />
         <div class="row">
             <div class="col s12 m4 l4">
-                Select day:
+                 <div class="text-lighten-4 center"><h5>Select day</h5></div>
               <asp:Calendar id="datefilterPlanMeal" runat="server" OnDayRender="datefilterPlanMeal_DayRender" OnSelectionChanged="datefilterPlanMeal_SelectionChanged" TitleStyle-BackColor="#4DB6AC" TitleStyle-ForeColor="White">
                  
               </asp:Calendar>
             </div>
             <div class="col s12 m8 l8">
+                <div class="collection">
                 <asp:DataList ID="PlannedMeal" runat="server">
-                    <ItemTemplate>        
-                        <div class="card">
-                            <div class="card-title">
-                                <a href="ViewPlannedMeal.aspx?PlannedMealID=<%#Eval("PlannedMealID")%>"><span class="teal-text">Planned Meal For <%#Eval("CreatedDate").ToString().Split(' ')[0]%></span></a>
-                            </div>
-                        </div>
+                    <ItemTemplate>       
+                        
+                                <a href="ViewPlannedMeal.aspx?PlannedMealID=<%#Eval("PlannedMealID")%>"  class="collection-item"><i class="material-icons">grade</i><span class="teal-text">Planned Meal For <%#Eval("CreatedDate").ToString().Split(' ')[0]%></span></a>
+                       
                     </ItemTemplate>
                 </asp:DataList>
+                    </div>
             </div>
         </div>
     </div>
