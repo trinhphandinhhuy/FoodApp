@@ -67,6 +67,10 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../Scripts/materialize.min.js"></script>
     <script type="text/javascript" src="../Scripts/init.js"></script>
-        
+      <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
+    </script>   
 </body>
 </html>
