@@ -168,5 +168,10 @@ namespace FoodApp
                 Response.Redirect("Login.aspx");
             }
         }
+
+        protected void btnAddShoppingList_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddShoppingList.aspx");
+        }
     }
 }

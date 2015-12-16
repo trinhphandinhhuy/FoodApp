@@ -22,13 +22,13 @@ namespace FoodApp {
         protected global::System.Web.UI.WebControls.Label lblCreatedDate;
         
         /// <summary>
-        /// lblCheckFoodStorage control.
+        /// lblCheck control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCheckFoodStorage;
+        protected global::System.Web.UI.WebControls.Label lblCheck;
         
         /// <summary>
         /// lblPortion control.
@@ -119,15 +119,6 @@ namespace FoodApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCook;
-        
-        /// <summary>
-        /// lblDone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDone;
         
         /// <summary>
         /// lbRecipePortion control.

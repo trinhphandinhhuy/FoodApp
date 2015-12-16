@@ -6,7 +6,7 @@
             <div class="divider"></div>
             <br />
             <div class="section center">
-                <asp:Label ID="lblCheckFoodStorage" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lblCheck" runat="server" Text="Label"></asp:Label>
             </div>
             <div class="section">
                 <b>Portion: <asp:Label ID="lblPortion" runat="server"></asp:Label></b>
@@ -22,7 +22,6 @@
             <div class="section">
                 <asp:Button ID="btnCheckStorage" runat="server" Text="Check Storage" OnClick="btnCheckStorage_Click" CssClass="form-control btn btn-info" />
                 <asp:Button ID="btnCook" runat="server" Text="Cook" OnClick="btnCook_Click" CssClass="form-control btn btn-info" />
-                <asp:Label ID="lblDone" runat="server"></asp:Label>
             </div>
         </div>
     </div>

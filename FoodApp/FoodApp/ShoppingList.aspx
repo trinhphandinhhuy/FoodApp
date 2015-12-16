@@ -9,6 +9,7 @@
             <asp:Panel ID="Panel1" runat="server" CssClass="col s12 m12 l12 center">
                 Ingredients & amount you need for the meal: 
                 <asp:Table ID="tbShoppingList" runat="server" CssClass="striped highlight"></asp:Table>
+                <asp:Button ID="btnAddShoppingList" runat="server" Text="Add Shopping List" CssClass="form-control btn btn-info" OnClick="btnAddShoppingList_Click" />
             </asp:Panel>
         </div>
     </div>

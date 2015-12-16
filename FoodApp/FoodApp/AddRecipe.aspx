@@ -39,7 +39,7 @@
                             <asp:TextBox ID="txtAmount" runat="server" placeholder="Amount"></asp:TextBox>
                             <asp:Label ID="lblAmount" runat="server" ForeColor="Red"></asp:Label>
                             <div class="center">
-                                <asp:Button ID="AddIngButton" runat="server" CssClass="btn " Text="Add Ingredients" OnClick="AddIngButton_Click" />
+                                <asp:Button ID="AddIngButton" runat="server" CssClass="btn" Text="Add Ingredients" OnClick="AddIngButton_Click" />
                             </div>
                             <asp:ListBox ID="lbChosenFoodItemID" runat="server" Visible="false"></asp:ListBox>
                         </div>
@@ -49,7 +49,6 @@
                             <asp:Table ID="tbChosenFoodItem" runat="server" Width="100%" CssClass="striped highlight"></asp:Table>
                         </div>
                     </div>
-
                 </asp:PlaceHolder>
             </div>
         </div>

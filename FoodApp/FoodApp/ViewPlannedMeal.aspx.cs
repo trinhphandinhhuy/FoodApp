@@ -17,6 +17,7 @@ namespace FoodApp
         private int userID;
         private int plannedMealID;
         private int portion;
+        private bool alreadyCook;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,6 +35,7 @@ namespace FoodApp
             {
                 lblCreatedDate.Text = reader["CreatedDate"].ToString().Split(' ')[0];
                 portion = Convert.ToInt32(reader["Portion"].ToString());
+                alreadyCook = Convert.ToBoolean(reader["AlreadyCook"].ToString());
                 notEoF = reader.Read();
             }
             reader.Close();
@@ -87,18 +89,30 @@ namespace FoodApp
             reader3.Close();
             if (checkFoodStorage())
             {
-                lblCheckFoodStorage.Text = "You do not have enough food on the storage";
+                lblCheck.Text = "You do not have enough food on the storage";
                 btnCheckStorage.Visible = true;
                 btnCook.Visible = false;
             }
             else
             {
-                lblCheckFoodStorage.Text = "You have enough food on the storage";
+                lblCheck.Text = "You have enough food on the storage";
                 btnCheckStorage.Visible = false;
                 btnCook.Visible = true;
             }
             if (checkDate(lblCreatedDate.Text))
             {
+                btnAddNewRecipe.Visible = false;
+                btnRemoveRecipe.Visible = false;
+                btnChangePortion.Visible = false;
+                btnCheckStorage.Visible = false;
+                btnCook.Visible = false;
+                ddlChosenRecipe.Visible = false;
+                ddlPortion.Visible = false;
+                ddlRecipe.Visible = false;
+            }
+            if (alreadyCook)
+            {
+                lblCheck.Text = "You have already cooked this meal";
                 btnAddNewRecipe.Visible = false;
                 btnRemoveRecipe.Visible = false;
                 btnChangePortion.Visible = false;
@@ -265,28 +279,31 @@ namespace FoodApp
 
         protected void btnCook_Click(object sender, EventArgs e)
         {
-            for (int n = 0; n < lbFoodItemID.Items.Count; n++)
+            foreach (ListItem fID in lbFoodItemID.Items)
             {
-                string fID = lbFoodItemID.Items[n].Text;
-                OleDbCommand command = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + userID.ToString() + " AND FoodItemID = " + fID, myConnection);
+                OleDbCommand command = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + userID.ToString() + " AND FoodItemID = " + fID.Text, myConnection);
                 command.CommandType = CommandType.Text;
                 OleDbDataReader reader = command.ExecuteReader();
                 bool notEoF = reader.Read();
                 while (notEoF)
                 {
-                    if (fID == reader["FoodItemID"].ToString())
+                    if (fID.Text == reader["FoodItemID"].ToString())
                     {
-                        double amount = Convert.ToDouble(reader["Amount"].ToString()) - Convert.ToDouble(lbFoodItemID.Items[n].Value);
-                        OleDbCommand cmd7 = new OleDbCommand("UPDATE UserFoodItem SET Amount = " + amount.ToString() + " WHERE UserDataID = " + userID + " AND FoodItemID = " + fID, myConnection);
-                        cmd7.CommandType = CommandType.Text;
+                        double amount = Convert.ToDouble(reader["Amount"].ToString()) - Convert.ToDouble(fID.Value);
+                        OleDbCommand cmd = new OleDbCommand("UPDATE UserFoodItem SET Amount = " + amount.ToString() + " WHERE UserDataID = " + userID + " AND FoodItemID = " + fID.Text, myConnection);
+                        cmd.CommandType = CommandType.Text;
                         //adding parameters with value
-                        cmd7.ExecuteNonQuery();  //executing query
+                        cmd.ExecuteNonQuery();  //executing query
                     }
                     notEoF = reader.Read();
                 }
                 reader.Close();
             }
-            lblDone.Text = "Done";
+            OleDbCommand updateCommand = new OleDbCommand("UPDATE PlannedMeal SET AlreadyCook = -1 WHERE UserDataID = " + userID + " AND PlannedMealID = " + plannedMealID.ToString(), myConnection);
+            updateCommand.CommandType = CommandType.Text;
+            updateCommand.ExecuteNonQuery();  //executing query
+            myConnection.Close();
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void btnChangePortion_Click(object sender, EventArgs e)
