@@ -17,6 +17,7 @@ namespace FoodApp
         private OleDbConnection myConnection = new OleDbConnection();
         string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private int userID;
+        private double portion;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -28,93 +29,78 @@ namespace FoodApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int portion = 0;
             if (Session["portion"].ToString() != "" && Session["portion"].ToString() != null)
             {
                 portion = Convert.ToInt32(Session["portion"].ToString());
             }
-            lbRecipe.Items.Clear();
-            lbRecipePortion.Items.Clear();
             lbFoodItemID.Items.Clear();
-            if (lbRecipe.Items.Count == 0)
+            tbShoppingList.Rows.Clear();
+            ListItemCollection chosenRecipe = (ListItemCollection)Session["chosenRecipe"];
+            if (lbFoodItemID.Items.Count == 0 && tbShoppingList.Rows.Count == 0)
             {
-                ArrayList chosenRecipe = (ArrayList)Session["chosenRecipe"];
-                for (int i = 0; i < chosenRecipe.Count; i++)
+                TableHeaderRow tbHeaderRow = new TableHeaderRow();
+                tbShoppingList.Rows.Add(tbHeaderRow);
+                TableHeaderCell tbHeaderCellName = new TableHeaderCell();
+                TableHeaderCell tbHeaderCellAmount = new TableHeaderCell();
+                tbHeaderCellName.Text = "Name";
+                tbHeaderCellAmount.Text = "Amount";
+                tbHeaderRow.Cells.Add(tbHeaderCellName);
+                tbHeaderRow.Cells.Add(tbHeaderCellAmount);
+                for (int j = 0; j < chosenRecipe.Count; j++)
                 {
-                    lbRecipe.Items.Add(((ListItem)chosenRecipe[i]));
-                }
-                //get portion
-                if (lbRecipePortion.Items.Count == 0)
-                {
-                    for (int l = 0; l < lbRecipe.Items.Count; l++)
+                    string recipeid = chosenRecipe[j].Value;
+                    OleDbCommand command = new OleDbCommand("SELECT * FROM Recipe AS r INNER JOIN RecipeFoodItem AS rf ON r.RecipeID = rf.RecipeID WHERE rf.RecipeID = " + recipeid.ToString(), myConnection);
+                    command.CommandType = CommandType.Text;
+                    OleDbDataReader reader = command.ExecuteReader();
+                    bool notEoF = reader.Read();
+                    while (notEoF)
                     {
-                        string recipeid = lbRecipe.Items[l].Value;
-                        OleDbCommand command = new OleDbCommand("SELECT * FROM Recipe WHERE RecipeID = " + recipeid.ToString(), myConnection);
+                        double basePortion = Convert.ToDouble(reader["Portion"].ToString());
+                        double resultPortion = portion / basePortion;
+                        if (lbFoodItemID.Items.Count != 0)
+                        {
+                            bool checkExistingFoodItem = false;
+                            for (int m = 0; m < lbFoodItemID.Items.Count; m++)
+                            {
+                                if (reader["FoodItemID"].ToString() == lbFoodItemID.Items[m].Text)
+                                {
+                                    checkExistingFoodItem = true;
+                                    lbFoodItemID.Items[m].Value = (Convert.ToDouble(lbFoodItemID.Items[m].Value) + Convert.ToDouble(reader["Amount"].ToString()) * resultPortion).ToString();
+                                }
+                            }
+                            if (checkExistingFoodItem == false)
+                            {
+                                lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
+                                lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * resultPortion).ToString();
+                            }
+                        }
+                        else
+                        {
+                            lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
+                            lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * resultPortion).ToString();
+                        }
+                        notEoF = reader.Read();
+                    }
+                    reader.Close();
+                }
+                //check amount from storage
+                for (int n = 0; n < lbFoodItemID.Items.Count; n++)
+                {
+                    string unitType = "";
+                    string foodItemID = lbFoodItemID.Items[n].Text;
+                    if (lbFoodItemID.Items[n].Text.All(char.IsDigit) && lbFoodItemID.Items[n].Text.Any())
+                    {
+                        OleDbCommand command = new OleDbCommand("SELECT * FROM UserFoodItem AS uf INNER JOIN FoodItem AS f ON uf.FoodItemID = f.FoodItemID  WHERE uf.UserDataID = " + userID.ToString() + " AND uf.FoodItemID = " + foodItemID.ToString(), myConnection);
                         command.CommandType = CommandType.Text;
                         OleDbDataReader reader = command.ExecuteReader();
-                        bool notEoF = reader.Read();
-                        while (notEoF)
+                        if (reader.HasRows)
                         {
-                            int basePortion = Convert.ToInt32(reader["Portion"].ToString());
-                            double resultPortion = Convert.ToDouble(portion) / Convert.ToDouble(basePortion);
-                            lbRecipePortion.Items.Add(resultPortion.ToString("F2"));
-                            lbRecipePortion.Items[lbRecipePortion.Items.Count - 1].Value = reader["RecipeID"].ToString();
-                            notEoF = reader.Read();
-                        }
-                        reader.Close();
-                    }
-                    //get food item
-                    if (lbFoodItemID.Items.Count == 0)
-                    {
-                        for (int j = 0; j < lbRecipePortion.Items.Count; j++)
-                        {
-                            string recipeid = lbRecipePortion.Items[j].Value;
-                            OleDbCommand command = new OleDbCommand("SELECT * FROM RecipeFoodItem WHERE RecipeID = " + recipeid.ToString(), myConnection);
-                            command.CommandType = CommandType.Text;
-                            OleDbDataReader reader = command.ExecuteReader();
                             bool notEoF = reader.Read();
                             while (notEoF)
                             {
-                                if (lbFoodItemID.Items.Count != 0)
-                                {
-                                    bool checkExistingFoodItem = false;
-                                    for (int m = 0; m < lbFoodItemID.Items.Count; m++)
-                                    {
-                                        if (reader["FoodItemID"].ToString() == lbFoodItemID.Items[m].Text)
-                                        {
-                                            checkExistingFoodItem = true;
-                                            lbFoodItemID.Items[m].Value = (Convert.ToDouble(lbFoodItemID.Items[m].Value) + Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(lbRecipePortion.Items[j].Text)).ToString();
-                                        }
-                                    }
-                                    if (checkExistingFoodItem == false)
-                                    {
-                                        lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
-                                        lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(lbRecipePortion.Items[j].Text)).ToString();
-                                    }
-                                }
-                                else
-                                {
-                                    lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
-                                    lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(lbRecipePortion.Items[j].Text)).ToString();
-                                }
-                                notEoF = reader.Read();
-                            }
-                            reader.Close();
-                        }
-                        //check amount from storage
-                        for (int n = 0; n < lbFoodItemID.Items.Count; n++)
-                        {
-                            string foodItemID = lbFoodItemID.Items[n].Text;
-                            OleDbCommand command = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + userID.ToString() + " AND FoodItemID = " + foodItemID.ToString(), myConnection);
-                            command.CommandType = CommandType.Text;
-                            OleDbDataReader reader = command.ExecuteReader();
-                            bool notEoF = reader.Read();
-                            while (notEoF)
-                            {
-                                if (lbFoodItemID.Items[n].Text == reader["FoodItemID"].ToString())
-                                {
-                                    lbFoodItemID.Items[n].Value = (Convert.ToDouble(lbFoodItemID.Items[n].Value) - Convert.ToDouble(reader["Amount"].ToString())).ToString();
-                                }
+                                lbFoodItemID.Items[n].Text = reader["Name"].ToString();
+                                lbFoodItemID.Items[n].Value = (Convert.ToDouble(lbFoodItemID.Items[n].Value) - Convert.ToDouble(reader["Amount"].ToString())).ToString();
+                                unitType = reader["UnitType"].ToString();
                                 notEoF = reader.Read();
                             }
                             reader.Close();
@@ -123,42 +109,44 @@ namespace FoodApp
                                 lbFoodItemID.Items.RemoveAt(n);
                                 n -= 1;
                             }
-                        }
-                        if (tbShoppingList.Rows.Count == 0)
-                        {
-                            TableHeaderRow tbHeaderRow = new TableHeaderRow();
-                            tbShoppingList.Rows.Add(tbHeaderRow);
-                            TableHeaderCell tbHeaderCellName = new TableHeaderCell();
-                            TableHeaderCell tbHeaderCellAmount = new TableHeaderCell();
-                            tbHeaderCellName.Text = "Name";
-                            tbHeaderCellAmount.Text = "Amount";
-                            tbHeaderRow.Cells.Add(tbHeaderCellName);
-                            tbHeaderRow.Cells.Add(tbHeaderCellAmount);
-                            for (int k = 0; k < lbFoodItemID.Items.Count; k++)
+                            else
                             {
-                                string foodid = lbFoodItemID.Items[k].Text;
-                                OleDbCommand command = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodid.ToString(), myConnection);
-                                command.CommandType = CommandType.Text;
-                                OleDbDataReader reader = command.ExecuteReader();
-                                bool notEoF = reader.Read();
-                                while (notEoF)
-                                {
-                                    TableRow tbRow = new TableHeaderRow();
-                                    tbShoppingList.Rows.Add(tbRow);
-                                    TableCell tbCellName = new TableHeaderCell();
-                                    TableCell tbCellAmount = new TableHeaderCell();
-                                    tbCellName.Text = reader["Name"].ToString();
-                                    tbCellAmount.Text = lbFoodItemID.Items[k].Value + " " + reader["UnitType"].ToString();
-                                    tbRow.Cells.Add(tbCellName);
-                                    tbRow.Cells.Add(tbCellAmount);
-                                    notEoF = reader.Read();
-                                }
-                                reader.Close();
+                                TableRow tbRow = new TableHeaderRow();
+                                tbShoppingList.Rows.Add(tbRow);
+                                TableCell tbCellName = new TableHeaderCell();
+                                TableCell tbCellAmount = new TableHeaderCell();
+                                tbCellName.Text = lbFoodItemID.Items[n].Text;
+                                tbCellAmount.Text = lbFoodItemID.Items[n].Value + " " + unitType;
+                                tbRow.Cells.Add(tbCellName);
+                                tbRow.Cells.Add(tbCellAmount);
                             }
-                        }//End if tbShoppingList.Rows.Count == 0
-                    }//End if lbFoodItemID.Items.Count == 0
-                }//End if lbRecipePortion.Items.Count == 0
-            }//End if lbRecipe.Items.Count == 0
+                        }
+                        else
+                        {
+                            OleDbCommand cmd = new OleDbCommand("SELECT * FROM FoodItem WHERE FoodItemID = " + foodItemID.ToString(), myConnection);
+                            cmd.CommandType = CommandType.Text;
+                            OleDbDataReader readerAgain = cmd.ExecuteReader();
+                            bool notEoF = readerAgain.Read();
+                            while (notEoF)
+                            {
+                                lbFoodItemID.Items[n].Text = readerAgain["Name"].ToString();
+                                lbFoodItemID.Items[n].Value = lbFoodItemID.Items[n].Value;
+                                unitType = readerAgain["UnitType"].ToString();
+                                notEoF = readerAgain.Read();
+                            }
+                            readerAgain.Close();
+                            TableRow tbRow = new TableHeaderRow();
+                            tbShoppingList.Rows.Add(tbRow);
+                            TableCell tbCellName = new TableHeaderCell();
+                            TableCell tbCellAmount = new TableHeaderCell();
+                            tbCellName.Text = lbFoodItemID.Items[n].Text;
+                            tbCellAmount.Text = lbFoodItemID.Items[n].Value + " " + unitType;
+                            tbRow.Cells.Add(tbCellName);
+                            tbRow.Cells.Add(tbCellAmount);
+                        }
+                    }
+                }//End if tbShoppingList.Rows.Count == 0
+            }//End if lbFoodItemID.Items.Count == 0
         }//End page load
 
         private void checkAuthentication()

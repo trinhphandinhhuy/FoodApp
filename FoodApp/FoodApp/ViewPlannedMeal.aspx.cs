@@ -135,7 +135,7 @@ namespace FoodApp
         private bool checkFoodStorage()
         {
             bool missingFoodItem = false;
-            ArrayList foodItemID = new ArrayList();
+            bool nonExisting = false;
             //get portion
             if (lbRecipePortion.Items.Count == 0)
             {
@@ -195,31 +195,29 @@ namespace FoodApp
                         reader.Close();
                     }
                     //check amount from storage
-                    OleDbCommand command2 = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + userID.ToString(), myConnection);
-                    command2.CommandType = CommandType.Text;
-                    OleDbDataReader reader2 = command2.ExecuteReader();
-                    bool notEoF2 = reader2.Read();
-                    while (notEoF2)
+                    foreach (ListItem fID in lbFoodItemID.Items)
                     {
-                        foreach (ListItem fID in lbFoodItemID.Items)
+                        OleDbCommand command2 = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + userID.ToString() + " AND FoodItemID = " + fID.Text, myConnection);
+                        command2.CommandType = CommandType.Text;
+                        OleDbDataReader reader2 = command2.ExecuteReader();
+                        bool notEoF2 = reader2.Read();
+                        if (reader2.HasRows)
                         {
-                            if (fID.Text == reader2["FoodItemID"].ToString() && Convert.ToDouble(fID.Value) > Convert.ToDouble(reader2["Amount"].ToString()))
+                            while (notEoF2)
                             {
-                                missingFoodItem = true;
+                                if (Convert.ToDouble(fID.Value) > Convert.ToDouble(reader2["Amount"].ToString()))
+                                {
+                                    missingFoodItem = true;
+                                }
+                                notEoF2 = reader2.Read();
                             }
+                            reader2.Close();
                         }
-                        foodItemID.Add(Convert.ToInt32(reader2["FoodItemID"].ToString()));
-                        notEoF2 = reader2.Read();
+                        else
+                        {
+                            nonExisting = true;
+                        }
                     }
-                    reader2.Close();
-                }
-            }
-            bool nonExisting = false;
-            foreach (ListItem fID in lbFoodItemID.Items)
-            {
-                if (!foodItemID.Contains(Convert.ToInt32(fID.Text)))
-                {
-                    nonExisting = true;
                 }
             }
             if (missingFoodItem || nonExisting)
@@ -231,7 +229,7 @@ namespace FoodApp
                 return false;
             }
         }
-        
+
         private bool checkDate(string past)
         {
             DateTime now = DateTime.Now.Date;
@@ -263,7 +261,7 @@ namespace FoodApp
 
         protected void btnCheckStorage_Click(object sender, EventArgs e)
         {
-            ArrayList chosenRecipe = new ArrayList();
+            ListItemCollection chosenRecipe = new ListItemCollection();
             if (ddlChosenRecipe.Items.Count > 0)
             {
                 foreach (ListItem cR in ddlChosenRecipe.Items)

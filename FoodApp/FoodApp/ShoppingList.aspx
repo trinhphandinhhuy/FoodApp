@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MPPlanedMeal.master" AutoEventWireup="true" CodeBehind="ShoppingList.aspx.cs" Inherits="FoodApp.ShoppingList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3 class="grey-text center">SHOPPING LIST </h3><br />
-    <asp:ListBox ID="lbRecipe" runat="server" Visible="false"></asp:ListBox>
-    <asp:ListBox ID="lbRecipePortion" runat="server" Visible="false"></asp:ListBox>
     <asp:ListBox ID="lbFoodItemID" runat="server" Visible="false"></asp:ListBox>
     <div class="container">
         <div class="row">

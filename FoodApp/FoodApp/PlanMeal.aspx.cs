@@ -130,7 +130,7 @@ namespace FoodApp
                 if (txtDate.Text != "")
                 {
                     int portion = Convert.ToInt32(ddlPortion.SelectedValue);
-                    ArrayList chosenRecipe = new ArrayList();
+                    ListItemCollection chosenRecipe = new ListItemCollection();
                     OleDbCommand command = new OleDbCommand("INSERT INTO PlannedMeal(UserDataID, Portion, CreatedDate) VALUES(@UserDataID, @Portion, @CreatedDate)", myConnection);
                     OleDbCommand command2 = new OleDbCommand("Select @@Identity", myConnection);
                     command.CommandType = CommandType.Text;
