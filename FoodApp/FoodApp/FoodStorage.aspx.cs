@@ -37,7 +37,6 @@ namespace FoodApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             mySelectCommand.CommandType = CommandType.Text;
             mySelectCommand.CommandText = "SELECT Name, FoodTypeID FROM FoodType ORDER BY Name DESC";
             myReader = mySelectCommand.ExecuteReader();
@@ -55,8 +54,6 @@ namespace FoodApp
                     notEoF = myReader.Read();
                 }
             }
-            else { }
-
             myReader.Close();
             if(!Page.IsPostBack)
             {
@@ -98,11 +95,8 @@ namespace FoodApp
         {
             FoodTable.DataSource = null;
             FoodTable.DataBind();
-
             mySelectCommand.CommandText = "SELECT FoodItem.Name , UserFoodItem.Amount, FoodItem.UnitType FROM FoodItem INNER JOIN UserFoodItem ON FoodItem.FoodItemID = UserFoodItem.FoodItemID WHERE UserFoodItem.UserDataID = " + userID + ";";
-
             //Fetching rows into the Data Set
-
             myAdapter.Fill(myDataSet, "UserFoodItem");
             //Show the users in the Data Grid
             FoodTable.DataSource = myDataSet;

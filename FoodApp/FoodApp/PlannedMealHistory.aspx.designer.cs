@@ -8,8 +8,7 @@
 //------------------------------------------------------------------------------
 
 namespace FoodApp {
-    
-    
+   
     public partial class PlannedMealHistory {
         
         /// <summary>

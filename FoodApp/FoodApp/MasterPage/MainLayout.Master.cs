@@ -15,7 +15,7 @@ namespace FoodApp.MasterPage
             //check show of button
             if (Session["userlevel"].ToString() == "Admin")
             {
-               
+
                 AdminIngredientTab.Visible = true;
                 AdminManageRe.Visible = true;
                 ShopingListTab.Visible = false;
@@ -28,7 +28,7 @@ namespace FoodApp.MasterPage
             }
             else
             {
-                
+
                 AdminIngredientTab.Visible = false;
                 AdminManageRe.Visible = false;
                 ShopingListTab.Visible = true;
@@ -39,9 +39,8 @@ namespace FoodApp.MasterPage
                 ShoppinglistUserTab.Visible = true;
                 UsermanaAdminTab.Visible = false;
             }
-
             //print username
-            if ((Convert.ToString(Session["userlevel"])) == "1")
+            if ((Convert.ToString(Session["userlevel"])) == "Admin")
             {
                 UserNameAc.Text = "Admin";
             }
@@ -49,7 +48,6 @@ namespace FoodApp.MasterPage
             {
                 UserNameAc.Text = Convert.ToString(Session["username"]);
             }
-        
         }
 
         protected void LogoutBtn_Click(object sender, EventArgs e)

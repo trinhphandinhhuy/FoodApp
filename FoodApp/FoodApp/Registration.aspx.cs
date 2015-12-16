@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace FoodApp
 {
     public partial class Registration : System.Web.UI.Page
@@ -39,8 +38,6 @@ namespace FoodApp
                     cmd.Parameters.AddWithValue("@Username", txtUserName.Text.ToString());
                     cmd.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
                     cmd.Parameters.AddWithValue("@Password", hashedPassword);
-
-
                     cmd.ExecuteNonQuery();  //executing query
                     myConnection.Close(); //closing connection
                     //lblMsg.Text = "Registered Successfully..";

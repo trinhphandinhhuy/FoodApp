@@ -29,7 +29,7 @@ namespace FoodApp
             myConnection.ConnectionString = connectionString;
             myConnection.Open();
             mySelectCommand.Connection = myConnection;
-            myAdapter.SelectCommand = mySelectCommand;           
+            myAdapter.SelectCommand = mySelectCommand;
         }
 
         private void checkUserAuthentication()
@@ -50,41 +50,13 @@ namespace FoodApp
         {
             AdminRecipeTable.DataSource = null;
             AdminRecipeTable.DataBind();
-            //Define the command objects (SQL commands)
-
             //Placebo: no admin recipe added
-            List<int> listOfRecipe = new List<int>();
-            OleDbCommand command = new OleDbCommand("SELECT * FROM UserRecipe WHERE UserDataID = " + userid.ToString() + ";", myConnection);
-            command.CommandType = CommandType.Text;
-            OleDbDataReader reader = command.ExecuteReader();
-            bool notEoF = reader.Read();
-            while (notEoF)
-            {
-                listOfRecipe.Add(Convert.ToInt32(reader["RecipeID"]));
-                notEoF = reader.Read();
-            }
-            reader.Close();
-            if (listOfRecipe.Count > 0)
-            {
-                string selectCommandText = "SELECT * FROM Recipe WHERE";
-                for (int i = 0; i < listOfRecipe.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        selectCommandText += " RecipeID = " + listOfRecipe[i].ToString();
-                    }
-                    else if (i > 0)
-                    {
-                        selectCommandText += " OR RecipeID = " + listOfRecipe[i].ToString();
-                    }
-                }
-                mySelectCommand.CommandText = selectCommandText;
-                //Fetching rows into the Data Set
-                myAdapter.Fill(myDataSet);
-                //Show the users in the Data Grid
-                AdminRecipeTable.DataSource = myDataSet;
-                AdminRecipeTable.DataBind();
-            }
+            mySelectCommand.CommandText = "SELECT * FROM UserRecipe AS ur INNER JOIN Recipe AS r ON ur.RecipeID = r.RecipeID WHERE ur.UserDataID = " + userid.ToString();
+            //Fetching rows into the Data Set
+            myAdapter.Fill(myDataSet);
+            //Show the users in the Data Grid
+            AdminRecipeTable.DataSource = myDataSet;
+            AdminRecipeTable.DataBind();
         }
         protected void AdminRecipeTable_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -117,7 +89,7 @@ namespace FoodApp
             }
             getDB();
             myConnection.Close(); //closing connection
-            
+
         }
 
         protected void AdminRecipeTable_OnSelectedIndexChanging(object sender, GridViewSelectEventArgs e)

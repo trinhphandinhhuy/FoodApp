@@ -25,7 +25,6 @@ namespace FoodApp
         private DataSet myDataSet = new DataSet();
         private OleDbDataReader myReader = null;
         String connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
-        private string user_data_ID;
         private int RecipeID;
         private int userid;
         bool owner;
@@ -61,7 +60,7 @@ namespace FoodApp
                 notEoF = reader.Read();
             }
             reader.Close();
-            if (owner == false)
+            if (!owner)
             {
                 txtRecipeName.Enabled = false;
                 txtAmount.Enabled = false;
@@ -126,19 +125,8 @@ namespace FoodApp
                     cmd.Connection = myConnection;
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "UPDATE Recipe SET Name = @Name, Portion = @Portion, CookingTime = @CookingTime, Description = @Description, MealTypeID = @MealTypeID WHERE RecipeID = " + RecipeID;
-                    cmd2.Connection = myConnection;
-                    cmd2.CommandType = CommandType.Text;
-                    cmd2.CommandText = "SELECT UserDataID FROM UserData WHERE Username ='" + Session["username"].ToString() + "'";
-                    OleDbDataReader reader = cmd2.ExecuteReader();
-                    bool notEoF = reader.Read();
-                    while (notEoF)
-                    {
-                        user_data_ID = reader["UserDataID"].ToString();
-                        notEoF = reader.Read();
-                    }
-                    reader.Close();
                     //adding parameters with value
-                    cmd.Parameters.AddWithValue("@UserDataID", Convert.ToInt32(user_data_ID));
+                    cmd.Parameters.AddWithValue("@UserDataID", Convert.ToInt32(userid));
                     cmd.Parameters.AddWithValue("@Name", txtRecipeName.Text.ToString());
                     cmd.Parameters.AddWithValue("@Portion", Convert.ToInt32(txtPortion.Text));
                     cmd.Parameters.AddWithValue("@CookingTime", Convert.ToInt32(txtCookingTime.Text));
@@ -173,7 +161,6 @@ namespace FoodApp
                 cmd.Connection = myConnection;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "UPDATE RecipeFoodItem SET FoodItemID = @FoodItemID, Amount = @Amount WHERE RecipeID = " + RecipeID;
-
                 cmd.Parameters.AddWithValue("@FoodItemID", Convert.ToInt32(DlIngredients.SelectedValue));
                 cmd.Parameters.AddWithValue("@Amount", Convert.ToDouble(txtAmount.Text));
                 cmd.ExecuteNonQuery();  //executing query
