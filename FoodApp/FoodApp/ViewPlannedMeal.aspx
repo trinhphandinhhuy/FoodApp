@@ -25,6 +25,5 @@
             </div>
         </div>
     </div>
-    <asp:ListBox ID="lbRecipePortion" runat="server" Visible="false"></asp:ListBox>
     <asp:ListBox ID="lbFoodItemID" runat="server" Visible="false"></asp:ListBox>
 </asp:Content>

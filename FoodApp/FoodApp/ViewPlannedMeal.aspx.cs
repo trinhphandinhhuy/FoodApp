@@ -16,7 +16,7 @@ namespace FoodApp
         string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " + System.AppDomain.CurrentDomain.BaseDirectory + @"\Database\DatabaseforApp.mdb;";
         private int userID;
         private int plannedMealID;
-        private int portion;
+        private double portion;
         private bool alreadyCook;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -136,82 +136,66 @@ namespace FoodApp
         {
             bool missingFoodItem = false;
             bool nonExisting = false;
-            //get portion
-            if (lbRecipePortion.Items.Count == 0)
+            if (lbFoodItemID.Items.Count == 0)
             {
                 foreach (ListItem cr in ddlChosenRecipe.Items)
                 {
                     string recipeid = cr.Value;
-                    OleDbCommand command = new OleDbCommand("SELECT * FROM Recipe WHERE RecipeID = " + recipeid.ToString(), myConnection);
+                    OleDbCommand command = new OleDbCommand("SELECT * FROM Recipe AS r INNER JOIN RecipeFoodItem AS rf ON r.RecipeID = rf.RecipeID WHERE rf.RecipeID = " + recipeid.ToString(), myConnection);
                     command.CommandType = CommandType.Text;
                     OleDbDataReader reader = command.ExecuteReader();
                     bool notEoF = reader.Read();
                     while (notEoF)
                     {
                         double basePortion = Convert.ToDouble(reader["Portion"].ToString());
-                        double resultPortion = Convert.ToDouble(portion) / basePortion;
-                        lbRecipePortion.Items.Add(resultPortion.ToString("F2"));
-                        lbRecipePortion.Items[lbRecipePortion.Items.Count - 1].Value = reader["RecipeID"].ToString();
+                        double resultPortion = portion / basePortion;
+                        if (lbFoodItemID.Items.Count != 0)
+                        {
+                            bool checkExistingFoodItem = false;
+                            foreach(ListItem fID in lbFoodItemID.Items)
+                            {
+                                if (reader["FoodItemID"].ToString() == fID.Text)
+                                {
+                                    checkExistingFoodItem = true;
+                                    fID.Value = (Convert.ToDouble(fID.Value) + Convert.ToDouble(reader["Amount"].ToString()) * resultPortion).ToString();
+                                }
+                            }
+                            if (checkExistingFoodItem == false)
+                            {
+                                lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
+                                lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * resultPortion).ToString();
+                            }
+                        }
+                        else
+                        {
+                            lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
+                            lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * resultPortion).ToString();
+                        }
                         notEoF = reader.Read();
                     }
                     reader.Close();
                 }
-                //get food item
-                if (lbFoodItemID.Items.Count == 0)
+                //check amount from storage
+                foreach(ListItem fID in lbFoodItemID.Items)
                 {
-                    foreach (ListItem rP in lbRecipePortion.Items)
+                    string foodItemID = fID.Text;
+                    if (foodItemID.All(char.IsDigit) && foodItemID.Any())
                     {
-                        string recipeid = rP.Value;
-                        OleDbCommand command = new OleDbCommand("SELECT * FROM RecipeFoodItem WHERE RecipeID = " + recipeid.ToString(), myConnection);
+                        OleDbCommand command = new OleDbCommand("SELECT * FROM UserFoodItem AS uf INNER JOIN FoodItem AS f ON uf.FoodItemID = f.FoodItemID  WHERE uf.UserDataID = " + userID.ToString() + " AND uf.FoodItemID = " + foodItemID.ToString(), myConnection);
                         command.CommandType = CommandType.Text;
                         OleDbDataReader reader = command.ExecuteReader();
-                        bool notEoF = reader.Read();
-                        while (notEoF)
+                        if (reader.HasRows)
                         {
-                            if (lbFoodItemID.Items.Count != 0)
+                            bool notEoF = reader.Read();
+                            while (notEoF)
                             {
-                                bool checkExistingFoodItem = false;
-                                foreach (ListItem fID in lbFoodItemID.Items)
-                                {
-                                    if (reader["FoodItemID"].ToString() == fID.Text)
-                                    {
-                                        checkExistingFoodItem = true;
-                                        fID.Value = (Convert.ToDouble(fID.Value) + Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(rP.Text)).ToString();
-                                    }
-                                }
-                                if (checkExistingFoodItem == false)
-                                {
-                                    lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
-                                    lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(rP.Text)).ToString();
-                                }
-                            }
-                            else
-                            {
-                                lbFoodItemID.Items.Add(reader["FoodItemID"].ToString());
-                                lbFoodItemID.Items[lbFoodItemID.Items.Count - 1].Value = (Convert.ToDouble(reader["Amount"].ToString()) * Convert.ToDouble(rP.Text)).ToString();
-                            }
-                            notEoF = reader.Read();
-                        }
-                        reader.Close();
-                    }
-                    //check amount from storage
-                    foreach (ListItem fID in lbFoodItemID.Items)
-                    {
-                        OleDbCommand command2 = new OleDbCommand("SELECT * FROM UserFoodItem WHERE UserDataID = " + userID.ToString() + " AND FoodItemID = " + fID.Text, myConnection);
-                        command2.CommandType = CommandType.Text;
-                        OleDbDataReader reader2 = command2.ExecuteReader();
-                        bool notEoF2 = reader2.Read();
-                        if (reader2.HasRows)
-                        {
-                            while (notEoF2)
-                            {
-                                if (Convert.ToDouble(fID.Value) > Convert.ToDouble(reader2["Amount"].ToString()))
+                                if (Convert.ToDouble(fID.Value) > Convert.ToDouble(reader["Amount"].ToString()))
                                 {
                                     missingFoodItem = true;
                                 }
-                                notEoF2 = reader2.Read();
+                                notEoF = reader.Read();
                             }
-                            reader2.Close();
+                            reader.Close();
                         }
                         else
                         {
@@ -219,7 +203,7 @@ namespace FoodApp
                         }
                     }
                 }
-            }
+            }//End if lbFoodItemID.Items.Count == 0
             if (missingFoodItem || nonExisting)
             {
                 return true;
