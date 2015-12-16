@@ -12,6 +12,12 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+    input[type=date]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+         display: none;
+         }
+    </style>
 </head>
 <body>
     <header>
