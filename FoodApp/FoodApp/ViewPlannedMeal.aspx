@@ -39,7 +39,7 @@
              </div>
         
                 <div class="center">
-                    <asp:Button ID="btnCheckStorage" runat="server" Text="Check Storage" OnClick="btnCheckStorage_Click" CssClass="form-control btn btn-info" />
+                    <asp:Button ID="btnCheckStorage" runat="server" Text="What missing?" OnClick="btnCheckStorage_Click" CssClass="form-control btn btn-info" />
                     <asp:Button ID="btnCook" runat="server" Text="Cook" OnClick="btnCook_Click" CssClass="form-control btn btn-info" />
                 </div>
     </div>
