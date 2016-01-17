@@ -1,4 +1,4 @@
-# FoodApp
+# FoodNStuff
 Food ‘n Stuff is an open source project from BIT Department of Lahti University of Applied Sciences aiming to create a website for creating shopping list according to the recipes, adding or removing foodstuff items and many different kinds of features.
 This project is to design and implement a software which can help users to create shopping list and account food stuff. This software will support users to create new shopping list easier. To accomplish this software, we will build an efficient system and a user interface to users. The functionalities that this system is supposed to have are creating shopping list, adding and remove stuff in/from the storage accounting, having ability to add or update recipes and food stuff items, to output a report of costs for specified period.
 
