@@ -164,19 +164,19 @@
     <footer class="page-footer teal">
         <div class="container">
             <div class="row">
-                <div class="col l12 s12">
+                <div class="col l12 s12 center-align">
                     <h5 class="white-text">About us</h5>
                     <p class="grey-text text-lighten-4">
-                        WINNER TEAM
+                        WINNER TEAM (Huy Trinh, Hieu Doan, Huong Nguyen, Hieu Tran & Quan Dao)
                         <br>
-                        We are a team of LAMK's students working on FoodNStuff project.
+                        FoodNStuff is a project from BIT department, LAMK.
                     </p>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
+        <div class="footer-copyright center-align">
             <div class="container">
-                Create by <a class="brown-text text-lighten-3" href="http://Lamk.fi">WINNER TEAM </a>with &#9825;
+                Source code of the project can be found in <a class="brown-text text-lighten-3" href="https://github.com/trinhphandinhhuy/FoodApp">GitHub</a>
             </div>
         </div>
     </footer>
